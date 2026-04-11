@@ -1,0 +1,97 @@
+{
+  "generated_at": "2026-04-11",
+  "bootstrap_command": "specify init . --ai codex --ai-skills --force",
+  "observed_speckit_version": "0.5.1.dev0",
+  "observed_extensions": false,
+  "observed_skills": [
+    "speckit-analyze",
+    "speckit-checklist",
+    "speckit-clarify",
+    "speckit-constitution",
+    "speckit-implement",
+    "speckit-plan",
+    "speckit-specify",
+    "speckit-tasks",
+    "speckit-taskstoissues"
+  ],
+  "observed_repos": [
+    {
+      "path": "/home/ai/kalshi-edge-saas",
+      "features": [
+        "001-weather-last-hour-edge"
+      ],
+      "has_extensions": false
+    },
+    {
+      "path": "/home/ai/kalshi-edging-quant",
+      "features": [
+        "001-dead-bracket-no-sweep",
+        "002-publisher-order-handoff"
+      ],
+      "has_extensions": false
+    },
+    {
+      "path": "/home/ai/clawd/projects/kalshi-quant-dashboard",
+      "features": [
+        "001-quant-ops-dashboard"
+      ],
+      "has_extensions": false
+    },
+    {
+      "path": "/home/ai/clawd/projects/kalshi-weather-quant",
+      "features": [
+        "001-execution-boundary-migration"
+      ],
+      "has_extensions": false
+    },
+    {
+      "path": "/home/ai/clawd/projects/kalshi-integration-event-publisher",
+      "features": [],
+      "has_extensions": false
+    }
+  ],
+  "workflow_variants": [
+    {
+      "name": "greenfield_saas",
+      "observed_repo": "/home/ai/kalshi-edge-saas",
+      "sequence": [
+        "speckit-constitution",
+        "speckit-specify",
+        "speckit-clarify",
+        "speckit-plan",
+        "speckit-checklist",
+        "speckit-tasks",
+        "speckit-analyze",
+        "speckit-implement"
+      ]
+    },
+    {
+      "name": "brownfield_approved_delta",
+      "observed_repo": "/home/ai/kalshi-edging-quant",
+      "sequence": [
+        "speckit-constitution",
+        "speckit-specify",
+        "speckit-plan",
+        "speckit-checklist",
+        "speckit-tasks",
+        "speckit-analyze",
+        "speckit-implement"
+      ]
+    },
+    {
+      "name": "phased_multi_implement",
+      "observed_repo": "/home/ai/clawd/projects/kalshi-quant-dashboard",
+      "sequence": [
+        "speckit-analyze",
+        "speckit-specify",
+        "speckit-plan",
+        "speckit-tasks",
+        "speckit-analyze",
+        "speckit-implement strict phased mode",
+        "speckit-implement phase 2",
+        "speckit-implement phase 3",
+        "speckit-implement phase 4"
+      ]
+    }
+  ]
+}
