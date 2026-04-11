@@ -1,36 +1,26 @@
 # SpecKit Command Framework
 
-This repo is a reusable framework for building applications with the same SpecKit plus Codex command structure used to create the Kalshi apps in this environment.
+This repo is a reusable framework for creating applications with the same SpecKit plus Codex command structure used to build the Kalshi apps here.
 
-The repo is organized in two layers:
+It is now flattened so the important material is visible from the main repo page and top-level file list instead of being buried in nested folders.
 
-- framework: reusable command sequences, prompt templates, helper scripts, and workflow guidance
-- examples: the Kalshi repos and history-derived prompt bundles that proved the framework shape in real use
+Kalshi is the example corpus, not the scope of the framework.
 
-Kalshi is the reference example, not the product scope of this repo.
+## What This Repo Gives You
 
-## Core Idea
+- the exact bootstrap command
+- the reusable workflow shapes
+- copyable prompt templates
+- real example prompt bundles from the Kalshi builds
+- helper scripts for bootstrap, verification, skill-link generation, and repo inventory
 
-The repeatable part is not just `specify init`.
-
-The real system is:
-
-1. initialize a repo with SpecKit and Codex skills
-2. choose the correct workflow shape
-3. run the skill commands in a consistent order
-4. use explicit prompt bodies to constrain scope
-5. re-run `analyze/specify/plan/tasks` when drift appears
-6. split `speckit-implement` into multiple passes when the project is large
-
-## Observed Base Command Structure
-
-Bootstrap:
+## Base Bootstrap
 
 ```bash
 specify init . --ai codex --ai-skills --force
 ```
 
-Observed base skill set:
+Observed base skills:
 
 - `speckit-constitution`
 - `speckit-specify`
@@ -51,18 +41,64 @@ Observed base skill set:
 3. Large phased build
    `analyze -> revise specify -> revise plan -> revise tasks -> re-analyze -> strict phased mode -> multiple implement passes`
 
-## Start Here
+## Main Files
 
-- [docs/command-structure.md](/home/ai/jesses-book-of-cool-speckit/docs/command-structure.md)
+- [COMMAND-STRUCTURE.md](/home/ai/jesses-book-of-cool-speckit/COMMAND-STRUCTURE.md)
   Exact reusable command shapes.
-- [docs/workflow-patterns.md](/home/ai/jesses-book-of-cool-speckit/docs/workflow-patterns.md)
+- [WORKFLOW-PATTERNS.md](/home/ai/jesses-book-of-cool-speckit/WORKFLOW-PATTERNS.md)
   When to use each workflow type.
-- [docs/usage.md](/home/ai/jesses-book-of-cool-speckit/docs/usage.md)
+- [USAGE.md](/home/ai/jesses-book-of-cool-speckit/USAGE.md)
   How to apply the framework to a new repo.
-- [prompts/framework/](/home/ai/jesses-book-of-cool-speckit/prompts/framework)
-  Reusable prompt templates with placeholders.
-- [examples/kalshi/README.md](/home/ai/jesses-book-of-cool-speckit/examples/kalshi/README.md)
-  The concrete Kalshi examples this framework was derived from.
+- [FRAMEWORK-GREENFIELD-TEMPLATE.md](/home/ai/jesses-book-of-cool-speckit/FRAMEWORK-GREENFIELD-TEMPLATE.md)
+  Reusable greenfield prompt sequence.
+- [FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md](/home/ai/jesses-book-of-cool-speckit/FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md)
+  Reusable brownfield minimal-diff prompt sequence.
+- [FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md](/home/ai/jesses-book-of-cool-speckit/FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md)
+  Reusable phased implementation prompt sequence.
+- [KALSHI-EXAMPLES.md](/home/ai/jesses-book-of-cool-speckit/KALSHI-EXAMPLES.md)
+  The concrete example bundles this framework was derived from.
+- [KALSHI-EXAMPLE-CORPUS.md](/home/ai/jesses-book-of-cool-speckit/KALSHI-EXAMPLE-CORPUS.md)
+  The example repo corpus behind the framework.
+
+## Quick Start
+
+1. Bootstrap a repo:
+
+```bash
+./scripts/bootstrap-speckit-repo.sh /path/to/repo
+```
+
+2. Verify it:
+
+```bash
+./scripts/verify-speckit-setup.sh /path/to/repo
+```
+
+3. Generate a skill link in the same format used by the command history:
+
+```bash
+./scripts/skill-link.sh /path/to/repo speckit-plan
+```
+
+4. Pick one workflow template:
+
+- [FRAMEWORK-GREENFIELD-TEMPLATE.md](/home/ai/jesses-book-of-cool-speckit/FRAMEWORK-GREENFIELD-TEMPLATE.md)
+- [FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md](/home/ai/jesses-book-of-cool-speckit/FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md)
+- [FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md](/home/ai/jesses-book-of-cool-speckit/FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md)
+
+5. Replace the placeholders and run the matching `speckit-*` sequence.
+
+## Main-Page Summary
+
+The repeatable system is:
+
+1. initialize a repo with SpecKit and Codex skills
+2. choose the correct workflow shape
+3. write a strong prompt body for each skill invocation
+4. use `clarify` when product definition is still fuzzy
+5. use `analyze` as a control gate before implementation
+6. regenerate `spec.md`, `plan.md`, and `tasks.md` when drift appears
+7. split `speckit-implement` into multiple runs when the project is large
 
 ## Helper Scripts
 
@@ -72,10 +108,22 @@ Observed base skill set:
 - `./scripts/skill-link.sh /path/to/repo speckit-plan`
 - `./scripts/verify-speckit-setup.sh /path/to/repo`
 
-## Important Distinction
+## Example Bundles
 
-This repo is now opinionated toward reuse:
+Greenfield:
 
-- `prompts/framework/` contains adaptable templates
-- the older Kalshi-specific bundles remain as concrete examples
-- the docs explain the generic workflow first, then show Kalshi as a worked example corpus
+- [EXAMPLE-KALSHI-EDGE-SAAS-GREENFIELD.md](/home/ai/jesses-book-of-cool-speckit/EXAMPLE-KALSHI-EDGE-SAAS-GREENFIELD.md)
+
+Brownfield:
+
+- [EXAMPLE-KALSHI-WEATHER-MIGRATION.md](/home/ai/jesses-book-of-cool-speckit/EXAMPLE-KALSHI-WEATHER-MIGRATION.md)
+- [EXAMPLE-KALSHI-EDGING-APPROVED-DELTA.md](/home/ai/jesses-book-of-cool-speckit/EXAMPLE-KALSHI-EDGING-APPROVED-DELTA.md)
+
+Phased:
+
+- [EXAMPLE-KALSHI-DASHBOARD-01-INITIAL-BUILD.md](/home/ai/jesses-book-of-cool-speckit/EXAMPLE-KALSHI-DASHBOARD-01-INITIAL-BUILD.md)
+- [EXAMPLE-KALSHI-DASHBOARD-02-PRE-IMPLEMENT-REVISION.md](/home/ai/jesses-book-of-cool-speckit/EXAMPLE-KALSHI-DASHBOARD-02-PRE-IMPLEMENT-REVISION.md)
+- [EXAMPLE-KALSHI-DASHBOARD-03-STRICT-PHASED-MODE.md](/home/ai/jesses-book-of-cool-speckit/EXAMPLE-KALSHI-DASHBOARD-03-STRICT-PHASED-MODE.md)
+- [EXAMPLE-KALSHI-DASHBOARD-04-PHASE-2.md](/home/ai/jesses-book-of-cool-speckit/EXAMPLE-KALSHI-DASHBOARD-04-PHASE-2.md)
+- [EXAMPLE-KALSHI-DASHBOARD-05-PHASE-3.md](/home/ai/jesses-book-of-cool-speckit/EXAMPLE-KALSHI-DASHBOARD-05-PHASE-3.md)
+- [EXAMPLE-KALSHI-DASHBOARD-06-PHASE-4.md](/home/ai/jesses-book-of-cool-speckit/EXAMPLE-KALSHI-DASHBOARD-06-PHASE-4.md)
