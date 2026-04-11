@@ -61,6 +61,7 @@ The spec must include:
 11. Success metrics
 
 Do not jump into implementation yet.
+Do not create code.
 ```
 
 ## Clarify
@@ -99,6 +100,8 @@ Planning principles:
 - keep the MVP thin and production-oriented
 - separate concerns cleanly
 - do not invent large platform capabilities not required by the spec
+
+Do not generate implementation tasks yet.
 ```
 
 ## Checklist
@@ -112,6 +115,9 @@ The checklist should verify:
 - user stories are testable
 - plan.md remains aligned to spec.md
 - there are no vague or unverifiable acceptance criteria
+
+Create a single general quality checklist if possible.
+Name it quality.md if the template allows.
 ```
 
 ## Tasks
@@ -131,19 +137,20 @@ Task generation requirements:
 ## Analyze
 
 ```text
-[$speckit-analyze]({REPO_PATH}/.agents/skills/speckit-analyze/SKILL.md) Analyze spec.md, plan.md, and tasks.md for consistency and implementation readiness.
+[$speckit-analyze]({REPO_PATH}/.agents/skills/speckit-analyze/SKILL.md) Analyze spec.md, plan.md, tasks.md, and the quality checklist for consistency and implementation readiness.
 
 Find:
 - contradictions between scope and plan
 - unresolved vague terms
 - missing task coverage
+- missing quality-gate coverage
 - architecture that is too broad for the intended release
 ```
 
 ## Implement
 
 ```text
-[$speckit-implement]({REPO_PATH}/.agents/skills/speckit-implement/SKILL.md) Implement the project strictly from spec.md, plan.md, and tasks.md.
+[$speckit-implement]({REPO_PATH}/.agents/skills/speckit-implement/SKILL.md) Implement the project strictly from spec.md, plan.md, tasks.md, and the quality checklist.
 
 Rules:
 - do not expand scope beyond the approved release
