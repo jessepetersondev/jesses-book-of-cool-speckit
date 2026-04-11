@@ -1,0 +1,30 @@
+{
+  "name": "spec-kit-command-framework",
+  "generated_at": "2026-04-11",
+  "bootstrap_command": "specify init . --ai codex --ai-skills --force",
+  "workflow_types": [
+    "greenfield",
+    "brownfield_approved_delta",
+    "phased_multi_implement"
+  ],
+  "base_skills": [
+    "speckit-constitution",
+    "speckit-specify",
+    "speckit-clarify",
+    "speckit-plan",
+    "speckit-checklist",
+    "speckit-tasks",
+    "speckit-analyze",
+    "speckit-implement",
+    "speckit-taskstoissues"
+  ],
+  "template_paths": [
+    "prompts/framework/greenfield-sequence-template.md",
+    "prompts/framework/brownfield-approved-delta-template.md",
+    "prompts/framework/phased-multi-implement-template.md"
+  ],
+  "example_corpus": {
+    "description": "Kalshi repos used as concrete examples of the framework",
+    "reference_doc": "examples/kalshi/README.md"
+  }
+}

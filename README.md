@@ -1,72 +1,81 @@
-# Kalshi Speckit Reproduction Repo
+# SpecKit Command Framework
 
-This repo captures the exact Spec Kit plus Codex workflow currently used across the local Kalshi repos so it can be repeated without rebuilding the process from memory.
+This repo is a reusable framework for building applications with the same SpecKit plus Codex command structure used to create the Kalshi apps in this environment.
 
-It is based on three local evidence sources:
-- the Kalshi repos themselves
-- `/home/ai/.bash_history`
-- `/home/ai/.codex/history.jsonl`
+The repo is organized in two layers:
 
-## Observed Constants
+- framework: reusable command sequences, prompt templates, helper scripts, and workflow guidance
+- examples: the Kalshi repos and history-derived prompt bundles that proved the framework shape in real use
 
-- Bootstrap command: `specify init . --ai codex --ai-skills --force`
-- Observed `speckit` version: `0.5.1.dev0`
-- Integration: `codex`
-- Branch numbering: `sequential`
-- Observed extensions: none in the inspected Kalshi repos
-- Observed skill bundle:
-  - `speckit-constitution`
-  - `speckit-specify`
-  - `speckit-clarify`
-  - `speckit-plan`
-  - `speckit-checklist`
-  - `speckit-tasks`
-  - `speckit-analyze`
-  - `speckit-implement`
-  - `speckit-taskstoissues`
+Kalshi is the reference example, not the product scope of this repo.
 
-## Observed Kalshi Speckit Repos
+## Core Idea
 
-- `/home/ai/kalshi-edge-saas`
-- `/home/ai/kalshi-edging-quant`
-- `/home/ai/clawd/projects/kalshi-quant-dashboard`
-- `/home/ai/clawd/projects/kalshi-weather-quant`
-- `/home/ai/clawd/projects/kalshi-integration-event-publisher`
+The repeatable part is not just `specify init`.
 
-## Workflow Variants
+The real system is:
 
-1. Greenfield SaaS build:
+1. initialize a repo with SpecKit and Codex skills
+2. choose the correct workflow shape
+3. run the skill commands in a consistent order
+4. use explicit prompt bodies to constrain scope
+5. re-run `analyze/specify/plan/tasks` when drift appears
+6. split `speckit-implement` into multiple passes when the project is large
+
+## Observed Base Command Structure
+
+Bootstrap:
+
+```bash
+specify init . --ai codex --ai-skills --force
+```
+
+Observed base skill set:
+
+- `speckit-constitution`
+- `speckit-specify`
+- `speckit-clarify`
+- `speckit-plan`
+- `speckit-checklist`
+- `speckit-tasks`
+- `speckit-analyze`
+- `speckit-implement`
+- `speckit-taskstoissues`
+
+## Reusable Workflow Types
+
+1. Greenfield build
    `constitution -> specify -> clarify -> plan -> checklist -> tasks -> analyze -> implement`
-2. Brownfield approved-delta migration:
-   `constitution -> specify -> plan -> checklist -> tasks -> analyze -> implement`
-3. Large-system phased build:
-   `analyze -> revise specify -> revise plan -> revise tasks -> re-analyze -> phased implement prompts`
+2. Brownfield approved-delta update
+   `constitution -> specify-delta -> plan-delta -> checklist -> tasks-delta -> analyze -> implement-delta`
+3. Large phased build
+   `analyze -> revise specify -> revise plan -> revise tasks -> re-analyze -> strict phased mode -> multiple implement passes`
 
-The important observed nuance is that you do not always do one monolithic `speckit-implement` run. In the dashboard flow, you first lock the system into strict phased mode, then run multiple scoped `speckit-implement` prompts such as `Phase 2 only`, `Phase 3 only`, and `Phase 4 only`.
+## Start Here
 
-## Use This Repo
-
-1. Inventory current Kalshi Spec Kit repos:
-   `./scripts/inventory-kalshi-speckit.sh`
-2. Bootstrap a new Spec Kit repo the same way:
-   `./scripts/bootstrap-speckit-repo.sh /path/to/repo`
-3. Generate the exact skill link format used in history:
-   `./scripts/skill-link.sh /path/to/repo speckit-plan`
-4. Verify a repo has the expected Speckit/Codex structure:
-   `./scripts/verify-speckit-setup.sh /path/to/repo`
-5. Use the prompt bundles in `prompts/` that match the workflow you want to reproduce.
-
-## Repo Contents
-
-- [kalshi-speckit-manifest.json](/home/ai/jesses-book-of-cool-speckit/kalshi-speckit-manifest.json)
-  Current observed repo inventory and workflow summary.
-- [docs/observed-repos.md](/home/ai/jesses-book-of-cool-speckit/docs/observed-repos.md)
-  Repo-by-repo Spec Kit usage.
+- [docs/command-structure.md](/home/ai/jesses-book-of-cool-speckit/docs/command-structure.md)
+  Exact reusable command shapes.
 - [docs/workflow-patterns.md](/home/ai/jesses-book-of-cool-speckit/docs/workflow-patterns.md)
-  The actual workflow variants you have been using.
+  When to use each workflow type.
 - [docs/usage.md](/home/ai/jesses-book-of-cool-speckit/docs/usage.md)
-  How to use this repo as a reproducibility playbook.
-- [prompts/](/home/ai/jesses-book-of-cool-speckit/prompts)
-  History-derived prompt bundles.
-- [scripts/](/home/ai/jesses-book-of-cool-speckit/scripts)
-  Helper scripts for inventory, bootstrap, verification, and skill-link generation.
+  How to apply the framework to a new repo.
+- [prompts/framework/](/home/ai/jesses-book-of-cool-speckit/prompts/framework)
+  Reusable prompt templates with placeholders.
+- [examples/kalshi/README.md](/home/ai/jesses-book-of-cool-speckit/examples/kalshi/README.md)
+  The concrete Kalshi examples this framework was derived from.
+
+## Helper Scripts
+
+- `./scripts/bootstrap-speckit-repo.sh /path/to/repo`
+- `./scripts/inventory-speckit.sh`
+- `./scripts/inventory-kalshi-speckit.sh`
+- `./scripts/skill-link.sh /path/to/repo speckit-plan`
+- `./scripts/verify-speckit-setup.sh /path/to/repo`
+
+## Important Distinction
+
+This repo is now opinionated toward reuse:
+
+- `prompts/framework/` contains adaptable templates
+- the older Kalshi-specific bundles remain as concrete examples
+- the docs explain the generic workflow first, then show Kalshi as a worked example corpus

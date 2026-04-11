@@ -1,12 +1,16 @@
 # Workflow Patterns
 
-This is the actual workflow shape observed across the local Kalshi Spec Kit repos.
+These are the reusable SpecKit workflow patterns derived from real usage.
 
-## 1. Greenfield SaaS Build
+## 1. Greenfield Build
 
-Observed in: `/home/ai/kalshi-edge-saas`
+Use this when:
 
-Sequence:
+- the product is new
+- there is no meaningful implementation baseline
+- you want the full product-definition flow before implementation
+
+Command pattern:
 
 1. `speckit-constitution`
 2. `speckit-specify`
@@ -17,84 +21,107 @@ Sequence:
 7. `speckit-analyze`
 8. `speckit-implement`
 
-Notes:
+Best for:
 
-- this is the cleanest full greenfield pattern
-- the prompts are not generic one-liners; they are heavily scoped to the exact product wedge
-- the checklist was used both as a normal requirements-quality pass and again to request a single `quality.md` file
+- SaaS MVPs
+- internal tools
+- new monorepos
+- new products where scope clarity matters more than preserving an existing baseline
 
-## 2. Brownfield Approved-Delta Migration
+Framework rule:
 
-Observed in:
+- the prompt body should constrain scope tightly
+- the spec should define product boundaries before implementation begins
 
-- `/home/ai/clawd/projects/kalshi-weather-quant`
-- `/home/ai/kalshi-edging-quant`
+Kalshi example:
 
-Sequence:
+- `kalshi-edge-saas`
 
-1. update or create a brownfield constitution
-2. update the existing `spec.md` only for the requested delta
-3. update the implementation `plan.md` only for the requested delta
-4. create a migration `quality.md`
-5. generate only the incremental tasks
-6. analyze aggressively for scope creep and unnecessary churn
-7. run `speckit-implement` with strict approved-delta language
+## 2. Brownfield Approved-Delta Update
 
-Critical brownfield characteristics:
+Use this when:
 
-- preserve the current implementation as the baseline
-- explicitly define untouched behavior
-- minimize changed files and changed lines
-- do not let Spec Kit turn an incremental migration into a rewrite
-- use multi-repo wording when publisher and executor repos are involved
+- the application already exists
+- behavior must stay stable outside one requested change
+- you want SpecKit without inviting a rewrite
 
-Observed extra note:
+Command pattern:
 
-- before implementation, the user explicitly asked: `Create the quality.md file for this app before we do speckit implement.`
+1. `speckit-constitution` or constitution update
+2. `speckit-specify` for the requested delta only
+3. `speckit-plan` for the incremental technical impact only
+4. `speckit-checklist` for migration quality and parity
+5. `speckit-tasks` for delta-only work
+6. `speckit-analyze` for scope creep and drift
+7. `speckit-implement` with strict minimal-diff language
 
-## 3. Strict Phased Multi-Implement Workflow
+Best for:
 
-Observed in: `/home/ai/clawd/projects/kalshi-quant-dashboard`
+- migrations
+- integrations
+- boundary changes
+- preserving production behavior while changing one narrow subsystem
 
-Sequence:
+Framework rule:
 
-1. initial greenfield build prompts
-2. analyze for missing coverage
+- explicitly define unchanged behavior
+- force minimal changed files and minimal changed lines
+- do not let task generation broaden the project
+
+Kalshi examples:
+
+- `kalshi-weather-quant`
+- `kalshi-edging-quant`
+
+## 3. Phased Multi-Implement Build
+
+Use this when:
+
+- the feature is large
+- one implement pass is too broad
+- you need multiple build stages with hard stop points
+
+Command pattern:
+
+1. initial spec and plan generation
+2. `speckit-analyze`
 3. revise `spec.md`
 4. revise `plan.md`
 5. regenerate `tasks.md`
 6. re-run `speckit-analyze`
-7. set strict phased implementation mode
-8. run `speckit-implement` for a single phase only
-9. repeat `speckit-implement` for later phases
+7. set strict phased mode
+8. run multiple scoped `speckit-implement` passes
 
-Observed phase prompts:
+Typical implement pass naming:
 
-- `Implement Phase 2 only for 001-quant-ops-dashboard`
-- `Implement Phase 3 only for 001-quant-ops-dashboard`
-- `Implement Phase 4 only for 001-quant-ops-dashboard`
+- `Implement Phase 2 only`
+- `Implement Phase 3 only`
+- `Implement Phase 4 only`
 
-Observed strict phased-mode rules:
+Best for:
 
-- read all design artifacts before coding
-- identify exact in-scope task IDs first
-- implement only dependency-closed task sets
-- update `tasks.md` as tasks are completed
-- run lint, typecheck, tests, and build before stopping
-- end each phase with completed task IDs, changed files, validation, blockers, and next recommended phase
+- control planes
+- dashboards
+- multi-package systems
+- ingestion plus backend plus UI builds
 
-Observed extra note:
+Framework rule:
 
-- before phased implementation, the user explicitly said: `create the dashboard.md first`
+- each implement pass should be dependency-closed
+- each pass should end with validation and the next recommended phase
+- later phases must not leak into the current run
 
-## Practical Takeaway
+Kalshi example:
 
-The reproduction target is not just "run Spec Kit."
+- `kalshi-quant-dashboard`
 
-The real repeatable pattern is:
+## Practical Rule Set
 
-- start with the stock Speckit skill
-- add a very explicit prompt body that constrains scope
-- regenerate artifacts when analyze finds drift
-- split implementation into multiple `speckit-implement` runs when the feature is large
-- use brownfield-safe prompts for existing systems and phased prompts for large new systems
+The reusable command structure is:
+
+- start with the stock SpecKit skills
+- wrap them with a strong prompt body
+- re-run planning artifacts when analyze shows gaps
+- use single-pass implementation for narrow work
+- use phased implementation for large work
+- use brownfield-safe prompts when preserving an existing system matters
