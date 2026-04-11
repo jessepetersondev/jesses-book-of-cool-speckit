@@ -2,6 +2,29 @@
 
 These are the reusable SpecKit workflow patterns derived from real usage.
 
+## Selection Diagram
+
+```mermaid
+flowchart TD
+    A[Incoming Request] --> B{New app?}
+    B -->|yes| C[Greenfield Build]
+    B -->|no| D{Small approved delta?}
+    D -->|yes| E[Brownfield Approved-Delta]
+    D -->|no| F{Too large for one safe implement pass?}
+    F -->|yes| G[Phased Multi-Implement]
+    F -->|no| H[Brownfield Build With Tight Scope]
+```
+
+## Shared Principles
+
+All three patterns follow the same core rules:
+
+- do not treat SpecKit like a single prompt generator
+- each skill is a separate control step with a different job
+- the prompt body matters as much as the skill name
+- `speckit-analyze` is the quality gate before coding
+- large builds should be split across multiple `speckit-implement` runs
+
 ## 1. Greenfield Build
 
 Use this when:
@@ -21,17 +44,17 @@ Command pattern:
 7. `speckit-analyze`
 8. `speckit-implement`
 
-Best for:
+Why this pattern exists:
 
-- SaaS MVPs
-- internal tools
-- new monorepos
-- new products where scope clarity matters more than preserving an existing baseline
+- new products usually have fuzzy scope
+- `clarify` removes ambiguity before technical design hardens the wrong assumptions
+- `analyze` catches overbuilt plans before code churn starts
 
-Framework rule:
+Control points:
 
-- the prompt body should constrain scope tightly
-- the spec should define product boundaries before implementation begins
+- keep the scope narrow in the `specify` prompt
+- use `clarify` to resolve missing decisions before planning
+- do not implement until tasks are granular and verified
 
 Kalshi example:
 
@@ -55,18 +78,17 @@ Command pattern:
 6. `speckit-analyze` for scope creep and drift
 7. `speckit-implement` with strict minimal-diff language
 
-Best for:
+Why this pattern exists:
 
-- migrations
-- integrations
-- boundary changes
-- preserving production behavior while changing one narrow subsystem
+- the main risk is accidental rewrite of working behavior
+- unchanged behavior must be explicit, not implied
+- tasks must cover parity validation, not just new logic
 
-Framework rule:
+Control points:
 
-- explicitly define unchanged behavior
+- treat the current implementation as the baseline unless the approved delta says otherwise
 - force minimal changed files and minimal changed lines
-- do not let task generation broaden the project
+- reject any plan or task list that broadens the project
 
 Kalshi examples:
 
@@ -94,26 +116,42 @@ Command pattern:
 
 Typical implement pass naming:
 
+- `Implement Phase 1 only`
 - `Implement Phase 2 only`
 - `Implement Phase 3 only`
-- `Implement Phase 4 only`
 
-Best for:
+Why this pattern exists:
 
-- control planes
-- dashboards
-- multi-package systems
-- ingestion plus backend plus UI builds
+- one giant `implement` run leaks scope
+- validation gets noisy when contracts, backend, and UI all move at once
+- smaller dependency-closed phases are easier to debug and correct
 
-Framework rule:
+Control points:
 
 - each implement pass should be dependency-closed
 - each pass should end with validation and the next recommended phase
 - later phases must not leak into the current run
+- phase boundaries should be visible in the prompt body, not implied
 
 Kalshi example:
 
 - `kalshi-quant-dashboard`
+
+## Why The Patterns Differ
+
+| Pattern | Primary risk | Control mechanism |
+|---|---|---|
+| Greenfield | vague scope turns into overbuilt architecture | `clarify` before `plan`, then `analyze` before code |
+| Brownfield | accidental rewrite of working behavior | delta-only prompts, parity checklist, minimal-diff implementation |
+| Phased | one large run leaks scope and validation gets noisy | phase boundaries, repeated validation, multiple `implement` passes |
+
+## Anti-Patterns To Avoid
+
+- skipping `clarify` when the spec is still fuzzy
+- treating `analyze` like a summary instead of a gate
+- using one giant `implement` prompt for a feature that clearly has phases
+- asking `tasks` to regenerate the whole world during a narrow brownfield change
+- leaving unchanged behavior implicit in a brownfield prompt
 
 ## Practical Rule Set
 

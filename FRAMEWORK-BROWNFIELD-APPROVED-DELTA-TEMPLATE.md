@@ -4,6 +4,14 @@ Use this when updating an existing application and you want minimal drift.
 
 Replace all `{...}` placeholders.
 
+How to use this file:
+
+1. replace the placeholders
+2. paste each section as its own prompt
+3. keep unchanged behavior explicit in every brownfield prompt
+4. reject any artifact that broadens scope beyond the approved delta
+5. do not implement until `analyze` confirms there is no hidden redesign
+
 ## Constitution Update
 
 ```text

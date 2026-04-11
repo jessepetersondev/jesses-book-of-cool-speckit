@@ -1,56 +1,28 @@
-# How To Use This Framework
+# Usage
 
-## 1. Bootstrap A Repo
+This is the practical how-to.
 
-Observed base command:
+## 1. Create A New Repo
 
 ```bash
+mkdir my-app
+cd my-app
 specify init . --ai codex --ai-skills --force
 ```
 
-Helper:
+Or use:
 
 ```bash
 ./scripts/bootstrap-speckit-repo.sh /path/to/repo
 ```
 
-## 2. Verify The Repo Has The Expected Shape
+## 2. Verify The Repo
 
 ```bash
 ./scripts/verify-speckit-setup.sh /path/to/repo
 ```
 
-This checks for:
-
-- `.specify/init-options.json`
-- `.specify/integrations/codex.manifest.json`
-- `.agents/skills/speckit-implement/SKILL.md`
-
-## 3. Choose A Workflow Type
-
-- new build:
-  use `prompts/framework/greenfield-sequence-template.md`
-- existing app with one narrow update:
-  use `prompts/framework/brownfield-approved-delta-template.md`
-- large project with multiple implement passes:
-  use `prompts/framework/phased-multi-implement-template.md`
-
-## 4. Fill In The Placeholders
-
-Replace items such as:
-
-- `{REPO_PATH}`
-- `{PROJECT_NAME}`
-- `{PRODUCT_DESCRIPTION}`
-- `{IN_SCOPE}`
-- `{OUT_OF_SCOPE}`
-- `{PRIMARY_REPO}`
-- `{RELATED_REPOS}`
-- `{TARGET_FLOW}`
-- `{PHASE_NAME}`
-- `{PHASE_SCOPE}`
-
-## 5. Generate Skill Links In The Same Format
+## 3. Generate A Skill Link
 
 ```bash
 ./scripts/skill-link.sh /path/to/repo speckit-plan
@@ -62,32 +34,104 @@ Example output:
 [$speckit-plan](/path/to/repo/.agents/skills/speckit-plan/SKILL.md)
 ```
 
-## 6. Use Analyze As A Control Gate
+## 4. Choose A Workflow
 
-Do not treat `speckit-analyze` as optional.
+Use:
 
-Use it to catch:
+- [FRAMEWORK-GREENFIELD-TEMPLATE.md](/home/ai/jesses-book-of-cool-speckit/FRAMEWORK-GREENFIELD-TEMPLATE.md) for new products
+- [FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md](/home/ai/jesses-book-of-cool-speckit/FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md) for existing apps where only one narrow change is allowed
+- [FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md](/home/ai/jesses-book-of-cool-speckit/FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md) for large systems that need multiple implementation passes
+
+## 5. Fill In The Template
+
+Replace placeholders such as:
+
+- `{REPO_PATH}`
+- `{PROJECT_NAME}`
+- `{PRODUCT_DESCRIPTION}`
+- `{IN_SCOPE_1}`
+- `{OUT_OF_SCOPE_1}`
+- `{PRIMARY_REPO}`
+- `{RELATED_REPO_1}`
+- `{DELTA_GOAL}`
+- `{PHASE_NAME}`
+- `{PHASE_SCOPE_1}`
+
+## 6. Paste One Block At A Time Into Codex
+
+Do not paste the entire template as one mega-prompt.
+
+The operating pattern is:
+
+1. open the selected template
+2. replace the placeholders
+3. paste the first block into Codex
+4. wait for the artifact update
+5. inspect the result
+6. paste the next block
+
+Do not skip straight to `implement`.
+
+## 7. Inspect The Artifacts After Each Step
+
+At minimum, check that:
+
+- `spec.md` matches the requested scope
+- `plan.md` solves the scope you actually approved
+- `quality.md` or checklist items are concrete and testable
+- `tasks.md` is granular and covers validation
+
+If one of those artifacts is weak, fix it before moving forward.
+
+## 8. Use `analyze` As A Gate
+
+The normal pattern is:
+
+1. define the rules
+2. define the scope
+3. remove ambiguity
+4. design the system
+5. create quality gates
+6. generate tasks
+7. analyze for drift
+8. implement
+
+## 9. What To Do When The Artifacts Drift
+
+If `speckit-analyze` finds:
 
 - missing task coverage
-- scope drift
-- contradictions between `spec.md`, `plan.md`, and `tasks.md`
-- places where the generated plan is broader than intended
+- contradictions between `spec.md` and `plan.md`
+- overbuilt architecture
+- underspecified requirements
 
-## 7. Use Multiple `speckit-implement` Runs When Needed
+Then go back and revise the source artifact. Do not just note the problem and keep coding.
 
-If the project is large:
+Typical correction loop:
 
-1. set strict phased mode
-2. define the exact task IDs for the phase
-3. run one phase only
-4. validate
-5. repeat for the next phase
+```text
+analyze -> revise spec -> revise plan -> regenerate tasks -> analyze again -> implement
+```
 
-That is the main command-structure nuance that made the Kalshi dashboard flow work.
+## 10. When To Split Into Multiple Implement Runs
 
-## 8. Use The Kalshi Material As Examples
+Use phased implementation when:
 
-If you want concrete examples of how the templates were actually used, see:
+- the feature spans multiple packages
+- one run would touch too many files
+- backend, contracts, and UI should land in separate passes
+- you want phase-level validation checkpoints
 
-- [examples/kalshi/README.md](/home/ai/jesses-book-of-cool-speckit/examples/kalshi/README.md)
-- the history-derived bundles already present under `prompts/`
+The dashboard example used this pattern successfully.
+
+## 11. Reproducing The Same Result Across Projects
+
+The reusable part is the command structure, not the product domain.
+
+To reproduce the same operating style every time:
+
+- keep the command order stable
+- adapt only the prompt body and scope bullets
+- use the same analyze gate before implementation
+- split large builds into multiple `speckit-implement` runs
+- preserve unchanged behavior explicitly in brownfield work

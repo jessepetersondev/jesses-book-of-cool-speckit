@@ -4,6 +4,14 @@ Use this when the project is too large for a single `speckit-implement` run.
 
 Replace all `{...}` placeholders.
 
+How to use this file:
+
+1. stabilize the artifacts with the pre-implement revision cycle
+2. turn on strict phased mode
+3. run one phase per `speckit-implement` prompt
+4. validate each phase completely before the next one
+5. do not let later-phase work leak into the current run
+
 ## Pre-Implement Revision Cycle
 
 ```text

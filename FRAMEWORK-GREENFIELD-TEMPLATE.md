@@ -4,6 +4,14 @@ Use this when starting a new application.
 
 Replace all `{...}` placeholders.
 
+How to use this file:
+
+1. replace the placeholders
+2. paste each section as its own prompt
+3. inspect the generated artifact after each step
+4. do not move to `plan` until `clarify` closes major ambiguity
+5. do not move to `implement` until `analyze` says the artifacts are ready
+
 ## Constitution
 
 ```text
