@@ -5,7 +5,7 @@
 <h1 align="center">SpecKit Command Framework</h1>
 
 <p align="center">
-  A reusable system for building apps with SpecKit and Codex using a specified prompt structure.
+  A reusable system for building apps with SpecKit and Codex using my SDD prompt structure and flow.
 </p>
 
 <p align="center">
@@ -21,7 +21,7 @@
 </p>
 
 > Framework first. Kalshi second.
-> This repo is a reusable SpecKit method with real examples, not a one-off Kalshi archive.
+> This repo is a reusable SpecKit method with real examples.
 
 ## Start Here
 
