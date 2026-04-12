@@ -124,6 +124,19 @@ flowchart TD
 7. Treat `speckit-analyze` as a hard gate. If it finds drift, fix the artifacts first.
 8. Use one `speckit-implement` pass for narrow work, or multiple phased passes for large work.
 
+## Reproducibility Assets
+
+Use these when the goal is not just to understand the framework, but to reproduce the same style of result:
+
+- [REPRODUCIBILITY-TASKS.md](REPRODUCIBILITY-TASKS.md)
+- [REPRODUCE.md](REPRODUCE.md)
+- [RERUN-ROUTING.md](RERUN-ROUTING.md)
+- [OPERATOR-RULES.md](OPERATOR-RULES.md)
+- [PROMPT-COOKBOOK.md](PROMPT-COOKBOOK.md)
+- [REPRODUCIBILITY.md](REPRODUCIBILITY.md)
+- [VALIDATION-RUBRIC.md](VALIDATION-RUBRIC.md)
+- [examples/golden/kalshi-quant-dashboard/README.md](examples/golden/kalshi-quant-dashboard/README.md)
+
 ## The Three Real Workflow Shapes
 
 ### 1. Greenfield Build
@@ -274,6 +287,13 @@ Detailed root docs:
 - [COMMAND-STRUCTURE.md](COMMAND-STRUCTURE.md)
 - [WORKFLOW-PATTERNS.md](WORKFLOW-PATTERNS.md)
 - [USAGE.md](USAGE.md)
+- [REPRODUCIBILITY-TASKS.md](REPRODUCIBILITY-TASKS.md)
+- [REPRODUCE.md](REPRODUCE.md)
+- [RERUN-ROUTING.md](RERUN-ROUTING.md)
+- [OPERATOR-RULES.md](OPERATOR-RULES.md)
+- [PROMPT-COOKBOOK.md](PROMPT-COOKBOOK.md)
+- [REPRODUCIBILITY.md](REPRODUCIBILITY.md)
+- [VALIDATION-RUBRIC.md](VALIDATION-RUBRIC.md)
 
 Kalshi examples:
 
@@ -288,10 +308,12 @@ Kalshi examples:
 - [EXAMPLE-KALSHI-DASHBOARD-04-PHASE-2.md](examples/EXAMPLE-KALSHI-DASHBOARD-04-PHASE-2.md)
 - [EXAMPLE-KALSHI-DASHBOARD-05-PHASE-3.md](examples/EXAMPLE-KALSHI-DASHBOARD-05-PHASE-3.md)
 - [EXAMPLE-KALSHI-DASHBOARD-06-PHASE-4.md](examples/EXAMPLE-KALSHI-DASHBOARD-06-PHASE-4.md)
+- [examples/golden/kalshi-quant-dashboard/README.md](examples/golden/kalshi-quant-dashboard/README.md)
 
 ## Helper Scripts
 
 - `./scripts/bootstrap-speckit-repo.sh /path/to/repo`
+- `./scripts/generate-prompt-pack.sh --workflow phased --vars-file examples/golden/kalshi-quant-dashboard/prompt-pack-values.env`
 - `./scripts/inventory-speckit.sh`
 - `./scripts/inventory-kalshi-speckit.sh`
 - `./scripts/skill-link.sh /path/to/repo speckit-plan`

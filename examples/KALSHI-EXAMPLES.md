@@ -65,6 +65,10 @@ Note:
 - the preserved per-phase prompts in this corpus start at Phase 2
 - a separate Phase 1 implement prompt was not preserved in the history snapshot used for this repo
 
+If you want the artifact quality bar from the latest real run, use:
+
+- [golden/kalshi-quant-dashboard/README.md](golden/kalshi-quant-dashboard/README.md)
+
 ## What The Example Files Contain
 
 - The prompt bodies are preserved as observed, including the original absolute repo paths from the captured runs.

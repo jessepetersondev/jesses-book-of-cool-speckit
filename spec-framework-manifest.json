@@ -26,5 +26,16 @@
   "example_corpus": {
     "description": "Kalshi repos used as concrete examples of the framework",
     "reference_doc": "examples/KALSHI-EXAMPLES.md"
+  },
+  "reproducibility_assets": {
+    "tasks_doc": "REPRODUCIBILITY-TASKS.md",
+    "replay_doc": "REPRODUCE.md",
+    "rerun_routing_doc": "RERUN-ROUTING.md",
+    "operator_rules_doc": "OPERATOR-RULES.md",
+    "prompt_cookbook_doc": "PROMPT-COOKBOOK.md",
+    "reproducibility_matrix_doc": "REPRODUCIBILITY.md",
+    "validation_rubric_doc": "VALIDATION-RUBRIC.md",
+    "golden_example_root": "examples/golden/kalshi-quant-dashboard",
+    "prompt_pack_generator": "scripts/generate-prompt-pack.sh"
   }
 }
