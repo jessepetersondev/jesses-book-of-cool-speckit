@@ -19,12 +19,12 @@
     "speckit-taskstoissues"
   ],
   "template_paths": [
-    "FRAMEWORK-GREENFIELD-TEMPLATE.md",
-    "FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md",
-    "FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md"
+    "templates/FRAMEWORK-GREENFIELD-TEMPLATE.md",
+    "templates/FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md",
+    "templates/FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md"
   ],
   "example_corpus": {
     "description": "Kalshi repos used as concrete examples of the framework",
-    "reference_doc": "KALSHI-EXAMPLES.md"
+    "reference_doc": "examples/KALSHI-EXAMPLES.md"
   }
 }

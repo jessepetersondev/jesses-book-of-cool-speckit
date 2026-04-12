@@ -8,7 +8,7 @@ Back to [KALSHI-EXAMPLES.md](KALSHI-EXAMPLES.md)
 
 Workflow family:
 
-- [FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md](FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md) as the base brownfield control model
+- [FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md](../templates/FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md) as the base brownfield control model
 
 Use this example when:
 

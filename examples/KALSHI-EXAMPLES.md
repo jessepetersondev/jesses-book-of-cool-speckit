@@ -33,10 +33,10 @@ Follow the router directly:
 
 | Situation | Workflow to follow | Start here | Then read |
 |---|---|---|---|
-| Brand new app | Greenfield | [FRAMEWORK-GREENFIELD-TEMPLATE.md](FRAMEWORK-GREENFIELD-TEMPLATE.md) | [EXAMPLE-KALSHI-EDGE-SAAS-GREENFIELD.md](EXAMPLE-KALSHI-EDGE-SAAS-GREENFIELD.md) |
-| Existing app, one narrow approved change | Brownfield approved-delta | [FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md](FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md) | [EXAMPLE-KALSHI-EDGING-APPROVED-DELTA.md](EXAMPLE-KALSHI-EDGING-APPROVED-DELTA.md) |
-| Existing system, migration across repo boundaries | Brownfield migration variant | [FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md](FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md) as the base control model | [EXAMPLE-KALSHI-WEATHER-MIGRATION.md](EXAMPLE-KALSHI-WEATHER-MIGRATION.md) |
-| Large system that needs multiple `speckit-implement` passes | Phased multi-implement | [FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md](FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md) | the dashboard read order below |
+| Brand new app | Greenfield | [FRAMEWORK-GREENFIELD-TEMPLATE.md](../templates/FRAMEWORK-GREENFIELD-TEMPLATE.md) | [EXAMPLE-KALSHI-EDGE-SAAS-GREENFIELD.md](EXAMPLE-KALSHI-EDGE-SAAS-GREENFIELD.md) |
+| Existing app, one narrow approved change | Brownfield approved-delta | [FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md](../templates/FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md) | [EXAMPLE-KALSHI-EDGING-APPROVED-DELTA.md](EXAMPLE-KALSHI-EDGING-APPROVED-DELTA.md) |
+| Existing system, migration across repo boundaries | Brownfield migration variant | [FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md](../templates/FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md) as the base control model | [EXAMPLE-KALSHI-WEATHER-MIGRATION.md](EXAMPLE-KALSHI-WEATHER-MIGRATION.md) |
+| Large system that needs multiple `speckit-implement` passes | Phased multi-implement | [FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md](../templates/FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md) | the dashboard read order below |
 
 ## Dashboard Read Order
 
