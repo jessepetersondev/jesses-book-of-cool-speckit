@@ -5,7 +5,7 @@
 <h1 align="center">SpecKit Command Framework</h1>
 
 <p align="center">
-  A reusable operating system for building apps with SpecKit and Codex using the same command structure behind the Kalshi repos.
+  A reusable system for building apps with SpecKit and Codex using a specified prompt structure.
 </p>
 
 <p align="center">
