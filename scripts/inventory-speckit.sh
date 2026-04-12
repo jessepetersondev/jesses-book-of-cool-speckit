@@ -31,10 +31,13 @@ for specify_dir in "${specify_dirs[@]}"; do
   fi
 
   if [[ -d "$repo/.agents/skills" ]]; then
-    skills="$(find "$repo/.agents/skills" -mindepth 1 -maxdepth 1 -type d 2>/dev/null \
-      | xargs -r -n1 basename \
-      | sort \
-      | paste -sd ',' -)"
+    skills="$(
+      while IFS= read -r -d '' skill_dir; do
+        basename "$skill_dir"
+      done < <(find "$repo/.agents/skills" -mindepth 1 -maxdepth 1 -type d -print0 2>/dev/null) \
+        | sort \
+        | paste -sd ',' -
+    )"
     [[ -n "$skills" ]] || skills="none"
   else
     skills="none"
