@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/spec-kit-framework-hero.svg" alt="SpecKit Command Framework" width="960">
+  <img src="assets/spec-kit-framework-hero.svg" alt="SpecKit Command Framework hero">
 </p>
 
 <h1 align="center">SpecKit Command Framework</h1>
@@ -65,6 +65,10 @@ What matters:
 
 ## Workflow Router
 
+<p align="center">
+  <img src="assets/section-workflow-router.svg" alt="Workflow Router section banner">
+</p>
+
 ```mermaid
 flowchart TD
     A[Start With The Request] --> B{Is this a brand new app?}
@@ -84,6 +88,10 @@ flowchart TD
 | Phased multi-implement | Large systems where one run would leak scope | [FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md](templates/FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md) | [KALSHI-EXAMPLES.md](examples/KALSHI-EXAMPLES.md) |
 
 ## Quickstart
+
+<p align="center">
+  <img src="assets/section-quickstart.svg" alt="Quickstart section banner">
+</p>
 
 1. Initialize the repo with `specify init . --ai codex --ai-skills --force`.
 2. Choose the workflow that matches the job.
@@ -111,6 +119,10 @@ Sample generation commands:
 ```
 
 ## Golden Example
+
+<p align="center">
+  <img src="assets/section-golden-example.svg" alt="Golden Example section banner">
+</p>
 
 The strongest example in the repo is the latest real `kalshi-quant-dashboard` run.
 
@@ -141,6 +153,10 @@ Generated dashboard pack sequence:
 
 ## Repo Map
 
+<p align="center">
+  <img src="assets/section-repo-map.svg" alt="Repo Map section banner">
+</p>
+
 | Area | Purpose |
 |---|---|
 | [templates/](templates) | Reusable workflow templates for greenfield, brownfield, and phased builds |
@@ -155,6 +171,10 @@ Generated dashboard pack sequence:
 | [.github/workflows/repo-ci.yml](.github/workflows/repo-ci.yml) | Repo self-verification in CI |
 
 ## Repo Self-Checks
+
+<p align="center">
+  <img src="assets/section-self-checks.svg" alt="Repo Self Checks section banner">
+</p>
 
 This repo validates its own framework surface with:
 

@@ -1,134 +1,106 @@
-<svg width="1400" height="760" viewBox="0 0 1400 760" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">SpecKit Command Framework</title>
-  <desc id="desc">A styled banner showing the SpecKit Command Framework with greenfield, brownfield, and phased workflow cards and the core loop ribbon.</desc>
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">SpecKit Command Framework Hero</title>
+  <desc id="desc">A hero banner for the SpecKit Command Framework showing three workflow modes and the controlled command loop.</desc>
   <defs>
-    <linearGradient id="bg" x1="94" y1="72" x2="1315" y2="688" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0F172A"/>
-      <stop offset="0.55" stop-color="#10283A"/>
-      <stop offset="1" stop-color="#1B3B4F"/>
-    </linearGradient>
-    <linearGradient id="cardA" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#F8FAFC"/>
-      <stop offset="1" stop-color="#E8F4EE"/>
-    </linearGradient>
-    <linearGradient id="cardB" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#FFF7ED"/>
-      <stop offset="1" stop-color="#FDEBD1"/>
-    </linearGradient>
-    <linearGradient id="cardC" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#EEF2FF"/>
-      <stop offset="1" stop-color="#DBEAFE"/>
-    </linearGradient>
-    <filter id="shadow" x="170" y="183" width="1060" height="334" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <filter id="shadow" x="210" y="365" width="1180" height="266" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
       <feFlood flood-opacity="0" result="BackgroundImageFix"/>
       <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-      <feOffset dy="20"/>
+      <feOffset dy="18"/>
       <feGaussianBlur stdDeviation="20"/>
-      <feColorMatrix type="matrix" values="0 0 0 0 0.027451 0 0 0 0 0.0627451 0 0 0 0 0.121569 0 0 0 0.25 0"/>
-      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_2"/>
-      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_2" result="shape"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.00784314 0 0 0 0 0.0588235 0 0 0 0 0.121569 0 0 0 0.34 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_1" result="shape"/>
     </filter>
   </defs>
 
-  <rect width="1400" height="760" rx="40" fill="url(#bg)"/>
-  <g opacity="0.1">
-    <path d="M82 122H1318" stroke="#E2E8F0"/>
-    <path d="M82 202H1318" stroke="#E2E8F0"/>
-    <path d="M82 282H1318" stroke="#E2E8F0"/>
-    <path d="M82 362H1318" stroke="#E2E8F0"/>
-    <path d="M82 442H1318" stroke="#E2E8F0"/>
-    <path d="M82 522H1318" stroke="#E2E8F0"/>
-    <path d="M82 602H1318" stroke="#E2E8F0"/>
-    <path d="M214 74V686" stroke="#E2E8F0"/>
-    <path d="M412 74V686" stroke="#E2E8F0"/>
-    <path d="M610 74V686" stroke="#E2E8F0"/>
-    <path d="M808 74V686" stroke="#E2E8F0"/>
-    <path d="M1006 74V686" stroke="#E2E8F0"/>
-    <path d="M1204 74V686" stroke="#E2E8F0"/>
+  <rect width="1600" height="900" rx="44" fill="#0E1B31"/>
+
+  <g opacity="0.09">
+    <path d="M120 180H1480" stroke="#E2E8F0"/>
+    <path d="M120 280H1480" stroke="#E2E8F0"/>
+    <path d="M120 380H1480" stroke="#E2E8F0"/>
+    <path d="M120 480H1480" stroke="#E2E8F0"/>
+    <path d="M120 580H1480" stroke="#E2E8F0"/>
+    <path d="M120 680H1480" stroke="#E2E8F0"/>
+    <path d="M120 780H1480" stroke="#E2E8F0"/>
+    <path d="M240 120V800" stroke="#E2E8F0"/>
+    <path d="M460 120V800" stroke="#E2E8F0"/>
+    <path d="M680 120V800" stroke="#E2E8F0"/>
+    <path d="M900 120V800" stroke="#E2E8F0"/>
+    <path d="M1120 120V800" stroke="#E2E8F0"/>
+    <path d="M1340 120V800" stroke="#E2E8F0"/>
   </g>
 
-  <circle cx="1140" cy="120" r="170" fill="#14B8A6" fill-opacity="0.08"/>
-  <circle cx="220" cy="620" r="210" fill="#F59E0B" fill-opacity="0.08"/>
+  <circle cx="1280" cy="180" r="170" fill="#14B8A6" fill-opacity="0.1"/>
+  <circle cx="220" cy="760" r="180" fill="#F59E0B" fill-opacity="0.08"/>
 
-  <text x="88" y="126" fill="#8CE2D2" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="700" letter-spacing="0.18em">SPECKIT OPERATING SYSTEM</text>
-  <text x="88" y="202" fill="#F8FAFC" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="56" font-weight="800">SpecKit Command Framework</text>
-  <text x="88" y="250" fill="#CBD5E1" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="24" font-weight="500">Framework first. Example corpus second. Reproducible builds either way.</text>
+  <rect x="120" y="112" width="242" height="42" rx="21" fill="#103043" stroke="#2DD4BF" stroke-opacity="0.5"/>
+  <text x="241" y="139" text-anchor="middle" fill="#9EE9DA" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" font-weight="700" letter-spacing="0.18em">SPEC KIT COMMAND SYSTEM</text>
+
+  <text x="120" y="252" fill="#F8FAFC" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="78" font-weight="800">Controlled SpecKit Builds</text>
+  <text x="120" y="314" fill="#CBD5E1" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="30" font-weight="500">Choose the workflow. Shape the artifacts. Repair drift before code.</text>
 
   <g>
-    <rect x="88" y="302" width="162" height="38" rx="19" fill="#113A4C" stroke="#2DD4BF" stroke-opacity="0.5"/>
-    <text x="169" y="327" text-anchor="middle" fill="#D1FAE5" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" font-weight="700">3 workflows</text>
+    <rect x="120" y="356" width="160" height="40" rx="20" fill="#113A4C" stroke="#2DD4BF" stroke-opacity="0.45"/>
+    <text x="200" y="382" text-anchor="middle" fill="#D1FAE5" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" font-weight="700">real examples</text>
 
-    <rect x="266" y="302" width="188" height="38" rx="19" fill="#113A4C" stroke="#FBBF24" stroke-opacity="0.5"/>
-    <text x="360" y="327" text-anchor="middle" fill="#FEF3C7" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" font-weight="700">real Kalshi examples</text>
+    <rect x="298" y="356" width="180" height="40" rx="20" fill="#113A4C" stroke="#FBBF24" stroke-opacity="0.45"/>
+    <text x="388" y="382" text-anchor="middle" fill="#FEF3C7" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" font-weight="700">generated packs</text>
 
-    <rect x="470" y="302" width="218" height="38" rx="19" fill="#113A4C" stroke="#93C5FD" stroke-opacity="0.55"/>
-    <text x="579" y="327" text-anchor="middle" fill="#DBEAFE" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" font-weight="700">golden replay packs</text>
+    <rect x="496" y="356" width="144" height="40" rx="20" fill="#113A4C" stroke="#93C5FD" stroke-opacity="0.5"/>
+    <text x="568" y="382" text-anchor="middle" fill="#DBEAFE" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" font-weight="700">repo checks</text>
   </g>
 
   <g filter="url(#shadow)">
-    <rect x="210" y="223" width="286" height="254" rx="28" fill="url(#cardA)"/>
-    <rect x="557" y="223" width="286" height="254" rx="28" fill="url(#cardB)"/>
-    <rect x="904" y="223" width="286" height="254" rx="28" fill="url(#cardC)"/>
+    <rect x="240" y="405" width="316" height="208" rx="32" fill="#F4F9F6"/>
+    <rect x="642" y="405" width="316" height="208" rx="32" fill="#FFF2DE"/>
+    <rect x="1044" y="405" width="316" height="208" rx="32" fill="#E8F0FF"/>
   </g>
 
   <g>
-    <rect x="236" y="251" width="98" height="28" rx="14" fill="#DCFCE7"/>
-    <text x="285" y="270" text-anchor="middle" fill="#166534" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="700">GREENFIELD</text>
-    <text x="236" y="322" fill="#0F172A" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="30" font-weight="800">New app</text>
-    <text x="236" y="360" fill="#334155" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="19">Define the product first.</text>
-    <text x="236" y="390" fill="#334155" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="19">Clarify ambiguity before plan.</text>
-    <text x="236" y="430" fill="#475569" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="17">Best when there is no safe</text>
-    <text x="236" y="454" fill="#475569" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="17">implementation baseline yet.</text>
+    <rect x="274" y="438" width="112" height="32" rx="16" fill="#DCFCE7"/>
+    <text x="330" y="459" text-anchor="middle" fill="#166534" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" font-weight="800">GREENFIELD</text>
+    <text x="274" y="528" fill="#0F172A" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="38" font-weight="800">New app</text>
   </g>
 
   <g>
-    <rect x="583" y="251" width="114" height="28" rx="14" fill="#FEF3C7"/>
-    <text x="640" y="270" text-anchor="middle" fill="#92400E" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="700">BROWNFIELD</text>
-    <text x="583" y="322" fill="#0F172A" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="30" font-weight="800">Safe delta</text>
-    <text x="583" y="360" fill="#334155" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="19">Preserve working behavior.</text>
-    <text x="583" y="390" fill="#334155" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="19">Force minimal drift and parity.</text>
-    <text x="583" y="430" fill="#475569" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="17">Best when one approved change</text>
-    <text x="583" y="454" fill="#475569" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="17">must land without a rewrite.</text>
+    <rect x="676" y="438" width="128" height="32" rx="16" fill="#FEF3C7"/>
+    <text x="740" y="459" text-anchor="middle" fill="#92400E" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" font-weight="800">BROWNFIELD</text>
+    <text x="676" y="528" fill="#0F172A" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="38" font-weight="800">Safe delta</text>
   </g>
 
   <g>
-    <rect x="930" y="251" width="86" height="28" rx="14" fill="#DBEAFE"/>
-    <text x="973" y="270" text-anchor="middle" fill="#1D4ED8" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" font-weight="700">PHASED</text>
-    <text x="930" y="322" fill="#0F172A" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="30" font-weight="800">Large build</text>
-    <text x="930" y="360" fill="#334155" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="19">Repair artifacts before code.</text>
-    <text x="930" y="390" fill="#334155" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="19">Ship one dependency-closed slice.</text>
-    <text x="930" y="430" fill="#475569" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="17">Best when one implement run</text>
-    <text x="930" y="454" fill="#475569" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="17">would leak scope across layers.</text>
+    <rect x="1078" y="438" width="96" height="32" rx="16" fill="#DBEAFE"/>
+    <text x="1126" y="459" text-anchor="middle" fill="#1D4ED8" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" font-weight="800">PHASED</text>
+    <text x="1078" y="528" fill="#0F172A" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="38" font-weight="800">Large build</text>
   </g>
 
-  <g>
-    <rect x="88" y="570" width="1224" height="92" rx="28" fill="#0A1220" fill-opacity="0.72" stroke="#2A4B61"/>
-    <text x="120" y="605" fill="#94A3B8" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" font-weight="700" letter-spacing="0.18em">CONTROLLED LOOP</text>
+  <rect x="120" y="714" width="1360" height="106" rx="30" fill="#0B1524" stroke="#2A4B61"/>
+  <text x="156" y="758" fill="#94A3B8" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" font-weight="700" letter-spacing="0.18em">CONTROLLED LOOP</text>
 
-    <g fill="#E2E8F0" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="700">
-      <rect x="120" y="620" width="124" height="24" rx="12" fill="#1F2937"/>
-      <text x="182" y="637" text-anchor="middle">constitution</text>
-      <text x="257" y="637" fill="#5EEAD4">-&gt;</text>
-      <rect x="278" y="620" width="92" height="24" rx="12" fill="#1F2937"/>
-      <text x="324" y="637" text-anchor="middle">specify</text>
-      <text x="383" y="637" fill="#5EEAD4">-&gt;</text>
-      <rect x="404" y="620" width="84" height="24" rx="12" fill="#1F2937"/>
-      <text x="446" y="637" text-anchor="middle">clarify</text>
-      <text x="501" y="637" fill="#5EEAD4">-&gt;</text>
-      <rect x="522" y="620" width="70" height="24" rx="12" fill="#1F2937"/>
-      <text x="557" y="637" text-anchor="middle">plan</text>
-      <text x="605" y="637" fill="#5EEAD4">-&gt;</text>
-      <rect x="626" y="620" width="104" height="24" rx="12" fill="#1F2937"/>
-      <text x="678" y="637" text-anchor="middle">checklist</text>
-      <text x="743" y="637" fill="#5EEAD4">-&gt;</text>
-      <rect x="764" y="620" width="74" height="24" rx="12" fill="#1F2937"/>
-      <text x="801" y="637" text-anchor="middle">tasks</text>
-      <text x="851" y="637" fill="#FBBF24">-&gt;</text>
-      <rect x="872" y="620" width="88" height="24" rx="12" fill="#2C1F0B"/>
-      <text x="916" y="637" text-anchor="middle">analyze</text>
-      <text x="973" y="637" fill="#93C5FD">-&gt;</text>
-      <rect x="994" y="620" width="96" height="24" rx="12" fill="#172554"/>
-      <text x="1042" y="637" text-anchor="middle">implement</text>
-    </g>
+  <g fill="#E2E8F0" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="24" font-weight="800">
+    <rect x="156" y="774" width="160" height="30" rx="15" fill="#1F2937"/>
+    <text x="236" y="795" text-anchor="middle">constitution</text>
+    <text x="334" y="795" fill="#5EEAD4">-&gt;</text>
+    <rect x="364" y="774" width="118" height="30" rx="15" fill="#1F2937"/>
+    <text x="423" y="795" text-anchor="middle">specify</text>
+    <text x="500" y="795" fill="#5EEAD4">-&gt;</text>
+    <rect x="530" y="774" width="112" height="30" rx="15" fill="#1F2937"/>
+    <text x="586" y="795" text-anchor="middle">clarify</text>
+    <text x="660" y="795" fill="#5EEAD4">-&gt;</text>
+    <rect x="690" y="774" width="94" height="30" rx="15" fill="#1F2937"/>
+    <text x="737" y="795" text-anchor="middle">plan</text>
+    <text x="802" y="795" fill="#5EEAD4">-&gt;</text>
+    <rect x="832" y="774" width="138" height="30" rx="15" fill="#1F2937"/>
+    <text x="901" y="795" text-anchor="middle">checklist</text>
+    <text x="988" y="795" fill="#5EEAD4">-&gt;</text>
+    <rect x="1018" y="774" width="96" height="30" rx="15" fill="#1F2937"/>
+    <text x="1066" y="795" text-anchor="middle">tasks</text>
+    <text x="1132" y="795" fill="#FBBF24">-&gt;</text>
+    <rect x="1162" y="774" width="118" height="30" rx="15" fill="#2C1F0B"/>
+    <text x="1221" y="795" text-anchor="middle">analyze</text>
+    <text x="1298" y="795" fill="#93C5FD">-&gt;</text>
+    <rect x="1328" y="774" width="122" height="30" rx="15" fill="#172554"/>
+    <text x="1389" y="795" text-anchor="middle">implement</text>
   </g>
 </svg>

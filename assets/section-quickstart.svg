@@ -1,0 +1,22 @@
+<svg width="1600" height="280" viewBox="0 0 1600 280" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Quickstart Section Banner</title>
+  <desc id="desc">Banner for the quickstart section.</desc>
+  <rect width="1600" height="280" rx="36" fill="#0F1D35"/>
+  <path d="M120 86H1480" stroke="#E2E8F0" stroke-opacity="0.12"/>
+  <path d="M120 146H1480" stroke="#E2E8F0" stroke-opacity="0.08"/>
+  <path d="M120 206H1480" stroke="#E2E8F0" stroke-opacity="0.08"/>
+  <rect x="120" y="58" width="158" height="38" rx="19" fill="#103043" stroke="#93C5FD" stroke-opacity="0.45"/>
+  <text x="199" y="83" text-anchor="middle" fill="#DBEAFE" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" font-weight="800" letter-spacing="0.18em">QUICKSTART</text>
+  <text x="120" y="152" fill="#F8FAFC" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="58" font-weight="800">Initialize. Choose. Generate. Run.</text>
+  <text x="120" y="204" fill="#CBD5E1" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="28" font-weight="500">One block at a time, with artifact checks between every step.</text>
+  <g fill="#E2E8F0" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="800">
+    <rect x="1010" y="160" width="120" height="30" rx="15" fill="#1F2937"/>
+    <text x="1070" y="181" text-anchor="middle">init</text>
+    <text x="1145" y="181" fill="#5EEAD4">-&gt;</text>
+    <rect x="1170" y="160" width="120" height="30" rx="15" fill="#1F2937"/>
+    <text x="1230" y="181" text-anchor="middle">template</text>
+    <text x="1305" y="181" fill="#5EEAD4">-&gt;</text>
+    <rect x="1330" y="160" width="150" height="30" rx="15" fill="#172554"/>
+    <text x="1405" y="181" text-anchor="middle">prompt pack</text>
+  </g>
+</svg>
