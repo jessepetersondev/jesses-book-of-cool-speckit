@@ -20,7 +20,7 @@
   <a href="#repo-map"><strong>Repo Map</strong></a>
 </p>
 
-> Framework first. Kalshi second.
+> Framework first.
 > This repo is a reusable SpecKit method with real examples.
 
 ## Start Here
