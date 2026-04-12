@@ -16,6 +16,10 @@ Primary source example:
 - [x] T006 Add a reproducibility matrix in [REPRODUCIBILITY.md](REPRODUCIBILITY.md)
 - [x] T007 Add a prompt-pack generator plus a real dashboard sample in [scripts/generate-prompt-pack.sh](scripts/generate-prompt-pack.sh) and [examples/golden/kalshi-quant-dashboard/generated-phase-2-pack.md](examples/golden/kalshi-quant-dashboard/generated-phase-2-pack.md)
 - [x] T008 Add a validation rubric in [VALIDATION-RUBRIC.md](VALIDATION-RUBRIC.md)
+- [x] T009 Add the remaining dashboard generated packs plus an analyze case study in [examples/golden/kalshi-quant-dashboard/README.md](examples/golden/kalshi-quant-dashboard/README.md)
+- [x] T010 Add reusable sample vars files for greenfield and brownfield generation in [examples/SAMPLE-GREENFIELD-VALUES.env](examples/SAMPLE-GREENFIELD-VALUES.env) and [examples/SAMPLE-BROWNFIELD-VALUES.env](examples/SAMPLE-BROWNFIELD-VALUES.env)
+- [x] T011 Add repo verification scripts for markdown links and prompt-pack smoke tests in [scripts/check-markdown-links.sh](scripts/check-markdown-links.sh) and [scripts/smoke-test-prompt-packs.sh](scripts/smoke-test-prompt-packs.sh)
+- [x] T012 Add GitHub Actions CI for repo self-verification in [.github/workflows/repo-ci.yml](.github/workflows/repo-ci.yml)
 
 ## Completion Order
 
@@ -27,10 +31,17 @@ Primary source example:
 6. Add the reproducibility matrix so the expected environment and stable controls are visible.
 7. Add the prompt-pack generator and a real dashboard sample pack.
 8. Add the validation rubric so developers can judge whether they are reproducing the same quality bar.
+9. Add the rest of the dashboard prompt packs and the repair-loop case study so the full workflow is replayable.
+10. Add sample vars files so non-Kalshi repos can generate greenfield and brownfield packs immediately.
+11. Add self-check scripts so the framework repo can verify its own links and generator behavior.
+12. Add CI so these guarantees stay enforced on future edits.
 
 ## Definition Of Done
 
 - every missing reproducibility asset exists in the repo
 - the docs point to the latest real dashboard example set
 - the generated prompt-pack script produces a usable phased pack
+- greenfield and brownfield generation have ready-to-run sample vars
+- the dashboard sequence is replayable across all preserved phases
+- repo CI enforces link checks, shell syntax, and prompt-pack smoke tests
 - root navigation links to the new assets

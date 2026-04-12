@@ -62,6 +62,7 @@ flowchart TD
    - [examples/EXAMPLE-KALSHI-DASHBOARD-04-PHASE-2.md](examples/EXAMPLE-KALSHI-DASHBOARD-04-PHASE-2.md)
    - [examples/EXAMPLE-KALSHI-DASHBOARD-05-PHASE-3.md](examples/EXAMPLE-KALSHI-DASHBOARD-05-PHASE-3.md)
    - [examples/EXAMPLE-KALSHI-DASHBOARD-06-PHASE-4.md](examples/EXAMPLE-KALSHI-DASHBOARD-06-PHASE-4.md)
+   - [examples/golden/kalshi-quant-dashboard/BEFORE-AND-AFTER-ANALYZE.md](examples/golden/kalshi-quant-dashboard/BEFORE-AND-AFTER-ANALYZE.md)
 
 6. Run the initial build prompt set first.
    Expected artifacts after this stage:
@@ -117,6 +118,15 @@ Use the generator script with the dashboard example values:
 Reference generated sample:
 
 - [examples/golden/kalshi-quant-dashboard/generated-phase-2-pack.md](examples/golden/kalshi-quant-dashboard/generated-phase-2-pack.md)
+
+Full dashboard pack set:
+
+- [examples/golden/kalshi-quant-dashboard/generated-initial-build-pack.md](examples/golden/kalshi-quant-dashboard/generated-initial-build-pack.md)
+- [examples/golden/kalshi-quant-dashboard/generated-pre-implement-revision-pack.md](examples/golden/kalshi-quant-dashboard/generated-pre-implement-revision-pack.md)
+- [examples/golden/kalshi-quant-dashboard/generated-strict-phased-mode-pack.md](examples/golden/kalshi-quant-dashboard/generated-strict-phased-mode-pack.md)
+- [examples/golden/kalshi-quant-dashboard/generated-phase-2-pack.md](examples/golden/kalshi-quant-dashboard/generated-phase-2-pack.md)
+- [examples/golden/kalshi-quant-dashboard/generated-phase-3-pack.md](examples/golden/kalshi-quant-dashboard/generated-phase-3-pack.md)
+- [examples/golden/kalshi-quant-dashboard/generated-phase-4-pack.md](examples/golden/kalshi-quant-dashboard/generated-phase-4-pack.md)
 
 ## What Must Be Stable
 

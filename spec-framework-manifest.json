@@ -36,6 +36,12 @@
     "reproducibility_matrix_doc": "REPRODUCIBILITY.md",
     "validation_rubric_doc": "VALIDATION-RUBRIC.md",
     "golden_example_root": "examples/golden/kalshi-quant-dashboard",
-    "prompt_pack_generator": "scripts/generate-prompt-pack.sh"
+    "prompt_pack_generator": "scripts/generate-prompt-pack.sh",
+    "greenfield_sample_values": "examples/SAMPLE-GREENFIELD-VALUES.env",
+    "brownfield_sample_values": "examples/SAMPLE-BROWNFIELD-VALUES.env",
+    "analyze_case_study": "examples/golden/kalshi-quant-dashboard/BEFORE-AND-AFTER-ANALYZE.md",
+    "repo_ci_workflow": ".github/workflows/repo-ci.yml",
+    "repo_link_check_script": "scripts/check-markdown-links.sh",
+    "repo_smoke_test_script": "scripts/smoke-test-prompt-packs.sh"
   }
 }

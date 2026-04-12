@@ -136,6 +136,8 @@ Use these when the goal is not just to understand the framework, but to reproduc
 - [REPRODUCIBILITY.md](REPRODUCIBILITY.md)
 - [VALIDATION-RUBRIC.md](VALIDATION-RUBRIC.md)
 - [examples/golden/kalshi-quant-dashboard/README.md](examples/golden/kalshi-quant-dashboard/README.md)
+- [examples/SAMPLE-GREENFIELD-VALUES.env](examples/SAMPLE-GREENFIELD-VALUES.env)
+- [examples/SAMPLE-BROWNFIELD-VALUES.env](examples/SAMPLE-BROWNFIELD-VALUES.env)
 
 ## The Three Real Workflow Shapes
 
@@ -238,6 +240,29 @@ One large `implement` run tends to do three bad things:
 - it makes validation noisy because too many concerns changed at once
 
 That is why the dashboard-style builds were split across multiple `speckit-implement` steps. The point is control, not ceremony.
+
+## Generated Packs
+
+If you want ready-to-run bundles instead of raw templates:
+
+- phased dashboard sequence:
+  - [generated-initial-build-pack.md](examples/golden/kalshi-quant-dashboard/generated-initial-build-pack.md)
+  - [generated-pre-implement-revision-pack.md](examples/golden/kalshi-quant-dashboard/generated-pre-implement-revision-pack.md)
+  - [generated-strict-phased-mode-pack.md](examples/golden/kalshi-quant-dashboard/generated-strict-phased-mode-pack.md)
+  - [generated-phase-2-pack.md](examples/golden/kalshi-quant-dashboard/generated-phase-2-pack.md)
+  - [generated-phase-3-pack.md](examples/golden/kalshi-quant-dashboard/generated-phase-3-pack.md)
+  - [generated-phase-4-pack.md](examples/golden/kalshi-quant-dashboard/generated-phase-4-pack.md)
+- non-Kalshi sample generator inputs:
+  - [SAMPLE-GREENFIELD-VALUES.env](examples/SAMPLE-GREENFIELD-VALUES.env)
+  - [SAMPLE-BROWNFIELD-VALUES.env](examples/SAMPLE-BROWNFIELD-VALUES.env)
+
+## Repo Self-Checks
+
+This repo now validates its own framework surface with:
+
+- [scripts/check-markdown-links.sh](scripts/check-markdown-links.sh)
+- [scripts/smoke-test-prompt-packs.sh](scripts/smoke-test-prompt-packs.sh)
+- [.github/workflows/repo-ci.yml](.github/workflows/repo-ci.yml)
 
 ## The Two Rules That Matter Most
 

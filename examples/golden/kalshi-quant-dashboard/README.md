@@ -25,7 +25,24 @@ Primary source feature:
 4. [TASKS-HIGHLIGHTS.md](TASKS-HIGHLIGHTS.md)
 5. [CHECKLISTS.md](CHECKLISTS.md)
 6. [PHASE-SPLIT.md](PHASE-SPLIT.md)
-7. [generated-phase-2-pack.md](generated-phase-2-pack.md)
+7. [BEFORE-AND-AFTER-ANALYZE.md](BEFORE-AND-AFTER-ANALYZE.md)
+8. [generated-initial-build-pack.md](generated-initial-build-pack.md)
+9. [generated-pre-implement-revision-pack.md](generated-pre-implement-revision-pack.md)
+10. [generated-strict-phased-mode-pack.md](generated-strict-phased-mode-pack.md)
+11. [generated-phase-2-pack.md](generated-phase-2-pack.md)
+12. [generated-phase-3-pack.md](generated-phase-3-pack.md)
+13. [generated-phase-4-pack.md](generated-phase-4-pack.md)
+
+## Generated Dashboard Sequence
+
+```mermaid
+flowchart LR
+    A[Initial Build Pack] --> B[Pre-Implement Revision Pack]
+    B --> C[Strict Phased Mode Pack]
+    C --> D[Phase 2 Pack]
+    D --> E[Phase 3 Pack]
+    E --> F[Phase 4 Pack]
+```
 
 ## Real Source Files
 

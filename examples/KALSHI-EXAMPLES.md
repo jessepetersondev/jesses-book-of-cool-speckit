@@ -68,6 +68,16 @@ Note:
 If you want the artifact quality bar from the latest real run, use:
 
 - [golden/kalshi-quant-dashboard/README.md](golden/kalshi-quant-dashboard/README.md)
+- [golden/kalshi-quant-dashboard/BEFORE-AND-AFTER-ANALYZE.md](golden/kalshi-quant-dashboard/BEFORE-AND-AFTER-ANALYZE.md)
+
+If you want ready-to-run dashboard prompt bundles instead of the raw example pages, use:
+
+- [golden/kalshi-quant-dashboard/generated-initial-build-pack.md](golden/kalshi-quant-dashboard/generated-initial-build-pack.md)
+- [golden/kalshi-quant-dashboard/generated-pre-implement-revision-pack.md](golden/kalshi-quant-dashboard/generated-pre-implement-revision-pack.md)
+- [golden/kalshi-quant-dashboard/generated-strict-phased-mode-pack.md](golden/kalshi-quant-dashboard/generated-strict-phased-mode-pack.md)
+- [golden/kalshi-quant-dashboard/generated-phase-2-pack.md](golden/kalshi-quant-dashboard/generated-phase-2-pack.md)
+- [golden/kalshi-quant-dashboard/generated-phase-3-pack.md](golden/kalshi-quant-dashboard/generated-phase-3-pack.md)
+- [golden/kalshi-quant-dashboard/generated-phase-4-pack.md](golden/kalshi-quant-dashboard/generated-phase-4-pack.md)
 
 ## What The Example Files Contain
 

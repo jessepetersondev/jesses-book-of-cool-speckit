@@ -57,6 +57,12 @@ Generated example:
 
 - [examples/golden/kalshi-quant-dashboard/generated-phase-2-pack.md](examples/golden/kalshi-quant-dashboard/generated-phase-2-pack.md)
 
+Ready-to-run vars files:
+
+- phased dashboard example: [examples/golden/kalshi-quant-dashboard/prompt-pack-values.env](examples/golden/kalshi-quant-dashboard/prompt-pack-values.env)
+- greenfield sample: [examples/SAMPLE-GREENFIELD-VALUES.env](examples/SAMPLE-GREENFIELD-VALUES.env)
+- brownfield sample: [examples/SAMPLE-BROWNFIELD-VALUES.env](examples/SAMPLE-BROWNFIELD-VALUES.env)
+
 ## 6. Fill In The Template
 
 Replace placeholders such as:
@@ -160,3 +166,5 @@ See also:
 - [REPRODUCE.md](REPRODUCE.md)
 - [REPRODUCIBILITY.md](REPRODUCIBILITY.md)
 - [VALIDATION-RUBRIC.md](VALIDATION-RUBRIC.md)
+- [examples/golden/kalshi-quant-dashboard/BEFORE-AND-AFTER-ANALYZE.md](examples/golden/kalshi-quant-dashboard/BEFORE-AND-AFTER-ANALYZE.md)
+- [examples/golden/kalshi-quant-dashboard/README.md](examples/golden/kalshi-quant-dashboard/README.md)

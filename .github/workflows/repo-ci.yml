@@ -1,0 +1,32 @@
+name: Repo CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Bash Syntax
+        run: bash -n scripts/*.sh
+
+      - name: Markdown Links
+        run: ./scripts/check-markdown-links.sh
+
+      - name: Prompt Pack Smoke Tests
+        run: ./scripts/smoke-test-prompt-packs.sh
+
+      - name: Shellcheck
+        run: |
+          if command -v shellcheck >/dev/null 2>&1; then
+            shellcheck scripts/*.sh
+          else
+            echo "shellcheck not available; skipping"
+          fi
