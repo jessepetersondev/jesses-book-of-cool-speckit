@@ -8,6 +8,39 @@ Observed extra manual step immediately before this:
 create the dashboard.md first
 ```
 
+Back to [KALSHI-EXAMPLES.md](KALSHI-EXAMPLES.md)
+
+Workflow this example follows:
+
+- [FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md](FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md)
+
+Dashboard read order:
+
+1. [01 Initial Build](EXAMPLE-KALSHI-DASHBOARD-01-INITIAL-BUILD.md)
+2. [02 Pre-Implement Revision](EXAMPLE-KALSHI-DASHBOARD-02-PRE-IMPLEMENT-REVISION.md)
+3. `03 Strict Phased Mode` <- you are here
+4. [04 Phase 2 Prompt](EXAMPLE-KALSHI-DASHBOARD-04-PHASE-2.md)
+5. [05 Phase 3 Prompt](EXAMPLE-KALSHI-DASHBOARD-05-PHASE-3.md)
+6. [06 Phase 4 Prompt](EXAMPLE-KALSHI-DASHBOARD-06-PHASE-4.md)
+
+What this file captures:
+
+- the global phased-mode instruction that must be set before the per-phase prompts
+- the rule that every phase is dependency-closed and validated before moving on
+
+Note:
+
+- the preserved individual phase prompts in this repo start at Phase 2
+- a separate Phase 1 prompt was not preserved in the history snapshot used for this corpus
+
+Previous file:
+
+- [EXAMPLE-KALSHI-DASHBOARD-02-PRE-IMPLEMENT-REVISION.md](EXAMPLE-KALSHI-DASHBOARD-02-PRE-IMPLEMENT-REVISION.md)
+
+Next file:
+
+- [EXAMPLE-KALSHI-DASHBOARD-04-PHASE-2.md](EXAMPLE-KALSHI-DASHBOARD-04-PHASE-2.md)
+
 ## Prompt
 
 ```text

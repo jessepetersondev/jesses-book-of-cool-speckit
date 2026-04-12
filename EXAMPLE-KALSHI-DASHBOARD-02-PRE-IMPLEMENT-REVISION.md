@@ -4,6 +4,34 @@ Observed source: `/home/ai/.codex/history.jsonl`, session `019d7c0f-6eff-7920-85
 
 This is the exact revision pass that happened before the phased `speckit-implement` runs.
 
+Back to [KALSHI-EXAMPLES.md](KALSHI-EXAMPLES.md)
+
+Workflow this example follows:
+
+- [FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md](FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md)
+
+Dashboard read order:
+
+1. [01 Initial Build](EXAMPLE-KALSHI-DASHBOARD-01-INITIAL-BUILD.md)
+2. `02 Pre-Implement Revision` <- you are here
+3. [03 Strict Phased Mode](EXAMPLE-KALSHI-DASHBOARD-03-STRICT-PHASED-MODE.md)
+4. [04 Phase 2 Prompt](EXAMPLE-KALSHI-DASHBOARD-04-PHASE-2.md)
+5. [05 Phase 3 Prompt](EXAMPLE-KALSHI-DASHBOARD-05-PHASE-3.md)
+6. [06 Phase 4 Prompt](EXAMPLE-KALSHI-DASHBOARD-06-PHASE-4.md)
+
+What this file captures:
+
+- the `analyze -> revise spec -> revise plan -> regenerate tasks -> analyze again` gate
+- the artifact-stabilization work that happens before phased implementation begins
+
+Previous file:
+
+- [EXAMPLE-KALSHI-DASHBOARD-01-INITIAL-BUILD.md](EXAMPLE-KALSHI-DASHBOARD-01-INITIAL-BUILD.md)
+
+Next file:
+
+- [EXAMPLE-KALSHI-DASHBOARD-03-STRICT-PHASED-MODE.md](EXAMPLE-KALSHI-DASHBOARD-03-STRICT-PHASED-MODE.md)
+
 ## 1. Analyze Hidden Assumptions
 
 ```text

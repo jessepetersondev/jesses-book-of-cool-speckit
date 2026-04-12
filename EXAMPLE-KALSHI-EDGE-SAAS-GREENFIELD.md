@@ -6,6 +6,23 @@ Use this when you want the same greenfield SaaS pattern that was used for `kalsh
 
 If you reuse this in another repo, replace the absolute repo path. The text below preserves the observed prompt bodies.
 
+Back to [KALSHI-EXAMPLES.md](KALSHI-EXAMPLES.md)
+
+Workflow this example follows:
+
+- [FRAMEWORK-GREENFIELD-TEMPLATE.md](FRAMEWORK-GREENFIELD-TEMPLATE.md)
+
+Use this example when:
+
+- you are starting a brand new app
+- you want the full `constitution -> specify -> clarify -> plan -> checklist -> tasks -> analyze -> implement` loop
+
+How to read this file:
+
+1. compare each numbered section to the greenfield template
+2. reuse the prompt shape and ordering, not the Kalshi-specific domain language
+3. replace the absolute repo path before reusing it
+
 ## 1. Constitution
 
 ```text

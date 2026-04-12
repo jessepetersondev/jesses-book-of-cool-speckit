@@ -4,6 +4,24 @@ Observed source: `/home/ai/.codex/history.jsonl`, session `019d583d-07b2-7a23-98
 
 Use this when you want the multi-repo migration pattern that moved direct execution out of `kalshi-weather-quant` and through the publisher plus RabbitMQ boundary.
 
+Back to [KALSHI-EXAMPLES.md](KALSHI-EXAMPLES.md)
+
+Workflow family:
+
+- [FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md](FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md) as the base brownfield control model
+
+Use this example when:
+
+- the change spans multiple repos
+- one repo becomes a boundary or handoff point for another
+- you need `clarify` before `plan` because the contract and responsibility split is still ambiguous
+
+How to read this file:
+
+1. start from the brownfield template for the control model
+2. use this file for the extra cross-repo `specify`, `clarify`, and `plan` language
+3. preserve explicit service-boundary ownership throughout the migration
+
 ## 1. Specify
 
 ```text

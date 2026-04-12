@@ -38,9 +38,9 @@ Example output:
 
 Use:
 
-- [FRAMEWORK-GREENFIELD-TEMPLATE.md](/home/ai/jesses-book-of-cool-speckit/FRAMEWORK-GREENFIELD-TEMPLATE.md) for new products
-- [FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md](/home/ai/jesses-book-of-cool-speckit/FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md) for existing apps where only one narrow change is allowed
-- [FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md](/home/ai/jesses-book-of-cool-speckit/FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md) for large systems that need multiple implementation passes
+- [FRAMEWORK-GREENFIELD-TEMPLATE.md](FRAMEWORK-GREENFIELD-TEMPLATE.md) for new products
+- [FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md](FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md) for existing apps where only one narrow change is allowed
+- [FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md](FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md) for large systems that need multiple implementation passes
 
 ## 5. Fill In The Template
 

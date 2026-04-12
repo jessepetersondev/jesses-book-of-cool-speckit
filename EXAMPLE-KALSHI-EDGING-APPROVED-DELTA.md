@@ -9,6 +9,24 @@ Observed extra operator notes:
 - `Create the quality.md file for this app before we do speckit implement.`
 - the same `speckit-implement` prompt was sent multiple times
 
+Back to [KALSHI-EXAMPLES.md](KALSHI-EXAMPLES.md)
+
+Workflow this example follows:
+
+- [FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md](FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md)
+
+Use this example when:
+
+- the repo already exists
+- the change is narrow
+- unchanged behavior must stay stable outside the approved delta
+
+How to read this file:
+
+1. compare each numbered section to the brownfield template
+2. pay attention to the unchanged-behavior language and minimal-diff constraints
+3. preserve the checklist and repeated `speckit-implement` behavior when the delta needs multiple controlled passes
+
 ## 1. Constitution
 
 ```text

@@ -2,6 +2,34 @@
 
 Observed source: `/home/ai/.codex/history.jsonl`, session `019d7c0f-6eff-7920-85ac-aab67a3bc180`
 
+Back to [KALSHI-EXAMPLES.md](KALSHI-EXAMPLES.md)
+
+Workflow this example follows:
+
+- [FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md](FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md)
+
+Dashboard read order:
+
+1. [01 Initial Build](EXAMPLE-KALSHI-DASHBOARD-01-INITIAL-BUILD.md)
+2. [02 Pre-Implement Revision](EXAMPLE-KALSHI-DASHBOARD-02-PRE-IMPLEMENT-REVISION.md)
+3. [03 Strict Phased Mode](EXAMPLE-KALSHI-DASHBOARD-03-STRICT-PHASED-MODE.md)
+4. [04 Phase 2 Prompt](EXAMPLE-KALSHI-DASHBOARD-04-PHASE-2.md)
+5. `05 Phase 3 Prompt` <- you are here
+6. [06 Phase 4 Prompt](EXAMPLE-KALSHI-DASHBOARD-06-PHASE-4.md)
+
+What this file captures:
+
+- the auth, capability, API, SSE, and authorization slice of the phased build
+- the point where the read-side surfaces are implemented before the full UI layer
+
+Previous file:
+
+- [EXAMPLE-KALSHI-DASHBOARD-04-PHASE-2.md](EXAMPLE-KALSHI-DASHBOARD-04-PHASE-2.md)
+
+Next file:
+
+- [EXAMPLE-KALSHI-DASHBOARD-06-PHASE-4.md](EXAMPLE-KALSHI-DASHBOARD-06-PHASE-4.md)
+
 ```text
 [$speckit-implement](/home/ai/clawd/projects/kalshi-quant-dashboard/.agents/skills/speckit-implement/SKILL.md) Implement Phase 3 only for 001-quant-ops-dashboard.
 

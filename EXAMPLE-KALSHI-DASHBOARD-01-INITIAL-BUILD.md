@@ -4,6 +4,30 @@ Observed source: `/home/ai/.codex/history.jsonl`, session `019d7c0f-6eff-7920-85
 
 This is the initial Spec Kit setup pattern used for `kalshi-quant-dashboard` before the later revision passes and phased implementation prompts.
 
+Back to [KALSHI-EXAMPLES.md](KALSHI-EXAMPLES.md)
+
+Workflow this example follows:
+
+- [FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md](FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md)
+
+Dashboard read order:
+
+1. `01 Initial Build` <- you are here
+2. [02 Pre-Implement Revision](EXAMPLE-KALSHI-DASHBOARD-02-PRE-IMPLEMENT-REVISION.md)
+3. [03 Strict Phased Mode](EXAMPLE-KALSHI-DASHBOARD-03-STRICT-PHASED-MODE.md)
+4. [04 Phase 2 Prompt](EXAMPLE-KALSHI-DASHBOARD-04-PHASE-2.md)
+5. [05 Phase 3 Prompt](EXAMPLE-KALSHI-DASHBOARD-05-PHASE-3.md)
+6. [06 Phase 4 Prompt](EXAMPLE-KALSHI-DASHBOARD-06-PHASE-4.md)
+
+What this file captures:
+
+- the initial constitution, specify, clarify, plan, checklist, and task-generation setup
+- the precondition for the later revision loop and phased `speckit-implement` prompts
+
+Next file:
+
+- [EXAMPLE-KALSHI-DASHBOARD-02-PRE-IMPLEMENT-REVISION.md](EXAMPLE-KALSHI-DASHBOARD-02-PRE-IMPLEMENT-REVISION.md)
+
 ## 1. Constitution
 
 ```text

@@ -4,6 +4,8 @@ This file documents the concrete Kalshi repos that were used as the source mater
 
 These are examples, not the framework itself.
 
+If you are trying to decide what to read first, start with [KALSHI-EXAMPLES.md](KALSHI-EXAMPLES.md).
+
 ## Shared Setup Observed Across The Example Corpus
 
 - bootstrap command in shell history:
