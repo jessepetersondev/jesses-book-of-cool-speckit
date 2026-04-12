@@ -1,49 +1,38 @@
-# SpecKit Command Framework
+<p align="center">
+  <img src="assets/spec-kit-framework-hero.svg" alt="SpecKit Command Framework" width="960">
+</p>
 
-This repo explains the exact way we use SpecKit with Codex to build real applications.
+<h1 align="center">SpecKit Command Framework</h1>
 
-Kalshi is the example corpus behind the framework, but the point of this repo is reuse: other people should be able to follow the same command structure and get the same style of controlled build process.
+<p align="center">
+  A reusable operating system for building apps with SpecKit and Codex using the same command structure behind the Kalshi repos.
+</p>
 
-## The One-Line Summary
+<p align="center">
+  <a href="#start-here"><strong>Start Here</strong></a>
+  |
+  <a href="#quickstart"><strong>Quickstart</strong></a>
+  |
+  <a href="#workflow-router"><strong>Workflow Router</strong></a>
+  |
+  <a href="#golden-example"><strong>Golden Example</strong></a>
+  |
+  <a href="#repo-map"><strong>Repo Map</strong></a>
+</p>
 
-We do not use SpecKit as a single-shot generator.
+> Framework first. Kalshi second.
+> This repo is a reusable SpecKit method with real examples, not a one-off Kalshi archive.
 
-We use it as a controlled loop:
+## Start Here
 
-1. define the rules
-2. define the scope
-3. remove ambiguity
-4. design the system
-5. create quality gates
-6. generate tasks
-7. audit the artifacts for drift
-8. implement in one or more controlled passes
-
-## Choose The Right Workflow
-
-```mermaid
-flowchart TD
-    A[Start With The Request] --> B{Is this a brand new app?}
-    B -->|yes| C[Greenfield Flow]
-    B -->|no| D{Is the change narrow and the rest must stay stable?}
-    D -->|yes| E[Brownfield Approved-Delta Flow]
-    D -->|no| F{Is one safe implement pass too large?}
-    F -->|yes| G[Phased Multi-Implement Flow]
-    F -->|no| H[Brownfield Flow With Tight Scope]
-```
-
-Follow the result directly:
-
-| Diagram result | Start with | Then study |
+| If you want to... | Open this first | Then use this |
 |---|---|---|
-| Greenfield Flow | [FRAMEWORK-GREENFIELD-TEMPLATE.md](templates/FRAMEWORK-GREENFIELD-TEMPLATE.md) | [EXAMPLE-KALSHI-EDGE-SAAS-GREENFIELD.md](examples/EXAMPLE-KALSHI-EDGE-SAAS-GREENFIELD.md) |
-| Brownfield Approved-Delta Flow | [FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md](templates/FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md) | [EXAMPLE-KALSHI-EDGING-APPROVED-DELTA.md](examples/EXAMPLE-KALSHI-EDGING-APPROVED-DELTA.md) |
-| Brownfield Flow With Tight Scope | [FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md](templates/FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md) | [EXAMPLE-KALSHI-WEATHER-MIGRATION.md](examples/EXAMPLE-KALSHI-WEATHER-MIGRATION.md) as the multi-repo migration variant |
-| Phased Multi-Implement Flow | [FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md](templates/FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md) | [KALSHI-EXAMPLES.md](examples/KALSHI-EXAMPLES.md) for the dashboard read order |
+| Start a brand new app | [templates/FRAMEWORK-GREENFIELD-TEMPLATE.md](templates/FRAMEWORK-GREENFIELD-TEMPLATE.md) | [examples/SAMPLE-GREENFIELD-VALUES.env](examples/SAMPLE-GREENFIELD-VALUES.env) and [examples/EXAMPLE-KALSHI-EDGE-SAAS-GREENFIELD.md](examples/EXAMPLE-KALSHI-EDGE-SAAS-GREENFIELD.md) |
+| Update an existing app with minimal drift | [templates/FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md](templates/FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md) | [examples/SAMPLE-BROWNFIELD-VALUES.env](examples/SAMPLE-BROWNFIELD-VALUES.env) and [examples/EXAMPLE-KALSHI-EDGING-APPROVED-DELTA.md](examples/EXAMPLE-KALSHI-EDGING-APPROVED-DELTA.md) |
+| Build a large system in phases | [templates/FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md](templates/FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md) | [examples/KALSHI-EXAMPLES.md](examples/KALSHI-EXAMPLES.md) and [examples/golden/kalshi-quant-dashboard/README.md](examples/golden/kalshi-quant-dashboard/README.md) |
+| Reproduce the exact operating style | [REPRODUCE.md](REPRODUCE.md) | [REPRODUCIBILITY.md](REPRODUCIBILITY.md), [VALIDATION-RUBRIC.md](VALIDATION-RUBRIC.md), and [examples/golden/kalshi-quant-dashboard/BEFORE-AND-AFTER-ANALYZE.md](examples/golden/kalshi-quant-dashboard/BEFORE-AND-AFTER-ANALYZE.md) |
 
-## Bootstrap
-
-Use this to initialize a repo the same way:
+## One Command
 
 ```bash
 specify init . --ai codex --ai-skills --force
@@ -61,257 +50,128 @@ Observed base skills:
 - `speckit-implement`
 - `speckit-taskstoissues`
 
-## Artifact Chain
-
-Each command should leave behind an artifact that the next command depends on.
-
-| Stage | Primary artifact | Why it exists |
-|---|---|---|
-| `constitution` | constitution rules | Locks in guardrails before design starts. |
-| `specify` | `spec.md` | Defines product scope, users, requirements, and non-goals. |
-| `clarify` | revised `spec.md` | Removes ambiguity before planning hardens assumptions. |
-| `plan` | `plan.md`, contracts, data model, quickstart | Turns approved scope into buildable technical design. |
-| `checklist` | `quality.md` or equivalent checklist | Creates persistent quality gates before coding. |
-| `tasks` | `tasks.md` | Breaks the plan into verifiable implementation units. |
-| `analyze` | analysis findings | Detects drift, gaps, contradictions, and overbuild. |
-| `implement` | code, tests, updated task state | Builds only what the approved artifacts require. |
-
-## Why We Do It This Way
-
-The commands are ordered so each one answers a different question:
-
-| Command | What it answers | Why it comes here |
-|---|---|---|
-| `constitution` | What rules must never be violated? | Prevents scope drift before any design work starts. |
-| `specify` | What are we building and why? | Creates the product or change definition. |
-| `clarify` | What is still vague or underspecified? | Catches ambiguity before technical planning hardens it. |
-| `plan` | How should this be built technically? | Converts the approved scope into architecture and design artifacts. |
-| `checklist` | What quality gates must be true? | Creates a persistent control surface before coding begins. |
-| `tasks` | What exact work items need to happen? | Breaks the design into verifiable implementation units. |
-| `analyze` | Are the artifacts aligned and safe to implement? | Finds drift, missing coverage, and overbuild before code churn starts. |
-| `implement` | Build only what the approved artifacts require | Coding happens after the spec, plan, tasks, and checks are aligned. |
-
-If `analyze` finds drift, we do not push forward blindly. We go back and revise `specify`, `plan`, or `tasks`.
-
-That is the part most people skip, and that is where most bad SpecKit runs go wrong.
-
-## Main Workflow Diagram
-
-```mermaid
-flowchart TD
-    A[Idea or Change Request] --> B[Constitution]
-    B --> C[Specify]
-    C --> D[Clarify]
-    D --> E[Plan]
-    E --> F[Checklist]
-    F --> G[Tasks]
-    G --> H[Analyze]
-    H -->|aligned| I[Implement]
-    H -->|drift or gaps| C
-    I --> J[Validate]
-    J -->|done| K[Ship or Next Phase]
-    J -->|needs correction| H
-```
-
-## How To Run It Exactly In Codex
-
-1. Initialize the repo with `specify init . --ai codex --ai-skills --force`.
-2. Pick one workflow: greenfield, brownfield approved-delta, or phased.
-3. Open the matching template in this repo.
-4. Replace every placeholder in that template.
-5. Paste one command block at a time into Codex. Do not paste the whole template as one mega-prompt.
-6. After each command, inspect the generated artifact before moving on.
-7. Treat `speckit-analyze` as a hard gate. If it finds drift, fix the artifacts first.
-8. Use one `speckit-implement` pass for narrow work, or multiple phased passes for large work.
-
-## Reproducibility Assets
-
-Use these when the goal is not just to understand the framework, but to reproduce the same style of result:
-
-- [REPRODUCIBILITY-TASKS.md](REPRODUCIBILITY-TASKS.md)
-- [REPRODUCE.md](REPRODUCE.md)
-- [RERUN-ROUTING.md](RERUN-ROUTING.md)
-- [OPERATOR-RULES.md](OPERATOR-RULES.md)
-- [PROMPT-COOKBOOK.md](PROMPT-COOKBOOK.md)
-- [REPRODUCIBILITY.md](REPRODUCIBILITY.md)
-- [VALIDATION-RUBRIC.md](VALIDATION-RUBRIC.md)
-- [examples/golden/kalshi-quant-dashboard/README.md](examples/golden/kalshi-quant-dashboard/README.md)
-- [examples/SAMPLE-GREENFIELD-VALUES.env](examples/SAMPLE-GREENFIELD-VALUES.env)
-- [examples/SAMPLE-BROWNFIELD-VALUES.env](examples/SAMPLE-BROWNFIELD-VALUES.env)
-
-## The Three Real Workflow Shapes
-
-### 1. Greenfield Build
-
-Use this when the product is new.
+## The Core Loop
 
 ```text
 constitution -> specify -> clarify -> plan -> checklist -> tasks -> analyze -> implement
 ```
 
-Why:
+What matters:
 
-- new products usually have fuzzy scope
-- `clarify` removes ambiguity before the design gets too far ahead
-- `analyze` protects you from implementing a bad or overbuilt plan
+- the prompt body carries the real operating constraints
+- every command leaves an artifact the next command depends on
+- `analyze` is a gate, not a report
+- large builds should split into multiple `speckit-implement` runs
 
-### 2. Brownfield Approved-Delta Update
-
-Use this when an existing app needs a narrow change and behavior outside the delta must stay stable.
-
-```text
-constitution -> specify-delta -> plan-delta -> checklist -> tasks-delta -> analyze -> implement-delta
-```
-
-Why:
-
-- the main risk is accidental rewrite, not lack of ideas
-- the prompt language must explicitly preserve unchanged behavior
-- `tasks` should generate only delta work, not re-plan the whole repo
-
-### 3. Phased Multi-Implement Build
-
-Use this when the feature is too large for one safe implementation pass.
-
-```text
-analyze -> revise specify -> revise plan -> revise tasks -> re-analyze -> strict phased mode -> implement phase 1 -> implement phase 2 -> implement phase 3 ...
-```
-
-Why:
-
-- one giant `implement` run leaks scope
-- phase gates make testing and correction easier
-- each phase should be dependency-closed and validated before the next starts
-
-## Phased Build Diagram
+## Workflow Router
 
 ```mermaid
-flowchart LR
-    A[Analyze Existing Artifacts] --> B[Revise Spec]
-    B --> C[Revise Plan]
-    C --> D[Regenerate Tasks]
-    D --> E[Re-Analyze]
-    E --> F[Enable Strict Phased Mode]
-    F --> G[Implement Phase N]
-    G --> H[Lint / Typecheck / Test / Build]
-    H --> I{Phase Clean?}
-    I -->|yes| J[Next Phase]
-    I -->|no| E
+flowchart TD
+    A[Start With The Request] --> B{Is this a brand new app?}
+    B -->|yes| C[Greenfield Flow]
+    B -->|no| D{Is the change narrow and the rest must stay stable?}
+    D -->|yes| E[Brownfield Approved-Delta Flow]
+    D -->|no| F{Is one safe implement pass too large?}
+    F -->|yes| G[Phased Multi-Implement Flow]
+    F -->|no| H[Brownfield Flow With Tight Scope]
 ```
 
-## Exact Command Playbook
+| Workflow | Best for | Start with | Studied example |
+|---|---|---|---|
+| Greenfield | New products with no implementation baseline | [FRAMEWORK-GREENFIELD-TEMPLATE.md](templates/FRAMEWORK-GREENFIELD-TEMPLATE.md) | [EXAMPLE-KALSHI-EDGE-SAAS-GREENFIELD.md](examples/EXAMPLE-KALSHI-EDGE-SAAS-GREENFIELD.md) |
+| Brownfield approved-delta | Existing apps where unchanged behavior must stay stable | [FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md](templates/FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md) | [EXAMPLE-KALSHI-EDGING-APPROVED-DELTA.md](examples/EXAMPLE-KALSHI-EDGING-APPROVED-DELTA.md) |
+| Brownfield migration variant | Multi-repo migrations with explicit service boundaries | [FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md](templates/FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md) | [EXAMPLE-KALSHI-WEATHER-MIGRATION.md](examples/EXAMPLE-KALSHI-WEATHER-MIGRATION.md) |
+| Phased multi-implement | Large systems where one run would leak scope | [FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md](templates/FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md) | [KALSHI-EXAMPLES.md](examples/KALSHI-EXAMPLES.md) |
 
-### Greenfield
+## Quickstart
 
-1. Run `speckit-constitution` with non-negotiable project rules.
-2. Run `speckit-specify` with a tight definition of scope, non-goals, and required outputs.
-3. Run `speckit-clarify` to force decisions on anything vague.
-4. Run `speckit-plan` to generate architecture, data model, contracts, quickstart, and related design artifacts.
-5. Run `speckit-checklist` to create a persistent quality gate, usually including `quality.md`.
-6. Run `speckit-tasks` to generate granular, verifiable implementation tasks.
-7. Run `speckit-analyze` to catch missing coverage, contradictions, and overbuild.
-8. Only then run `speckit-implement`.
+1. Initialize the repo with `specify init . --ai codex --ai-skills --force`.
+2. Choose the workflow that matches the job.
+3. Fill a template manually or generate a prompt pack with [scripts/generate-prompt-pack.sh](scripts/generate-prompt-pack.sh).
+4. Paste one block at a time into Codex. Do not paste the whole file as one mega-prompt.
+5. Inspect each artifact before moving on. If `analyze` finds drift, repair the artifacts before coding.
 
-### Brownfield
+Sample generation commands:
 
-1. Update constitution rules so the repo is treated as an incremental change, not a greenfield rewrite.
-2. Run `speckit-specify` with delta-only language.
-3. Run `speckit-plan` with incremental-impact language.
-4. Run `speckit-checklist` to force parity and migration controls.
-5. Run `speckit-tasks` and require delta-only tasks.
-6. Run `speckit-analyze` and reject any drift or unrelated churn.
-7. Run `speckit-implement` with minimal-diff instructions.
+```bash
+./scripts/generate-prompt-pack.sh \
+  --workflow greenfield \
+  --vars-file examples/SAMPLE-GREENFIELD-VALUES.env \
+  --out /tmp/greenfield-pack.md
 
-### Phased
+./scripts/generate-prompt-pack.sh \
+  --workflow brownfield \
+  --vars-file examples/SAMPLE-BROWNFIELD-VALUES.env \
+  --out /tmp/brownfield-pack.md
 
-1. Analyze the current artifacts first.
-2. Revise `spec.md`, `plan.md`, and `tasks.md` until they align.
-3. Set strict phased mode.
-4. Run `speckit-implement` for one phase only.
-5. Validate that phase completely.
-6. Repeat for the next phase.
+./scripts/generate-prompt-pack.sh \
+  --workflow phased \
+  --vars-file examples/golden/kalshi-quant-dashboard/prompt-pack-values.env \
+  --out /tmp/phased-pack.md
+```
 
-## Why Multiple `speckit-implement` Runs Exist
+## Golden Example
 
-One large `implement` run tends to do three bad things:
+The strongest example in the repo is the latest real `kalshi-quant-dashboard` run.
 
-- it leaks later-phase work into the current pass
-- it broadens file churn beyond the approved tasks
-- it makes validation noisy because too many concerns changed at once
+Open:
 
-That is why the dashboard-style builds were split across multiple `speckit-implement` steps. The point is control, not ceremony.
+- [examples/golden/kalshi-quant-dashboard/README.md](examples/golden/kalshi-quant-dashboard/README.md)
+- [examples/golden/kalshi-quant-dashboard/BEFORE-AND-AFTER-ANALYZE.md](examples/golden/kalshi-quant-dashboard/BEFORE-AND-AFTER-ANALYZE.md)
 
-## Generated Packs
+Generated dashboard pack sequence:
 
-If you want ready-to-run bundles instead of raw templates:
+| Stage | Pack |
+|---|---|
+| Initial build | [generated-initial-build-pack.md](examples/golden/kalshi-quant-dashboard/generated-initial-build-pack.md) |
+| Pre-implement revision | [generated-pre-implement-revision-pack.md](examples/golden/kalshi-quant-dashboard/generated-pre-implement-revision-pack.md) |
+| Strict phased mode | [generated-strict-phased-mode-pack.md](examples/golden/kalshi-quant-dashboard/generated-strict-phased-mode-pack.md) |
+| Phase 2 | [generated-phase-2-pack.md](examples/golden/kalshi-quant-dashboard/generated-phase-2-pack.md) |
+| Phase 3 | [generated-phase-3-pack.md](examples/golden/kalshi-quant-dashboard/generated-phase-3-pack.md) |
+| Phase 4 | [generated-phase-4-pack.md](examples/golden/kalshi-quant-dashboard/generated-phase-4-pack.md) |
 
-- phased dashboard sequence:
-  - [generated-initial-build-pack.md](examples/golden/kalshi-quant-dashboard/generated-initial-build-pack.md)
-  - [generated-pre-implement-revision-pack.md](examples/golden/kalshi-quant-dashboard/generated-pre-implement-revision-pack.md)
-  - [generated-strict-phased-mode-pack.md](examples/golden/kalshi-quant-dashboard/generated-strict-phased-mode-pack.md)
-  - [generated-phase-2-pack.md](examples/golden/kalshi-quant-dashboard/generated-phase-2-pack.md)
-  - [generated-phase-3-pack.md](examples/golden/kalshi-quant-dashboard/generated-phase-3-pack.md)
-  - [generated-phase-4-pack.md](examples/golden/kalshi-quant-dashboard/generated-phase-4-pack.md)
-- non-Kalshi sample generator inputs:
-  - [SAMPLE-GREENFIELD-VALUES.env](examples/SAMPLE-GREENFIELD-VALUES.env)
-  - [SAMPLE-BROWNFIELD-VALUES.env](examples/SAMPLE-BROWNFIELD-VALUES.env)
+## Why This Approach Works
+
+| Control point | Purpose |
+|---|---|
+| `clarify` before `plan` | Stops vague scope from hardening into bad architecture |
+| `checklist` before `tasks` | Forces quality gates before implementation starts |
+| `analyze` before `implement` | Catches drift while it is still cheap to fix |
+| phased `implement` runs | Keeps large builds dependency-closed and easier to validate |
+
+## Repo Map
+
+| Area | Purpose |
+|---|---|
+| [templates/](templates) | Reusable workflow templates for greenfield, brownfield, and phased builds |
+| [examples/](examples) | Real preserved prompts and sample generator inputs |
+| [examples/golden/kalshi-quant-dashboard/](examples/golden/kalshi-quant-dashboard) | The strongest worked example with golden artifacts and generated packs |
+| [USAGE.md](USAGE.md) | Practical day-to-day usage guide |
+| [COMMAND-STRUCTURE.md](COMMAND-STRUCTURE.md) | Stripped-down operating reference |
+| [WORKFLOW-PATTERNS.md](WORKFLOW-PATTERNS.md) | Reusable workflow logic and anti-patterns |
+| [REPRODUCE.md](REPRODUCE.md) | End-to-end replay path |
+| [REPRODUCIBILITY.md](REPRODUCIBILITY.md) | Stable controls, environment assumptions, and quality bar |
+| [scripts/](scripts) | Bootstrap, inventory, generator, verification, and self-check helpers |
+| [.github/workflows/repo-ci.yml](.github/workflows/repo-ci.yml) | Repo self-verification in CI |
 
 ## Repo Self-Checks
 
-This repo now validates its own framework surface with:
+This repo validates its own framework surface with:
 
 - [scripts/check-markdown-links.sh](scripts/check-markdown-links.sh)
 - [scripts/smoke-test-prompt-packs.sh](scripts/smoke-test-prompt-packs.sh)
 - [.github/workflows/repo-ci.yml](.github/workflows/repo-ci.yml)
 
-## The Two Rules That Matter Most
+## Deep Links
 
-### Rule 1: Never Run A Bare Command If Scope Matters
+<details>
+<summary>Open the full documentation and example index</summary>
 
-Bad:
+### Framework Docs
 
-```text
-/speckit.plan
-```
-
-Good:
-
-```text
-[$speckit-plan]({REPO_PATH}/.agents/skills/speckit-plan/SKILL.md) Create the implementation plan for {PROJECT_NAME} based on the approved spec.
-
-Constraints:
-- keep the MVP thin
-- do not invent unrelated platform features
-- preserve existing behavior outside the approved delta
-- produce contracts, data model, quickstart, and validation strategy
-```
-
-The point is that the prompt body carries the operating constraints. The skill command alone is not enough.
-
-### Rule 2: Use `analyze` As A Gate, Not A Report
-
-If `analyze` says the artifacts are wrong:
-
-- revise the spec
-- revise the plan
-- regenerate tasks
-- re-run analyze
-
-Do not just note the problems and implement anyway.
-
-## Copyable Starting Points
-
-Reusable templates:
-
-- [FRAMEWORK-GREENFIELD-TEMPLATE.md](templates/FRAMEWORK-GREENFIELD-TEMPLATE.md)
-- [FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md](templates/FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md)
-- [FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md](templates/FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md)
-
-Detailed root docs:
-
+- [USAGE.md](USAGE.md)
 - [COMMAND-STRUCTURE.md](COMMAND-STRUCTURE.md)
 - [WORKFLOW-PATTERNS.md](WORKFLOW-PATTERNS.md)
-- [USAGE.md](USAGE.md)
 - [REPRODUCIBILITY-TASKS.md](REPRODUCIBILITY-TASKS.md)
 - [REPRODUCE.md](REPRODUCE.md)
 - [RERUN-ROUTING.md](RERUN-ROUTING.md)
@@ -320,7 +180,13 @@ Detailed root docs:
 - [REPRODUCIBILITY.md](REPRODUCIBILITY.md)
 - [VALIDATION-RUBRIC.md](VALIDATION-RUBRIC.md)
 
-Kalshi examples:
+### Templates
+
+- [FRAMEWORK-GREENFIELD-TEMPLATE.md](templates/FRAMEWORK-GREENFIELD-TEMPLATE.md)
+- [FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md](templates/FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md)
+- [FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md](templates/FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md)
+
+### Examples
 
 - [KALSHI-EXAMPLES.md](examples/KALSHI-EXAMPLES.md)
 - [KALSHI-EXAMPLE-CORPUS.md](examples/KALSHI-EXAMPLE-CORPUS.md)
@@ -333,9 +199,8 @@ Kalshi examples:
 - [EXAMPLE-KALSHI-DASHBOARD-04-PHASE-2.md](examples/EXAMPLE-KALSHI-DASHBOARD-04-PHASE-2.md)
 - [EXAMPLE-KALSHI-DASHBOARD-05-PHASE-3.md](examples/EXAMPLE-KALSHI-DASHBOARD-05-PHASE-3.md)
 - [EXAMPLE-KALSHI-DASHBOARD-06-PHASE-4.md](examples/EXAMPLE-KALSHI-DASHBOARD-06-PHASE-4.md)
-- [examples/golden/kalshi-quant-dashboard/README.md](examples/golden/kalshi-quant-dashboard/README.md)
 
-## Helper Scripts
+### Helper Scripts
 
 - `./scripts/bootstrap-speckit-repo.sh /path/to/repo`
 - `./scripts/generate-prompt-pack.sh --workflow phased --vars-file examples/golden/kalshi-quant-dashboard/prompt-pack-values.env`
@@ -343,3 +208,5 @@ Kalshi examples:
 - `./scripts/inventory-kalshi-speckit.sh`
 - `./scripts/skill-link.sh /path/to/repo speckit-plan`
 - `./scripts/verify-speckit-setup.sh /path/to/repo`
+
+</details>
