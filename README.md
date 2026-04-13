@@ -32,6 +32,17 @@ specify init . --ai codex --ai-skills --force
 
 ## Choose A Workflow
 
+```mermaid
+flowchart TD
+    A[Start With The Request] --> B{Brand new app?}
+    B -->|yes| C[Use Greenfield Template]
+    B -->|no| D{Small approved delta?}
+    D -->|yes| E[Use Brownfield Approved-Delta Template]
+    D -->|no| F{One safe implement pass too large?}
+    F -->|yes| G[Use Phased Multi-Implement Template]
+    F -->|no| H[Use Brownfield Template With Tight Scope]
+```
+
 | If you want to... | Start here | Then use this |
 |---|---|---|
 | Start a brand new app | [templates/FRAMEWORK-GREENFIELD-TEMPLATE.md](templates/FRAMEWORK-GREENFIELD-TEMPLATE.md) | [examples/SAMPLE-GREENFIELD-VALUES.env](examples/SAMPLE-GREENFIELD-VALUES.env) and [examples/EXAMPLE-KALSHI-EDGE-SAAS-GREENFIELD.md](examples/EXAMPLE-KALSHI-EDGE-SAAS-GREENFIELD.md) |
