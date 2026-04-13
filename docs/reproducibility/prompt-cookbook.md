@@ -43,14 +43,27 @@ Do not broaden scope into redesign, cleanup, modernization, or unrelated archite
 Change the fewest possible lines in the fewest possible files.
 ```
 
-## Checklist Language
+## Checklist Creation Language
 
 Use when generating quality gates:
 
 ```text
-Generate a quality checklist for the approved spec and plan.
-Create a single general quality checklist if possible.
-Name it quality.md if the template allows.
+Generate or refresh checklist artifacts for the approved spec and plan.
+Create at minimum requirements.md and quality.md.
+Write checklist items so they can clearly PASS or FAIL.
+Keep deeper domain-specific checklists too when they materially reduce drift.
+```
+
+## Checklist Scoring Language
+
+Use after `tasks` and before `implement`:
+
+```text
+Review spec.md, plan.md, tasks.md, and checklist artifacts.
+Score requirements.md and quality.md completely.
+Mark every checklist item PASS or FAIL.
+Do not leave any checklist item unchecked.
+If any item fails, return BLOCKED and name whether spec.md, plan.md, or tasks.md must change.
 ```
 
 ## Analyze Gate Language
@@ -58,9 +71,20 @@ Name it quality.md if the template allows.
 Use when validating readiness:
 
 ```text
-Analyze spec.md, plan.md, tasks.md, and the quality checklist for consistency and implementation readiness.
-Find contradictions, vague terms, missing task coverage, and overbuilt architecture.
+Analyze spec.md, plan.md, tasks.md, and the scored checklist artifacts for consistency and implementation readiness.
+Find contradictions, vague terms, missing task coverage, unchecked checklist items, and overbuilt architecture.
+Treat any FAIL or unchecked item in requirements.md or quality.md as a blocking issue.
 Re-run analysis after artifact repairs and verify the remaining issues are closed before implementation begins.
+```
+
+## Blocking Gate Language
+
+Use when the model tries to ask for an override:
+
+```text
+Do not ask whether to proceed when checklist artifacts fail.
+If any checklist item is FAIL or unchecked, stop and return BLOCKED with the exact failed items and the next required repair step.
+Implementation is not allowed until requirements.md and quality.md are fully PASS.
 ```
 
 ## Strict Phased Mode Language

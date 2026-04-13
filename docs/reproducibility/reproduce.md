@@ -18,15 +18,16 @@ flowchart TD
     B --> C[Choose Phased Multi-Implement]
     C --> D[Initial Build Prompt Set]
     D --> E[spec.md + plan.md + data-model.md + contracts + checklists + tasks.md]
-    E --> F[Pre-Implement Analyze]
-    F --> G[Revise Spec / Plan / Checklist / Tasks]
-    G --> H[Re-Analyze]
-    H --> I[Enable Strict Phased Mode]
-    I --> J[Implement One Phase]
-    J --> K[Lint / Typecheck / Test / Build]
-    K --> L{Phase Clean?}
-    L -->|yes| M[Next Phase]
-    L -->|no| F
+    E --> F[Score requirements.md + quality.md]
+    F --> G[Pre-Implement Analyze]
+    G --> H[Revise Spec / Plan / Checklist / Tasks]
+    H --> I[Re-Score Checklists + Re-Analyze]
+    I --> J[Enable Strict Phased Mode]
+    J --> K[Implement One Phase]
+    K --> L[Lint / Typecheck / Test / Build]
+    L --> M{Phase Clean?}
+    M -->|yes| N[Next Phase]
+    M -->|no| G
 ```
 
 ## Exact Replay Steps
@@ -79,29 +80,35 @@ flowchart TD
    - [examples/golden/kalshi-quant-dashboard/README.md](../../examples/golden/kalshi-quant-dashboard/README.md)
    - [validation-rubric.md](validation-rubric.md)
 
-8. Run the pre-implement revision cycle.
+8. Score the checklist artifacts before implementation.
+   Hard gate:
+   - `requirements.md` must be fully PASS
+   - `quality.md` must be fully PASS
+   - unchecked items count as blocked, not as warnings
+
+9. Run the pre-implement revision cycle.
    The required loop is:
 
    ```text
-   analyze -> revise spec -> revise plan -> refresh checklist -> regenerate tasks -> analyze again
+   analyze -> revise spec -> revise plan -> refresh checklist -> regenerate tasks -> score checklists -> analyze again
    ```
 
-9. Turn on strict phased mode.
+10. Turn on strict phased mode.
    This locks the rest of the implementation into dependency-closed slices.
 
-10. Run one `speckit-implement` phase at a time.
+11. Run one `speckit-implement` phase at a time.
     Dashboard example split:
     - Phase 2: ingestion, normalization, persistence, replay safety
     - Phase 3: auth, capability resolution, API, SSE, enforcement
     - Phase 4: web UI and operator-facing routes
 
-11. After each phase, run the full validation gate:
+12. After each phase, run the full validation gate:
     - lint
     - typecheck
     - tests
     - build
 
-12. If a phase is not clean, do not start the next one.
+13. If a phase is not clean, do not start the next one.
     Go back through `analyze` and artifact repair first.
 
 ## Fastest Way To Start

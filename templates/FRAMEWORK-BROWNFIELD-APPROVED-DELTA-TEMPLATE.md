@@ -10,7 +10,7 @@ How to use this file:
 2. paste each section as its own prompt
 3. keep unchanged behavior explicit in every brownfield prompt
 4. reject any artifact that broadens scope beyond the approved delta
-5. do not implement until `analyze` confirms there is no hidden redesign
+5. do not implement until `requirements.md` and `quality.md` are fully PASS and `analyze` confirms there is no hidden redesign
 
 ## Constitution Update
 
@@ -84,24 +84,22 @@ Planning constraints:
 ## Checklist
 
 ```text
-[$speckit-checklist]({REPO_PATH}/.agents/skills/speckit-checklist/SKILL.md) Generate or update a migration quality checklist for this incremental brownfield change.
+[$speckit-checklist]({REPO_PATH}/.agents/skills/speckit-checklist/SKILL.md) Generate or update checklist artifacts for this incremental brownfield change.
 
-The checklist should verify:
-- scope is strictly limited to the approved delta
-- all non-delta functionality remains unchanged
-- service boundaries are explicit
-- required metadata is preserved across the changed boundary
-- tests are sufficient to prove parity outside the delta
-- no hidden redesign or unrelated refactor has crept into the update plan
+Create at minimum:
+- `requirements.md` for delta scope, untouched behavior, acceptance criteria, and parity expectations
+- `quality.md` for implementation readiness, cross-artifact alignment, migration safety, and validation gates
 
-Create a single general quality checklist if possible.
-Name it quality.md if the template allows.
+Checklist rules:
+- every item must be concrete enough to PASS or FAIL
+- explicitly verify unchanged behavior outside the approved delta
+- keep deeper migration- or domain-specific checklists too when they materially reduce drift
 ```
 
 ## Tasks Delta
 
 ```text
-[$speckit-tasks]({REPO_PATH}/.agents/skills/speckit-tasks/SKILL.md) Generate only the incremental implementation tasks needed for this approved update.
+[$speckit-tasks]({REPO_PATH}/.agents/skills/speckit-tasks/SKILL.md) Generate only the incremental implementation tasks needed for this approved update from spec.md, plan.md, and checklist artifacts.
 
 Task requirements:
 - organize tasks by migration objective and user/operator story
@@ -112,10 +110,27 @@ Task requirements:
 - prefer fewer files and fewer changed lines whenever possible
 ```
 
+## Checklist Review Gate
+
+```text
+[$speckit-checklist]({REPO_PATH}/.agents/skills/speckit-checklist/SKILL.md) Review spec.md, plan.md, tasks.md, and checklist artifacts for this incremental brownfield change.
+
+Score `requirements.md` and `quality.md` completely:
+- mark every checklist item PASS or FAIL
+- cite the artifact that satisfies each PASS item
+- do not leave any checklist item unchecked
+
+If any checklist item is FAIL or unchecked:
+- return BLOCKED
+- list the exact failed items
+- state whether spec.md, plan.md, or tasks.md must change
+- do not recommend implementation
+```
+
 ## Analyze Delta
 
 ```text
-[$speckit-analyze]({REPO_PATH}/.agents/skills/speckit-analyze/SKILL.md) Analyze the updated spec.md, plan.md, tasks.md, and quality checklist for this incremental brownfield change.
+[$speckit-analyze]({REPO_PATH}/.agents/skills/speckit-analyze/SKILL.md) Analyze the updated spec.md, plan.md, tasks.md, and scored checklist artifacts for this incremental brownfield change.
 
 Find:
 - scope creep beyond the requested delta
@@ -124,14 +139,18 @@ Find:
 - weak contract definitions
 - missing parity validation
 - unnecessary refactors or file touches
+
+Treat any FAIL or unchecked item in `requirements.md` or `quality.md` as a blocking issue.
 ```
 
 ## Implement Delta
 
 ```text
-[$speckit-implement]({REPO_PATH}/.agents/skills/speckit-implement/SKILL.md) Implement only the approved delta for this existing Spec Kit-managed application, using the updated spec.md, plan.md, tasks.md, and quality checklist.
+[$speckit-implement]({REPO_PATH}/.agents/skills/speckit-implement/SKILL.md) Implement only the approved delta for this existing Spec Kit-managed application, using the updated spec.md, plan.md, tasks.md, and scored checklist artifacts.
 
 Implementation rules:
+- only proceed if `requirements.md` and `quality.md` are fully PASS
+- if any checklist item is FAIL or unchecked, stop and return BLOCKED instead of asking to proceed anyway
 - use the current implementation as the baseline
 - implement only the approved delta
 - preserve all other existing behavior unless the approved artifacts explicitly require otherwise

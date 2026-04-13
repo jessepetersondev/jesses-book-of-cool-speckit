@@ -47,7 +47,7 @@ Use this exact link shape when composing prompts:
 The normal dependency chain is:
 
 ```text
-constitution -> spec.md -> clarified spec.md -> plan.md -> quality.md -> tasks.md -> analyze findings -> implementation
+constitution -> spec.md -> clarified spec.md -> plan.md -> requirements.md + quality.md -> tasks.md -> scored checklists -> analyze findings -> implementation
 ```
 
 If an artifact is weak, fix that artifact before moving forward.
@@ -59,8 +59,9 @@ speckit-constitution
 speckit-specify
 speckit-clarify
 speckit-plan
-speckit-checklist
+speckit-checklist create/refresh
 speckit-tasks
+speckit-checklist score/review
 speckit-analyze
 speckit-implement
 ```
@@ -73,6 +74,7 @@ Intent:
 - design the system
 - create quality gates
 - generate implementation tasks
+- score the checklist gates completely
 - audit the artifacts
 - only then implement
 
@@ -88,8 +90,9 @@ Run rule:
 speckit-constitution
 speckit-specify
 speckit-plan
-speckit-checklist
+speckit-checklist create/refresh
 speckit-tasks
+speckit-checklist score/review
 speckit-analyze
 speckit-implement
 ```
@@ -101,6 +104,7 @@ Intent:
 - design only the incremental impact
 - create parity and migration checks
 - generate only delta tasks
+- score the checklist gates completely
 - audit for drift
 - implement only the approved delta
 
@@ -116,8 +120,9 @@ Run rule:
 speckit-analyze
 speckit-specify
 speckit-plan
-speckit-checklist
+speckit-checklist create/refresh
 speckit-tasks
+speckit-checklist score/review
 speckit-analyze
 speckit-implement strict phased mode
 speckit-implement phase 1
@@ -130,6 +135,7 @@ Intent:
 
 - stabilize the artifacts first
 - refresh quality gates before regenerating task coverage
+- fully score the checklist gates before implementation begins
 - lock the implementation into phase boundaries
 - implement one dependency-closed slice at a time
 
@@ -144,6 +150,8 @@ Run rule:
 1. Never rely on the bare command name when scope matters. Put the constraints in the prompt body.
 2. Use `clarify` before `plan` when the product definition is still fuzzy.
 3. Use `analyze` as a gate before implementation, not as an afterthought.
-4. If `analyze` finds drift, revise the artifacts and re-run it.
-5. Use multiple `speckit-implement` runs for large systems instead of one giant run.
-6. Prefer narrow prompts that name allowed scope, untouched scope, and expected deliverables.
+4. Use `speckit-checklist` twice when quality matters: once to create the gate and once to score it.
+5. If any checklist item is FAIL or unchecked, implementation is blocked.
+6. If `analyze` finds drift, revise the artifacts and re-run it.
+7. Use multiple `speckit-implement` runs for large systems instead of one giant run.
+8. Prefer narrow prompts that name allowed scope, untouched scope, and expected deliverables.

@@ -39,14 +39,18 @@ Fail if:
 
 Pass if:
 
-- there is at least one real checklist artifact before implementation
+- `requirements.md` and `quality.md` both exist before implementation
 - the checklist contains concrete, reviewable checks
 - the checklist surfaces ambiguity, coverage gaps, and operational risk
+- every checklist item is marked PASS or FAIL before implementation
+- both `requirements.md` and `quality.md` are fully PASS before implementation starts
 
 Fail if:
 
 - the checklist is generic and non-binding
 - it cannot be used to reject a weak spec or plan
+- any checklist item remains unchecked
+- implementation starts while a checklist still has FAIL items
 
 ## `tasks.md`
 
@@ -69,6 +73,7 @@ Fail if:
 Pass if:
 
 - contradictions, gaps, and overbuild are addressed before coding
+- checklist failures route back to artifact repair instead of implementation
 - the rerun path is artifact repair, not implementation
 
 Fail if:

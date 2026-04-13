@@ -14,7 +14,7 @@ Use this pack after the first artifact pass and before any implementation prompt
 Framework note:
 
 - the preserved dashboard run did not capture a standalone `speckit-checklist` refresh at this stage
-- the current framework recommendation is to refresh checklist artifacts after revising `plan.md` and before regenerating `tasks.md`
+- the current framework recommendation is to refresh checklist artifacts after revising `plan.md`, regenerate `tasks.md`, then score `requirements.md` and `quality.md` before implementation
 
 ## Analyze Hidden Assumptions
 
@@ -109,7 +109,7 @@ Output requirements:
 ## Regenerate Tasks
 
 ```text
-[$speckit-tasks](/home/ai/clawd/projects/kalshi-quant-dashboard/.agents/skills/speckit-tasks/SKILL.md) Regenerate tasks.md from the revised spec and plan. Close all remaining partial coverage for FR-002c, FR-002e, and FR-002f, and remove the current mismatch between plan layout and task paths.
+[$speckit-tasks](/home/ai/clawd/projects/kalshi-quant-dashboard/.agents/skills/speckit-tasks/SKILL.md) Regenerate tasks.md from the revised spec, plan, and checklist artifacts. Close all remaining partial coverage for FR-002c, FR-002e, and FR-002f, and remove the current mismatch between plan layout and task paths.
 
 Required task coverage:
 
@@ -155,6 +155,23 @@ Task generation rules:
 - Ensure no task assumes admin update behavior that the contracts still do not define.
 ```
 
+## Recommended Checklist Scoring
+
+```text
+[$speckit-checklist](/home/ai/clawd/projects/kalshi-quant-dashboard/.agents/skills/speckit-checklist/SKILL.md) Review spec.md, plan.md, tasks.md, and checklist artifacts before implementation.
+
+Score `requirements.md` and `quality.md` completely:
+- mark every checklist item PASS or FAIL
+- cite the artifact that satisfies each PASS item
+- do not leave any checklist item unchecked
+
+If any checklist item is FAIL or unchecked:
+- return BLOCKED
+- list the exact failed items
+- state whether spec.md, plan.md, or tasks.md must change
+- do not recommend implementation
+```
+
 ## Re-Analyze Remaining Issues
 
 ```text
@@ -169,4 +186,6 @@ Also verify:
 - the RBAC/session contracts and OpenAPI are aligned
 - no task assumes admin update behavior that the contracts do not define
 - no new contradictions were introduced while expanding the admin control surface
+
+Treat any FAIL or unchecked item in `requirements.md` or `quality.md` as a blocking issue.
 ```

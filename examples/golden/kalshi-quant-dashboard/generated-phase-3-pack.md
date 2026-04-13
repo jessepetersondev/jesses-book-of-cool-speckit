@@ -14,7 +14,7 @@ Use this after strict phased mode is active and the earlier ingestion-heavy phas
 ```text
 [$speckit-implement](/home/ai/clawd/projects/kalshi-quant-dashboard/.agents/skills/speckit-implement/SKILL.md) Implement Phase 3 only for 001-quant-ops-dashboard.
 
-Before coding, read spec.md, plan.md, checklist artifacts, data-model.md, contracts/*, quickstart.md, and tasks.md. Identify the exact task IDs for this phase and any prerequisites, then implement only that set.
+Before coding, read spec.md, plan.md, scored checklist artifacts, data-model.md, contracts/*, quickstart.md, and tasks.md. Identify the exact task IDs for this phase and any prerequisites, then implement only that set.
 
 Phase 3 scope:
 - Implement authentication and session handling as planned.
@@ -27,6 +27,8 @@ Phase 3 scope:
 - Keep OpenAPI/contracts, handlers, schemas, and docs synchronized.
 
 Do not implement the full visual UI layer in this run.
+
+Stop and return BLOCKED if `requirements.md` or `quality.md` contains any FAIL or unchecked item.
 
 Validation required:
 - contract tests pass for REST and live-update surfaces

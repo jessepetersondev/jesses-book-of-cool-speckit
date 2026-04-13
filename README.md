@@ -53,13 +53,14 @@ Observed base skills:
 ## The Core Loop
 
 ```text
-constitution -> specify -> clarify -> plan -> checklist -> tasks -> analyze -> implement
+constitution -> specify -> clarify -> plan -> checklist create -> tasks -> checklist score -> analyze -> implement
 ```
 
 What matters:
 
 - the prompt body carries the real operating constraints
 - every command leaves an artifact the next command depends on
+- `requirements.md` and `quality.md` must be fully PASS before implementation
 - `analyze` is a gate, not a report
 - large builds should split into multiple `speckit-implement` runs
 
@@ -97,7 +98,8 @@ flowchart TD
 2. Choose the workflow that matches the job.
 3. Fill a template manually or generate a prompt pack with [scripts/generate-prompt-pack.sh](scripts/generate-prompt-pack.sh).
 4. Paste one block at a time into Codex. Do not paste the whole file as one mega-prompt.
-5. Inspect each artifact before moving on. If `analyze` finds drift, repair the artifacts before coding.
+5. Score `requirements.md` and `quality.md` after `tasks` and before `implement`.
+6. Inspect each artifact before moving on. If `analyze` finds drift, repair the artifacts before coding.
 
 Sample generation commands:
 
@@ -147,7 +149,8 @@ Generated dashboard pack sequence:
 | Control point | Purpose |
 |---|---|
 | `clarify` before `plan` | Stops vague scope from hardening into bad architecture |
-| `checklist` before `tasks` | Forces quality gates before implementation starts |
+| `checklist` before `tasks` | Creates the quality gates that tasks and analysis must satisfy |
+| `checklist` review after `tasks` | Forces `requirements.md` and `quality.md` into a fully scored PASS/FAIL gate before implementation |
 | `analyze` before `implement` | Catches drift while it is still cheap to fix |
 | phased `implement` runs | Keeps large builds dependency-closed and easier to validate |
 

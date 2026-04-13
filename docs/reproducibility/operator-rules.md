@@ -19,24 +19,28 @@ These are the non-obvious manual rules behind the repo. They are the difference 
 5. Create checklist artifacts before implementation.
    The repo should have explicit checklist files before coding starts.
 
-6. Treat `analyze` as a gate, not a report.
+6. Score checklist artifacts after `tasks` and before implementation.
+   `requirements.md` and `quality.md` are not ready until every item is marked PASS or FAIL.
+
+7. Treat `analyze` as a gate, not a report.
    If drift is found, repair the artifacts first.
 
-7. Use multiple `speckit-implement` runs for large systems.
+8. Use multiple `speckit-implement` runs for large systems.
    Large features should be broken into dependency-closed phases.
 
-8. Keep each phase narrow and dependency-closed.
+9. Keep each phase narrow and dependency-closed.
    The phase prompt should say exactly what belongs in the run and exactly what does not.
 
-9. Update `tasks.md` as implementation progresses.
+10. Update `tasks.md` as implementation progresses.
    A phased build is easier to control when task status stays in sync with the actual code.
 
-10. End every phase with validation.
+11. End every phase with validation.
     The dashboard-style pattern is not complete until lint, typecheck, tests, and build have all run.
 
 ## Observed Manual Behaviors Worth Preserving
 
 - create named checklist files before `speckit-implement`
+- score checklist files completely before `speckit-implement`
 - create `dashboard.md` first when the workflow depends on a concrete dashboard artifact
 - repeat the same `speckit-implement` prompt when the phase needs another controlled pass
 - re-open and re-close drifted tasks when contracts or runtime behavior change late

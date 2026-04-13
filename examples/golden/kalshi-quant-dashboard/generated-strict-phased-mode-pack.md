@@ -23,12 +23,13 @@ create the dashboard.md first
 [$speckit-implement](/home/ai/clawd/projects/kalshi-quant-dashboard/.agents/skills/speckit-implement/SKILL.md) For the active 001-quant-ops-dashboard feature, work in strict phased mode for all subsequent implementation runs.
 
 For every phase:
-- Read spec.md, plan.md, checklist artifacts, data-model.md, contracts/*, quickstart.md, and tasks.md before coding.
+- Read spec.md, plan.md, scored checklist artifacts, data-model.md, contracts/*, quickstart.md, and tasks.md before coding.
 - Identify the exact task IDs in scope for the phase plus any direct prerequisite tasks. List them first.
 - Implement only that dependency-closed set. Do not jump ahead.
 - Update task status in tasks.md as tasks are actually completed.
 - Keep code, contracts, schema, docs, and tests aligned. Do not leave TODOs, placeholders, fake health data, or mock-only production paths.
 - Run lint, typecheck, tests, and build for every touched package before stopping.
+- Stop and return BLOCKED if `requirements.md` or `quality.md` contains any FAIL or unchecked item.
 - End each phase with:
   1. completed task IDs
   2. files changed

@@ -39,22 +39,24 @@ Command pattern:
 2. `speckit-specify`
 3. `speckit-clarify`
 4. `speckit-plan`
-5. `speckit-checklist`
+5. `speckit-checklist` to create or refresh checklist artifacts
 6. `speckit-tasks`
-7. `speckit-analyze`
-8. `speckit-implement`
+7. `speckit-checklist` to score `requirements.md` and `quality.md`
+8. `speckit-analyze`
+9. `speckit-implement`
 
 Why this pattern exists:
 
 - new products usually have fuzzy scope
 - `clarify` removes ambiguity before technical design hardens the wrong assumptions
 - `analyze` catches overbuilt plans before code churn starts
+- checklist scoring prevents unchecked gates from slipping into implementation
 
 Control points:
 
 - keep the scope narrow in the `specify` prompt
 - use `clarify` to resolve missing decisions before planning
-- do not implement until tasks are granular and verified
+- do not implement until tasks are granular and both `requirements.md` and `quality.md` are fully PASS
 
 Kalshi example:
 
@@ -75,20 +77,23 @@ Command pattern:
 3. `speckit-plan` for the incremental technical impact only
 4. `speckit-checklist` for migration quality and parity
 5. `speckit-tasks` for delta-only work
-6. `speckit-analyze` for scope creep and drift
-7. `speckit-implement` with strict minimal-diff language
+6. `speckit-checklist` to score `requirements.md` and `quality.md`
+7. `speckit-analyze` for scope creep and drift
+8. `speckit-implement` with strict minimal-diff language
 
 Why this pattern exists:
 
 - the main risk is accidental rewrite of working behavior
 - unchanged behavior must be explicit, not implied
 - tasks must cover parity validation, not just new logic
+- checklist scoring forces parity and readiness to be explicit before code starts
 
 Control points:
 
 - treat the current implementation as the baseline unless the approved delta says otherwise
 - force minimal changed files and minimal changed lines
 - reject any plan or task list that broadens the project
+- do not implement until both `requirements.md` and `quality.md` are fully PASS
 
 Kalshi examples:
 
@@ -111,9 +116,10 @@ Command pattern:
 4. revise `plan.md`
 5. refresh checklist artifacts
 6. regenerate `tasks.md`
-7. re-run `speckit-analyze`
-8. set strict phased mode
-9. run multiple scoped `speckit-implement` passes
+7. score `requirements.md` and `quality.md`
+8. re-run `speckit-analyze`
+9. set strict phased mode
+10. run multiple scoped `speckit-implement` passes
 
 Typical implement pass naming:
 
@@ -126,6 +132,7 @@ Why this pattern exists:
 - one giant `implement` run leaks scope
 - validation gets noisy when contracts, backend, and UI all move at once
 - smaller dependency-closed phases are easier to debug and correct
+- checklist scoring catches unresolved readiness gaps before phased coding begins
 
 Control points:
 
@@ -133,6 +140,7 @@ Control points:
 - each pass should end with validation and the next recommended phase
 - later phases must not leak into the current run
 - phase boundaries should be visible in the prompt body, not implied
+- do not start any phase while `requirements.md` or `quality.md` has a FAIL or unchecked item
 
 Kalshi example:
 
@@ -142,9 +150,9 @@ Kalshi example:
 
 | Pattern | Primary risk | Control mechanism |
 |---|---|---|
-| Greenfield | vague scope turns into overbuilt architecture | `clarify` before `plan`, then `analyze` before code |
-| Brownfield | accidental rewrite of working behavior | delta-only prompts, parity checklist, minimal-diff implementation |
-| Phased | one large run leaks scope and validation gets noisy | phase boundaries, repeated validation, multiple `implement` passes |
+| Greenfield | vague scope turns into overbuilt architecture | `clarify` before `plan`, then checklist scoring and `analyze` before code |
+| Brownfield | accidental rewrite of working behavior | delta-only prompts, parity checklist scoring, minimal-diff implementation |
+| Phased | one large run leaks scope and validation gets noisy | phase boundaries, checklist scoring, repeated validation, multiple `implement` passes |
 
 ## Anti-Patterns To Avoid
 

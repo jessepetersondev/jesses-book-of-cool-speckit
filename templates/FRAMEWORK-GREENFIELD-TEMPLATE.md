@@ -10,7 +10,7 @@ How to use this file:
 2. paste each section as its own prompt
 3. inspect the generated artifact after each step
 4. do not move to `plan` until `clarify` closes major ambiguity
-5. do not move to `implement` until `analyze` says the artifacts are ready
+5. do not move to `implement` until `requirements.md` and `quality.md` are fully PASS and `analyze` says the artifacts are ready
 
 ## Constitution
 
@@ -107,23 +107,22 @@ Do not generate implementation tasks yet.
 ## Checklist
 
 ```text
-[$speckit-checklist]({REPO_PATH}/.agents/skills/speckit-checklist/SKILL.md) Generate a quality checklist for the approved spec and plan.
+[$speckit-checklist]({REPO_PATH}/.agents/skills/speckit-checklist/SKILL.md) Generate or refresh checklist artifacts for the approved spec and plan.
 
-The checklist should verify:
-- scope remains narrow
-- requirements are complete enough for implementation
-- user stories are testable
-- plan.md remains aligned to spec.md
-- there are no vague or unverifiable acceptance criteria
+Create at minimum:
+- `requirements.md` for requirements completeness, scope boundaries, acceptance criteria, and user-story testability
+- `quality.md` for implementation readiness, cross-artifact alignment, validation gates, and operational risk
 
-Create a single general quality checklist if possible.
-Name it quality.md if the template allows.
+Checklist rules:
+- keep checklist items concrete and reviewable
+- write checklist items so they can clearly PASS or FAIL
+- create deeper domain-specific checklists too when the feature needs them
 ```
 
 ## Tasks
 
 ```text
-[$speckit-tasks]({REPO_PATH}/.agents/skills/speckit-tasks/SKILL.md) Generate actionable implementation tasks from the approved spec.md and plan.md.
+[$speckit-tasks]({REPO_PATH}/.agents/skills/speckit-tasks/SKILL.md) Generate actionable implementation tasks from the approved spec.md, plan.md, and checklist artifacts.
 
 Task generation requirements:
 - organize tasks by user story
@@ -134,10 +133,27 @@ Task generation requirements:
 - ensure every task has a verifiable completion condition
 ```
 
+## Checklist Review Gate
+
+```text
+[$speckit-checklist]({REPO_PATH}/.agents/skills/speckit-checklist/SKILL.md) Review spec.md, plan.md, tasks.md, and checklist artifacts against the current implementation plan.
+
+Score `requirements.md` and `quality.md` completely:
+- mark every checklist item PASS or FAIL
+- cite the artifact that satisfies each PASS item
+- do not leave any checklist item unchecked
+
+If any checklist item is FAIL or unchecked:
+- return BLOCKED
+- list the exact failed items
+- state whether spec.md, plan.md, or tasks.md must change
+- do not recommend implementation
+```
+
 ## Analyze
 
 ```text
-[$speckit-analyze]({REPO_PATH}/.agents/skills/speckit-analyze/SKILL.md) Analyze spec.md, plan.md, tasks.md, and the quality checklist for consistency and implementation readiness.
+[$speckit-analyze]({REPO_PATH}/.agents/skills/speckit-analyze/SKILL.md) Analyze spec.md, plan.md, tasks.md, and the scored checklist artifacts for consistency and implementation readiness.
 
 Find:
 - contradictions between scope and plan
@@ -145,14 +161,18 @@ Find:
 - missing task coverage
 - missing quality-gate coverage
 - architecture that is too broad for the intended release
+
+Treat any FAIL or unchecked item in `requirements.md` or `quality.md` as a blocking issue.
 ```
 
 ## Implement
 
 ```text
-[$speckit-implement]({REPO_PATH}/.agents/skills/speckit-implement/SKILL.md) Implement the project strictly from spec.md, plan.md, tasks.md, and the quality checklist.
+[$speckit-implement]({REPO_PATH}/.agents/skills/speckit-implement/SKILL.md) Implement the project strictly from spec.md, plan.md, tasks.md, and the scored checklist artifacts.
 
 Rules:
+- only proceed if `requirements.md` and `quality.md` are fully PASS
+- if any checklist item is FAIL or unchecked, stop and return BLOCKED instead of asking to proceed anyway
 - do not expand scope beyond the approved release
 - preserve alignment between code, contracts, docs, and tests
 - after each checkpoint, report what was implemented, what was validated, what remains, and any blockers

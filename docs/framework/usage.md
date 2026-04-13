@@ -99,7 +99,8 @@ At minimum, check that:
 
 - `spec.md` matches the requested scope
 - `plan.md` solves the scope you actually approved
-- `quality.md` or checklist items are concrete and testable
+- `requirements.md` and `quality.md` both exist
+- every checklist item is concrete enough to PASS or FAIL
 - `tasks.md` is granular and covers validation
 
 If one of those artifacts is weak, fix it before moving forward.
@@ -114,8 +115,9 @@ The normal pattern is:
 4. design the system
 5. create quality gates
 6. generate tasks
-7. analyze for drift
-8. implement
+7. score `requirements.md` and `quality.md`
+8. analyze for drift
+9. implement
 
 ## 10. What To Do When The Artifacts Drift
 
@@ -131,7 +133,7 @@ Then go back and revise the source artifact. Do not just note the problem and ke
 Typical correction loop:
 
 ```text
-analyze -> revise spec -> revise plan -> refresh checklist -> regenerate tasks -> analyze again -> implement
+analyze -> revise spec -> revise plan -> refresh checklist -> regenerate tasks -> score checklists -> analyze again -> implement
 ```
 
 Use the routing table here:
@@ -157,6 +159,7 @@ To reproduce the same operating style every time:
 
 - keep the command order stable
 - adapt only the prompt body and scope bullets
+- require `requirements.md` and `quality.md` to be fully PASS before implementation
 - use the same analyze gate before implementation
 - split large builds into multiple `speckit-implement` runs
 - preserve unchanged behavior explicitly in brownfield work

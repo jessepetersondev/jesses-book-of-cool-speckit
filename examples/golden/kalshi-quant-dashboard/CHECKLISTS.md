@@ -9,6 +9,8 @@ Real source files:
 
 The dashboard run did not use a checklist as decoration. The checklists acted as review gates before planning and implementation.
 
+In the current framework, checklist creation is not enough on its own. `requirements.md` and `quality.md` must also be fully scored before `speckit-implement`.
+
 ## Dashboard Checklist Categories
 
 The deep checklist reviews:
@@ -35,6 +37,8 @@ The high-level checklist validates:
 
 If you want similar results:
 
-- create at least one checklist before coding
+- create `requirements.md` and `quality.md` before coding
 - make the checklist strong enough to reject a weak spec or plan
+- score every checklist item PASS or FAIL before implementation
+- treat unchecked items as blocking, not informational
 - keep both a deep operational checklist and a high-level spec quality checklist when the product is large
