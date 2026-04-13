@@ -68,7 +68,7 @@ flowchart LR
 
 ## Related Repo Docs
 
-- [REPRODUCE.md](../../../REPRODUCE.md)
-- [RERUN-ROUTING.md](../../../RERUN-ROUTING.md)
-- [VALIDATION-RUBRIC.md](../../../VALIDATION-RUBRIC.md)
+- [reproduce.md](../../../docs/reproducibility/reproduce.md)
+- [rerun-routing.md](../../../docs/reproducibility/rerun-routing.md)
+- [validation-rubric.md](../../../docs/reproducibility/validation-rubric.md)
 - [templates/FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md](../../../templates/FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md)

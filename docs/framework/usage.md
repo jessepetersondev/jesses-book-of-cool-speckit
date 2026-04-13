@@ -13,19 +13,19 @@ specify init . --ai codex --ai-skills --force
 Or use:
 
 ```bash
-./scripts/bootstrap-speckit-repo.sh /path/to/repo
+../../scripts/bootstrap-speckit-repo.sh /path/to/repo
 ```
 
 ## 2. Verify The Repo
 
 ```bash
-./scripts/verify-speckit-setup.sh /path/to/repo
+../../scripts/verify-speckit-setup.sh /path/to/repo
 ```
 
 ## 3. Generate A Skill Link
 
 ```bash
-./scripts/skill-link.sh /path/to/repo speckit-plan
+../../scripts/skill-link.sh /path/to/repo speckit-plan
 ```
 
 Example output:
@@ -38,30 +38,30 @@ Example output:
 
 Use:
 
-- [FRAMEWORK-GREENFIELD-TEMPLATE.md](templates/FRAMEWORK-GREENFIELD-TEMPLATE.md) for new products
-- [FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md](templates/FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md) for existing apps where only one narrow change is allowed
-- [FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md](templates/FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md) for large systems that need multiple implementation passes
+- [FRAMEWORK-GREENFIELD-TEMPLATE.md](../../templates/FRAMEWORK-GREENFIELD-TEMPLATE.md) for new products
+- [FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md](../../templates/FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md) for existing apps where only one narrow change is allowed
+- [FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md](../../templates/FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md) for large systems that need multiple implementation passes
 
 ## 5. Generate Or Fill A Prompt Pack
 
 You can either fill the template manually or generate a prompt pack:
 
 ```bash
-./scripts/generate-prompt-pack.sh \
+../../scripts/generate-prompt-pack.sh \
   --workflow phased \
-  --vars-file examples/golden/kalshi-quant-dashboard/prompt-pack-values.env \
+  --vars-file ../../examples/golden/kalshi-quant-dashboard/prompt-pack-values.env \
   --out /tmp/prompt-pack.md
 ```
 
 Generated example:
 
-- [examples/golden/kalshi-quant-dashboard/generated-phase-2-pack.md](examples/golden/kalshi-quant-dashboard/generated-phase-2-pack.md)
+- [examples/golden/kalshi-quant-dashboard/generated-phase-2-pack.md](../../examples/golden/kalshi-quant-dashboard/generated-phase-2-pack.md)
 
 Ready-to-run vars files:
 
-- phased dashboard example: [examples/golden/kalshi-quant-dashboard/prompt-pack-values.env](examples/golden/kalshi-quant-dashboard/prompt-pack-values.env)
-- greenfield sample: [examples/SAMPLE-GREENFIELD-VALUES.env](examples/SAMPLE-GREENFIELD-VALUES.env)
-- brownfield sample: [examples/SAMPLE-BROWNFIELD-VALUES.env](examples/SAMPLE-BROWNFIELD-VALUES.env)
+- phased dashboard example: [examples/golden/kalshi-quant-dashboard/prompt-pack-values.env](../../examples/golden/kalshi-quant-dashboard/prompt-pack-values.env)
+- greenfield sample: [examples/SAMPLE-GREENFIELD-VALUES.env](../../examples/SAMPLE-GREENFIELD-VALUES.env)
+- brownfield sample: [examples/SAMPLE-BROWNFIELD-VALUES.env](../../examples/SAMPLE-BROWNFIELD-VALUES.env)
 
 ## 6. Fill In The Template
 
@@ -136,7 +136,7 @@ analyze -> revise spec -> revise plan -> regenerate tasks -> analyze again -> im
 
 Use the routing table here:
 
-- [RERUN-ROUTING.md](RERUN-ROUTING.md)
+- [rerun-routing.md](../reproducibility/rerun-routing.md)
 
 ## 11. When To Split Into Multiple Implement Runs
 
@@ -163,8 +163,8 @@ To reproduce the same operating style every time:
 
 See also:
 
-- [REPRODUCE.md](REPRODUCE.md)
-- [REPRODUCIBILITY.md](REPRODUCIBILITY.md)
-- [VALIDATION-RUBRIC.md](VALIDATION-RUBRIC.md)
-- [examples/golden/kalshi-quant-dashboard/BEFORE-AND-AFTER-ANALYZE.md](examples/golden/kalshi-quant-dashboard/BEFORE-AND-AFTER-ANALYZE.md)
-- [examples/golden/kalshi-quant-dashboard/README.md](examples/golden/kalshi-quant-dashboard/README.md)
+- [reproduce.md](../reproducibility/reproduce.md)
+- [reproducibility.md](../reproducibility/reproducibility.md)
+- [validation-rubric.md](../reproducibility/validation-rubric.md)
+- [examples/golden/kalshi-quant-dashboard/BEFORE-AND-AFTER-ANALYZE.md](../../examples/golden/kalshi-quant-dashboard/BEFORE-AND-AFTER-ANALYZE.md)
+- [examples/golden/kalshi-quant-dashboard/README.md](../../examples/golden/kalshi-quant-dashboard/README.md)

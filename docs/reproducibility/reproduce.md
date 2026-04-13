@@ -51,18 +51,18 @@ flowchart TD
 
 4. Start from the phased template:
 
-   - [templates/FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md](templates/FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md)
+   - [templates/FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md](../../templates/FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md)
 
 5. Use the real dashboard example set as the worked reference:
 
-   - [examples/KALSHI-EXAMPLES.md](examples/KALSHI-EXAMPLES.md)
-   - [examples/EXAMPLE-KALSHI-DASHBOARD-01-INITIAL-BUILD.md](examples/EXAMPLE-KALSHI-DASHBOARD-01-INITIAL-BUILD.md)
-   - [examples/EXAMPLE-KALSHI-DASHBOARD-02-PRE-IMPLEMENT-REVISION.md](examples/EXAMPLE-KALSHI-DASHBOARD-02-PRE-IMPLEMENT-REVISION.md)
-   - [examples/EXAMPLE-KALSHI-DASHBOARD-03-STRICT-PHASED-MODE.md](examples/EXAMPLE-KALSHI-DASHBOARD-03-STRICT-PHASED-MODE.md)
-   - [examples/EXAMPLE-KALSHI-DASHBOARD-04-PHASE-2.md](examples/EXAMPLE-KALSHI-DASHBOARD-04-PHASE-2.md)
-   - [examples/EXAMPLE-KALSHI-DASHBOARD-05-PHASE-3.md](examples/EXAMPLE-KALSHI-DASHBOARD-05-PHASE-3.md)
-   - [examples/EXAMPLE-KALSHI-DASHBOARD-06-PHASE-4.md](examples/EXAMPLE-KALSHI-DASHBOARD-06-PHASE-4.md)
-   - [examples/golden/kalshi-quant-dashboard/BEFORE-AND-AFTER-ANALYZE.md](examples/golden/kalshi-quant-dashboard/BEFORE-AND-AFTER-ANALYZE.md)
+   - [examples/KALSHI-EXAMPLES.md](../../examples/KALSHI-EXAMPLES.md)
+   - [examples/EXAMPLE-KALSHI-DASHBOARD-01-INITIAL-BUILD.md](../../examples/EXAMPLE-KALSHI-DASHBOARD-01-INITIAL-BUILD.md)
+   - [examples/EXAMPLE-KALSHI-DASHBOARD-02-PRE-IMPLEMENT-REVISION.md](../../examples/EXAMPLE-KALSHI-DASHBOARD-02-PRE-IMPLEMENT-REVISION.md)
+   - [examples/EXAMPLE-KALSHI-DASHBOARD-03-STRICT-PHASED-MODE.md](../../examples/EXAMPLE-KALSHI-DASHBOARD-03-STRICT-PHASED-MODE.md)
+   - [examples/EXAMPLE-KALSHI-DASHBOARD-04-PHASE-2.md](../../examples/EXAMPLE-KALSHI-DASHBOARD-04-PHASE-2.md)
+   - [examples/EXAMPLE-KALSHI-DASHBOARD-05-PHASE-3.md](../../examples/EXAMPLE-KALSHI-DASHBOARD-05-PHASE-3.md)
+   - [examples/EXAMPLE-KALSHI-DASHBOARD-06-PHASE-4.md](../../examples/EXAMPLE-KALSHI-DASHBOARD-06-PHASE-4.md)
+   - [examples/golden/kalshi-quant-dashboard/BEFORE-AND-AFTER-ANALYZE.md](../../examples/golden/kalshi-quant-dashboard/BEFORE-AND-AFTER-ANALYZE.md)
 
 6. Run the initial build prompt set first.
    Expected artifacts after this stage:
@@ -76,8 +76,8 @@ flowchart TD
 
 7. Inspect the artifacts before coding.
    Use the quality bar in:
-   - [examples/golden/kalshi-quant-dashboard/README.md](examples/golden/kalshi-quant-dashboard/README.md)
-   - [VALIDATION-RUBRIC.md](VALIDATION-RUBRIC.md)
+   - [examples/golden/kalshi-quant-dashboard/README.md](../../examples/golden/kalshi-quant-dashboard/README.md)
+   - [validation-rubric.md](validation-rubric.md)
 
 8. Run the pre-implement revision cycle.
    The required loop is:
@@ -109,24 +109,24 @@ flowchart TD
 Use the generator script with the dashboard example values:
 
 ```bash
-./scripts/generate-prompt-pack.sh \
+../../scripts/generate-prompt-pack.sh \
   --workflow phased \
-  --vars-file examples/golden/kalshi-quant-dashboard/prompt-pack-values.env \
+  --vars-file ../../examples/golden/kalshi-quant-dashboard/prompt-pack-values.env \
   --out /tmp/kalshi-quant-dashboard-phase-2-pack.md
 ```
 
 Reference generated sample:
 
-- [examples/golden/kalshi-quant-dashboard/generated-phase-2-pack.md](examples/golden/kalshi-quant-dashboard/generated-phase-2-pack.md)
+- [examples/golden/kalshi-quant-dashboard/generated-phase-2-pack.md](../../examples/golden/kalshi-quant-dashboard/generated-phase-2-pack.md)
 
 Full dashboard pack set:
 
-- [examples/golden/kalshi-quant-dashboard/generated-initial-build-pack.md](examples/golden/kalshi-quant-dashboard/generated-initial-build-pack.md)
-- [examples/golden/kalshi-quant-dashboard/generated-pre-implement-revision-pack.md](examples/golden/kalshi-quant-dashboard/generated-pre-implement-revision-pack.md)
-- [examples/golden/kalshi-quant-dashboard/generated-strict-phased-mode-pack.md](examples/golden/kalshi-quant-dashboard/generated-strict-phased-mode-pack.md)
-- [examples/golden/kalshi-quant-dashboard/generated-phase-2-pack.md](examples/golden/kalshi-quant-dashboard/generated-phase-2-pack.md)
-- [examples/golden/kalshi-quant-dashboard/generated-phase-3-pack.md](examples/golden/kalshi-quant-dashboard/generated-phase-3-pack.md)
-- [examples/golden/kalshi-quant-dashboard/generated-phase-4-pack.md](examples/golden/kalshi-quant-dashboard/generated-phase-4-pack.md)
+- [examples/golden/kalshi-quant-dashboard/generated-initial-build-pack.md](../../examples/golden/kalshi-quant-dashboard/generated-initial-build-pack.md)
+- [examples/golden/kalshi-quant-dashboard/generated-pre-implement-revision-pack.md](../../examples/golden/kalshi-quant-dashboard/generated-pre-implement-revision-pack.md)
+- [examples/golden/kalshi-quant-dashboard/generated-strict-phased-mode-pack.md](../../examples/golden/kalshi-quant-dashboard/generated-strict-phased-mode-pack.md)
+- [examples/golden/kalshi-quant-dashboard/generated-phase-2-pack.md](../../examples/golden/kalshi-quant-dashboard/generated-phase-2-pack.md)
+- [examples/golden/kalshi-quant-dashboard/generated-phase-3-pack.md](../../examples/golden/kalshi-quant-dashboard/generated-phase-3-pack.md)
+- [examples/golden/kalshi-quant-dashboard/generated-phase-4-pack.md](../../examples/golden/kalshi-quant-dashboard/generated-phase-4-pack.md)
 
 ## What Must Be Stable
 

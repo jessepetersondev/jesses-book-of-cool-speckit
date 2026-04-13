@@ -59,9 +59,9 @@ These may change without breaking the operating model:
 
 Ready-to-run inputs now included:
 
-- phased dashboard values: [examples/golden/kalshi-quant-dashboard/prompt-pack-values.env](examples/golden/kalshi-quant-dashboard/prompt-pack-values.env)
-- greenfield sample values: [examples/SAMPLE-GREENFIELD-VALUES.env](examples/SAMPLE-GREENFIELD-VALUES.env)
-- brownfield sample values: [examples/SAMPLE-BROWNFIELD-VALUES.env](examples/SAMPLE-BROWNFIELD-VALUES.env)
+- phased dashboard values: [examples/golden/kalshi-quant-dashboard/prompt-pack-values.env](../../examples/golden/kalshi-quant-dashboard/prompt-pack-values.env)
+- greenfield sample values: [examples/SAMPLE-GREENFIELD-VALUES.env](../../examples/SAMPLE-GREENFIELD-VALUES.env)
+- brownfield sample values: [examples/SAMPLE-BROWNFIELD-VALUES.env](../../examples/SAMPLE-BROWNFIELD-VALUES.env)
 
 ## Dashboard Example Output Surface
 
@@ -78,8 +78,8 @@ The latest real completed-style dashboard run produced:
 
 Use the artifact map here:
 
-- [examples/golden/kalshi-quant-dashboard/ARTIFACT-MAP.md](examples/golden/kalshi-quant-dashboard/ARTIFACT-MAP.md)
-- [examples/golden/kalshi-quant-dashboard/BEFORE-AND-AFTER-ANALYZE.md](examples/golden/kalshi-quant-dashboard/BEFORE-AND-AFTER-ANALYZE.md)
+- [examples/golden/kalshi-quant-dashboard/ARTIFACT-MAP.md](../../examples/golden/kalshi-quant-dashboard/ARTIFACT-MAP.md)
+- [examples/golden/kalshi-quant-dashboard/BEFORE-AND-AFTER-ANALYZE.md](../../examples/golden/kalshi-quant-dashboard/BEFORE-AND-AFTER-ANALYZE.md)
 
 ## Non-Deterministic Points And How To Control Them
 

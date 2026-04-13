@@ -30,7 +30,7 @@
 | Start a brand new app | [templates/FRAMEWORK-GREENFIELD-TEMPLATE.md](templates/FRAMEWORK-GREENFIELD-TEMPLATE.md) | [examples/SAMPLE-GREENFIELD-VALUES.env](examples/SAMPLE-GREENFIELD-VALUES.env) and [examples/EXAMPLE-KALSHI-EDGE-SAAS-GREENFIELD.md](examples/EXAMPLE-KALSHI-EDGE-SAAS-GREENFIELD.md) |
 | Update an existing app with minimal drift | [templates/FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md](templates/FRAMEWORK-BROWNFIELD-APPROVED-DELTA-TEMPLATE.md) | [examples/SAMPLE-BROWNFIELD-VALUES.env](examples/SAMPLE-BROWNFIELD-VALUES.env) and [examples/EXAMPLE-KALSHI-EDGING-APPROVED-DELTA.md](examples/EXAMPLE-KALSHI-EDGING-APPROVED-DELTA.md) |
 | Build a large system in phases | [templates/FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md](templates/FRAMEWORK-PHASED-MULTI-IMPLEMENT-TEMPLATE.md) | [examples/KALSHI-EXAMPLES.md](examples/KALSHI-EXAMPLES.md) and [examples/golden/kalshi-quant-dashboard/README.md](examples/golden/kalshi-quant-dashboard/README.md) |
-| Reproduce the exact operating style | [REPRODUCE.md](REPRODUCE.md) | [REPRODUCIBILITY.md](REPRODUCIBILITY.md), [VALIDATION-RUBRIC.md](VALIDATION-RUBRIC.md), and [examples/golden/kalshi-quant-dashboard/BEFORE-AND-AFTER-ANALYZE.md](examples/golden/kalshi-quant-dashboard/BEFORE-AND-AFTER-ANALYZE.md) |
+| Reproduce the exact operating style | [docs/reproducibility/reproduce.md](docs/reproducibility/reproduce.md) | [docs/reproducibility/reproducibility.md](docs/reproducibility/reproducibility.md), [docs/reproducibility/validation-rubric.md](docs/reproducibility/validation-rubric.md), and [examples/golden/kalshi-quant-dashboard/BEFORE-AND-AFTER-ANALYZE.md](examples/golden/kalshi-quant-dashboard/BEFORE-AND-AFTER-ANALYZE.md) |
 
 ## One Command
 
@@ -159,14 +159,10 @@ Generated dashboard pack sequence:
 
 | Area | Purpose |
 |---|---|
+| [docs/](docs) | Organized framework and reproducibility guides |
 | [templates/](templates) | Reusable workflow templates for greenfield, brownfield, and phased builds |
 | [examples/](examples) | Real preserved prompts and sample generator inputs |
 | [examples/golden/kalshi-quant-dashboard/](examples/golden/kalshi-quant-dashboard) | The strongest worked example with golden artifacts and generated packs |
-| [USAGE.md](USAGE.md) | Practical day-to-day usage guide |
-| [COMMAND-STRUCTURE.md](COMMAND-STRUCTURE.md) | Stripped-down operating reference |
-| [WORKFLOW-PATTERNS.md](WORKFLOW-PATTERNS.md) | Reusable workflow logic and anti-patterns |
-| [REPRODUCE.md](REPRODUCE.md) | End-to-end replay path |
-| [REPRODUCIBILITY.md](REPRODUCIBILITY.md) | Stable controls, environment assumptions, and quality bar |
 | [scripts/](scripts) | Bootstrap, inventory, generator, verification, and self-check helpers |
 | [.github/workflows/repo-ci.yml](.github/workflows/repo-ci.yml) | Repo self-verification in CI |
 
@@ -189,16 +185,17 @@ This repo validates its own framework surface with:
 
 ### Framework Docs
 
-- [USAGE.md](USAGE.md)
-- [COMMAND-STRUCTURE.md](COMMAND-STRUCTURE.md)
-- [WORKFLOW-PATTERNS.md](WORKFLOW-PATTERNS.md)
-- [REPRODUCIBILITY-TASKS.md](REPRODUCIBILITY-TASKS.md)
-- [REPRODUCE.md](REPRODUCE.md)
-- [RERUN-ROUTING.md](RERUN-ROUTING.md)
-- [OPERATOR-RULES.md](OPERATOR-RULES.md)
-- [PROMPT-COOKBOOK.md](PROMPT-COOKBOOK.md)
-- [REPRODUCIBILITY.md](REPRODUCIBILITY.md)
-- [VALIDATION-RUBRIC.md](VALIDATION-RUBRIC.md)
+- [docs/README.md](docs/README.md)
+- [docs/framework/usage.md](docs/framework/usage.md)
+- [docs/framework/command-structure.md](docs/framework/command-structure.md)
+- [docs/framework/workflow-patterns.md](docs/framework/workflow-patterns.md)
+- [docs/reproducibility/reproducibility-tasks.md](docs/reproducibility/reproducibility-tasks.md)
+- [docs/reproducibility/reproduce.md](docs/reproducibility/reproduce.md)
+- [docs/reproducibility/rerun-routing.md](docs/reproducibility/rerun-routing.md)
+- [docs/reproducibility/operator-rules.md](docs/reproducibility/operator-rules.md)
+- [docs/reproducibility/prompt-cookbook.md](docs/reproducibility/prompt-cookbook.md)
+- [docs/reproducibility/reproducibility.md](docs/reproducibility/reproducibility.md)
+- [docs/reproducibility/validation-rubric.md](docs/reproducibility/validation-rubric.md)
 
 ### Templates
 
