@@ -128,7 +128,7 @@ If your first pass leaves policy, contracts, path layout, or verification ambigu
 Run:
 
 ```text
-analyze -> revise spec -> revise plan -> regenerate tasks -> analyze again
+analyze -> revise spec -> revise plan -> refresh checklist -> regenerate tasks -> analyze again
 ```
 
 Then decide whether one `implement` pass is still safe. If not, switch to phased mode before code starts.

@@ -2,6 +2,11 @@
 
 Observed source: `/home/ai/.codex/history.jsonl`, session `019d7c0f-6eff-7920-85ac-aab67a3bc180`
 
+Framework note:
+
+- this preserved prompt omits checklist artifacts in the read-before-coding line
+- the current framework recommendation is to read checklist artifacts before each phase alongside `spec.md`, `plan.md`, and `tasks.md`
+
 Back to [KALSHI-EXAMPLES.md](KALSHI-EXAMPLES.md)
 
 Workflow this example follows:

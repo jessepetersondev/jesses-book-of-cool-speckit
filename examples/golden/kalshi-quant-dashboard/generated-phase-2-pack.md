@@ -23,7 +23,7 @@ How to use this file:
 ## Pre-Implement Revision Cycle
 
 ```text
-[$speckit-analyze](/home/ai/clawd/projects/kalshi-quant-dashboard/.agents/skills/speckit-analyze/SKILL.md) Review the current spec.md, plan.md, and tasks.md for missing coverage, contradictions, or drift before implementation.
+[$speckit-analyze](/home/ai/clawd/projects/kalshi-quant-dashboard/.agents/skills/speckit-analyze/SKILL.md) Review the current spec.md, plan.md, checklist artifacts, and tasks.md for missing coverage, contradictions, or drift before implementation.
 ```
 
 ```text
@@ -35,11 +35,15 @@ How to use this file:
 ```
 
 ```text
-[$speckit-tasks](/home/ai/clawd/projects/kalshi-quant-dashboard/.agents/skills/speckit-tasks/SKILL.md) Regenerate tasks.md from the revised spec and plan. Ensure every remaining issue has explicit implementation and verification coverage.
+[$speckit-checklist](/home/ai/clawd/projects/kalshi-quant-dashboard/.agents/skills/speckit-checklist/SKILL.md) Refresh the implementation quality checklist from the revised spec and plan so the quality gates are current before task regeneration.
 ```
 
 ```text
-[$speckit-analyze](/home/ai/clawd/projects/kalshi-quant-dashboard/.agents/skills/speckit-analyze/SKILL.md) Re-run analysis on the revised artifacts and verify the remaining issues are closed before implementation begins.
+[$speckit-tasks](/home/ai/clawd/projects/kalshi-quant-dashboard/.agents/skills/speckit-tasks/SKILL.md) Regenerate tasks.md from the revised spec, plan, and checklist artifacts. Ensure every remaining issue has explicit implementation and verification coverage.
+```
+
+```text
+[$speckit-analyze](/home/ai/clawd/projects/kalshi-quant-dashboard/.agents/skills/speckit-analyze/SKILL.md) Re-run analysis on the revised artifacts, including checklist coverage, and verify the remaining issues are closed before implementation begins.
 ```
 
 ## Strict Phased Mode
@@ -48,7 +52,7 @@ How to use this file:
 [$speckit-implement](/home/ai/clawd/projects/kalshi-quant-dashboard/.agents/skills/speckit-implement/SKILL.md) For the active feature, work in strict phased mode for all subsequent implementation runs.
 
 For every phase:
-- read spec.md, plan.md, data-model.md, contracts/*, quickstart.md, and tasks.md before coding
+- read spec.md, plan.md, checklist artifacts, data-model.md, contracts/*, quickstart.md, and tasks.md before coding
 - identify the exact task IDs in scope for the phase plus any direct prerequisites
 - implement only that dependency-closed set
 - update task status in tasks.md as tasks are actually completed
@@ -64,7 +68,7 @@ Do not start later phases in this run.
 ```text
 [$speckit-implement](/home/ai/clawd/projects/kalshi-quant-dashboard/.agents/skills/speckit-implement/SKILL.md) Implement Phase 2 only for 001-quant-ops-dashboard.
 
-Before coding, read spec.md, plan.md, data-model.md, contracts/*, quickstart.md, and tasks.md. Identify the exact task IDs for this phase and any prerequisites, then implement only that set.
+Before coding, read spec.md, plan.md, checklist artifacts, data-model.md, contracts/*, quickstart.md, and tasks.md. Identify the exact task IDs for this phase and any prerequisites, then implement only that set.
 
 Phase scope:
 - Implement the canonical normalized event model in code and schema.

@@ -109,10 +109,11 @@ Command pattern:
 2. `speckit-analyze`
 3. revise `spec.md`
 4. revise `plan.md`
-5. regenerate `tasks.md`
-6. re-run `speckit-analyze`
-7. set strict phased mode
-8. run multiple scoped `speckit-implement` passes
+5. refresh checklist artifacts
+6. regenerate `tasks.md`
+7. re-run `speckit-analyze`
+8. set strict phased mode
+9. run multiple scoped `speckit-implement` passes
 
 Typical implement pass naming:
 

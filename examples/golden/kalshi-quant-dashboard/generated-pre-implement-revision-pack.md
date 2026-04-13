@@ -11,6 +11,11 @@
 
 Use this pack after the first artifact pass and before any implementation prompt. This is the exact repair loop that tightened the dashboard artifacts before phased execution.
 
+Framework note:
+
+- the preserved dashboard run did not capture a standalone `speckit-checklist` refresh at this stage
+- the current framework recommendation is to refresh checklist artifacts after revising `plan.md` and before regenerating `tasks.md`
+
 ## Analyze Hidden Assumptions
 
 ```text
@@ -93,6 +98,12 @@ Output requirements:
 - Do not reduce scope to "boolean flag only" authorization.
 - Keep the design contract-first and implementation-ready.
 - Ensure the admin control surface is fully represented across data model, page map, API contracts, and verification strategy.
+```
+
+## Recommended Checklist Refresh
+
+```text
+[$speckit-checklist](/home/ai/clawd/projects/kalshi-quant-dashboard/.agents/skills/speckit-checklist/SKILL.md) Refresh the current checklist artifacts from the revised spec and plan before task regeneration. Ensure the checklist fully covers admin policy control, feature-flag mutation, RBAC/session contract alignment, file-layout consistency, and implementation validation gates.
 ```
 
 ## Regenerate Tasks

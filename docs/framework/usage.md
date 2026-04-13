@@ -131,7 +131,7 @@ Then go back and revise the source artifact. Do not just note the problem and ke
 Typical correction loop:
 
 ```text
-analyze -> revise spec -> revise plan -> regenerate tasks -> analyze again -> implement
+analyze -> revise spec -> revise plan -> refresh checklist -> regenerate tasks -> analyze again -> implement
 ```
 
 Use the routing table here:

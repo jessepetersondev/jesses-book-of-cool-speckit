@@ -15,7 +15,7 @@ Primary source feature:
 - it is the newest completed-style run in the corpus
 - it uses the phased multi-implement workflow
 - it includes a real `spec.md`, `plan.md`, `tasks.md`, data model, contracts, quickstart, and checklists
-- it demonstrates the exact `analyze -> revise -> re-analyze -> phased implement` loop this repo is trying to teach
+- it demonstrates the analyze-driven repair loop this repo teaches before phased implementation begins
 
 ## Read Order
 

@@ -15,7 +15,7 @@ How to use this file:
 ## Pre-Implement Revision Cycle
 
 ```text
-[$speckit-analyze]({REPO_PATH}/.agents/skills/speckit-analyze/SKILL.md) Review the current spec.md, plan.md, and tasks.md for missing coverage, contradictions, or drift before implementation.
+[$speckit-analyze]({REPO_PATH}/.agents/skills/speckit-analyze/SKILL.md) Review the current spec.md, plan.md, checklist artifacts, and tasks.md for missing coverage, contradictions, or drift before implementation.
 ```
 
 ```text
@@ -27,11 +27,15 @@ How to use this file:
 ```
 
 ```text
-[$speckit-tasks]({REPO_PATH}/.agents/skills/speckit-tasks/SKILL.md) Regenerate tasks.md from the revised spec and plan. Ensure every remaining issue has explicit implementation and verification coverage.
+[$speckit-checklist]({REPO_PATH}/.agents/skills/speckit-checklist/SKILL.md) Refresh the implementation quality checklist from the revised spec and plan so the quality gates are current before task regeneration.
 ```
 
 ```text
-[$speckit-analyze]({REPO_PATH}/.agents/skills/speckit-analyze/SKILL.md) Re-run analysis on the revised artifacts and verify the remaining issues are closed before implementation begins.
+[$speckit-tasks]({REPO_PATH}/.agents/skills/speckit-tasks/SKILL.md) Regenerate tasks.md from the revised spec, plan, and checklist artifacts. Ensure every remaining issue has explicit implementation and verification coverage.
+```
+
+```text
+[$speckit-analyze]({REPO_PATH}/.agents/skills/speckit-analyze/SKILL.md) Re-run analysis on the revised artifacts, including checklist coverage, and verify the remaining issues are closed before implementation begins.
 ```
 
 ## Strict Phased Mode
@@ -40,7 +44,7 @@ How to use this file:
 [$speckit-implement]({REPO_PATH}/.agents/skills/speckit-implement/SKILL.md) For the active feature, work in strict phased mode for all subsequent implementation runs.
 
 For every phase:
-- read spec.md, plan.md, data-model.md, contracts/*, quickstart.md, and tasks.md before coding
+- read spec.md, plan.md, checklist artifacts, data-model.md, contracts/*, quickstart.md, and tasks.md before coding
 - identify the exact task IDs in scope for the phase plus any direct prerequisites
 - implement only that dependency-closed set
 - update task status in tasks.md as tasks are actually completed
@@ -56,7 +60,7 @@ Do not start later phases in this run.
 ```text
 [$speckit-implement]({REPO_PATH}/.agents/skills/speckit-implement/SKILL.md) Implement {PHASE_NAME} only for {FEATURE_ID}.
 
-Before coding, read spec.md, plan.md, data-model.md, contracts/*, quickstart.md, and tasks.md. Identify the exact task IDs for this phase and any prerequisites, then implement only that set.
+Before coding, read spec.md, plan.md, checklist artifacts, data-model.md, contracts/*, quickstart.md, and tasks.md. Identify the exact task IDs for this phase and any prerequisites, then implement only that set.
 
 Phase scope:
 - {PHASE_SCOPE_1}

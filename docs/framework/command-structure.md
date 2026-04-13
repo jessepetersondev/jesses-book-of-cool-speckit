@@ -116,6 +116,7 @@ Run rule:
 speckit-analyze
 speckit-specify
 speckit-plan
+speckit-checklist
 speckit-tasks
 speckit-analyze
 speckit-implement strict phased mode
@@ -128,6 +129,7 @@ speckit-implement phase 3
 Intent:
 
 - stabilize the artifacts first
+- refresh quality gates before regenerating task coverage
 - lock the implementation into phase boundaries
 - implement one dependency-closed slice at a time
 

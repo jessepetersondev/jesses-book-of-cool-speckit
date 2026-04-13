@@ -14,7 +14,7 @@ Use this only after the backend, contract, and live-update surfaces already vali
 ```text
 [$speckit-implement](/home/ai/clawd/projects/kalshi-quant-dashboard/.agents/skills/speckit-implement/SKILL.md) Implement Phase 4 only for 001-quant-ops-dashboard.
 
-Before coding, read spec.md, plan.md, data-model.md, contracts/*, quickstart.md, and tasks.md. Identify the exact task IDs for this phase and any prerequisites, then implement only that set.
+Before coding, read spec.md, plan.md, checklist artifacts, data-model.md, contracts/*, quickstart.md, and tasks.md. Identify the exact task IDs for this phase and any prerequisites, then implement only that set.
 
 Phase 4 scope:
 - Implement the React web app using Hooks, TypeScript, Redux Toolkit, RTK Query, and React Router according to the plan.

@@ -4,6 +4,11 @@ Observed source: `/home/ai/.codex/history.jsonl`, session `019d7c0f-6eff-7920-85
 
 This is the exact revision pass that happened before the phased `speckit-implement` runs.
 
+Framework note:
+
+- this preserved historical pass did not include a standalone `speckit-checklist` refresh
+- the current framework template now inserts `speckit-checklist` after `speckit-plan` and before `speckit-tasks`
+
 Back to [KALSHI-EXAMPLES.md](KALSHI-EXAMPLES.md)
 
 Workflow this example follows:
@@ -21,7 +26,7 @@ Dashboard read order:
 
 What this file captures:
 
-- the `analyze -> revise spec -> revise plan -> regenerate tasks -> analyze again` gate
+- the historical `analyze -> revise spec -> revise plan -> regenerate tasks -> analyze again` gate
 - the artifact-stabilization work that happens before phased implementation begins
 
 Previous file:

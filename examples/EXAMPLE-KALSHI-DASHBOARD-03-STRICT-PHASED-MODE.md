@@ -8,6 +8,11 @@ Observed extra manual step immediately before this:
 create the dashboard.md first
 ```
 
+Framework note:
+
+- this preserved prompt shows what the dashboard run said at the time
+- the current framework recommendation is to read checklist artifacts alongside `spec.md`, `plan.md`, and `tasks.md` before coding each phase
+
 Back to [KALSHI-EXAMPLES.md](KALSHI-EXAMPLES.md)
 
 Workflow this example follows:

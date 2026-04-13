@@ -19,7 +19,7 @@ flowchart TD
     C --> D[Initial Build Prompt Set]
     D --> E[spec.md + plan.md + data-model.md + contracts + checklists + tasks.md]
     E --> F[Pre-Implement Analyze]
-    F --> G[Revise Spec / Plan / Tasks]
+    F --> G[Revise Spec / Plan / Checklist / Tasks]
     G --> H[Re-Analyze]
     H --> I[Enable Strict Phased Mode]
     I --> J[Implement One Phase]
@@ -83,7 +83,7 @@ flowchart TD
    The required loop is:
 
    ```text
-   analyze -> revise spec -> revise plan -> regenerate tasks -> analyze again
+   analyze -> revise spec -> revise plan -> refresh checklist -> regenerate tasks -> analyze again
    ```
 
 9. Turn on strict phased mode.
