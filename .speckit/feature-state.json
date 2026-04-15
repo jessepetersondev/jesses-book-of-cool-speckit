@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "features": [
+    {
+      "feature_id": "001-quant-ops-dashboard",
+      "latest_snapshot_id": "sha256:5d60be175b9f7efef8660592afaf62ac771536b5a24ac55a8720ffed7ca248b1",
+      "canonical_artifacts": [
+        "specs/001-quant-ops-dashboard/checklists/quality.md",
+        "specs/001-quant-ops-dashboard/checklists/requirements.md",
+        "specs/001-quant-ops-dashboard/contracts/dashboard-api.md",
+        "specs/001-quant-ops-dashboard/data-model.md",
+        "specs/001-quant-ops-dashboard/phase-plan.json",
+        "specs/001-quant-ops-dashboard/plan.md",
+        "specs/001-quant-ops-dashboard/quickstart.md",
+        "specs/001-quant-ops-dashboard/spec.md",
+        "specs/001-quant-ops-dashboard/tasks.json",
+        "specs/001-quant-ops-dashboard/tasks.md"
+      ],
+      "accepted_phase_summaries": [
+        "initial-build",
+        "pre-implement-revision",
+        "strict-phased-mode",
+        "phase-2",
+        "phase-3",
+        "phase-4"
+      ],
+      "phase_plan_path": "specs/001-quant-ops-dashboard/phase-plan.json",
+      "tasks_path": "specs/001-quant-ops-dashboard/tasks.json",
+      "phase_summary_dir": "specs/001-quant-ops-dashboard/phase-summaries",
+      "generated_pack_dir": "generated/001-quant-ops-dashboard/phase-packs",
+      "phase_packs": [
+        {
+          "phase_id": "initial-build",
+          "path": "generated/001-quant-ops-dashboard/phase-packs/initial-build.md",
+          "snapshot_id": "sha256:5d60be175b9f7efef8660592afaf62ac771536b5a24ac55a8720ffed7ca248b1",
+          "task_ids": [],
+          "dependency_task_ids": []
+        },
+        {
+          "phase_id": "pre-implement-revision",
+          "path": "generated/001-quant-ops-dashboard/phase-packs/pre-implement-revision.md",
+          "snapshot_id": "sha256:5d60be175b9f7efef8660592afaf62ac771536b5a24ac55a8720ffed7ca248b1",
+          "task_ids": [],
+          "dependency_task_ids": []
+        },
+        {
+          "phase_id": "strict-phased-mode",
+          "path": "generated/001-quant-ops-dashboard/phase-packs/strict-phased-mode.md",
+          "snapshot_id": "sha256:5d60be175b9f7efef8660592afaf62ac771536b5a24ac55a8720ffed7ca248b1",
+          "task_ids": [],
+          "dependency_task_ids": []
+        },
+        {
+          "phase_id": "phase-2",
+          "path": "generated/001-quant-ops-dashboard/phase-packs/phase-2.md",
+          "snapshot_id": "sha256:5d60be175b9f7efef8660592afaf62ac771536b5a24ac55a8720ffed7ca248b1",
+          "task_ids": [
+            "DASH-201",
+            "DASH-202",
+            "DASH-203"
+          ],
+          "dependency_task_ids": []
+        },
+        {
+          "phase_id": "phase-3",
+          "path": "generated/001-quant-ops-dashboard/phase-packs/phase-3.md",
+          "snapshot_id": "sha256:5d60be175b9f7efef8660592afaf62ac771536b5a24ac55a8720ffed7ca248b1",
+          "task_ids": [
+            "DASH-301",
+            "DASH-302",
+            "DASH-303"
+          ],
+          "dependency_task_ids": [
+            "DASH-201",
+            "DASH-202",
+            "DASH-203"
+          ]
+        },
+        {
+          "phase_id": "phase-4",
+          "path": "generated/001-quant-ops-dashboard/phase-packs/phase-4.md",
+          "snapshot_id": "sha256:5d60be175b9f7efef8660592afaf62ac771536b5a24ac55a8720ffed7ca248b1",
+          "task_ids": [
+            "DASH-401",
+            "DASH-402",
+            "DASH-403"
+          ],
+          "dependency_task_ids": [
+            "DASH-201",
+            "DASH-202",
+            "DASH-203",
+            "DASH-301",
+            "DASH-302",
+            "DASH-303"
+          ]
+        }
+      ]
+    }
+  ]
+}

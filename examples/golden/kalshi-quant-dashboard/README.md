@@ -33,6 +33,12 @@ Primary source feature:
 12. [generated-phase-3-pack.md](generated-phase-3-pack.md)
 13. [generated-phase-4-pack.md](generated-phase-4-pack.md)
 
+The `generated-*.md` files in this folder are preserved historical sample bundles.
+
+The current compiled phase-pack surface for the reconciled workflow lives in:
+
+- [../../../generated/001-quant-ops-dashboard/phase-packs/](../../../generated/001-quant-ops-dashboard/phase-packs/)
+
 ## Generated Dashboard Sequence
 
 ```mermaid

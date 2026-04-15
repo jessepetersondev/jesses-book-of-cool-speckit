@@ -1,0 +1,24 @@
+{
+  "feature_id": "001-quant-ops-dashboard",
+  "phase_id": "phase-3",
+  "status": "accepted",
+  "summary": "Completed auth, capability resolution, REST APIs, SSE, and enforcement.",
+  "canonical_change": true,
+  "changed_artifacts": [
+    "contracts/dashboard-api.md",
+    "tasks.json"
+  ],
+  "accepted_deviations": [
+    "Locked the SSE authorization surface before phase-4 UI work."
+  ],
+  "completed_task_ids": [
+    "DASH-301",
+    "DASH-302",
+    "DASH-303"
+  ],
+  "validation": [
+    "REST and SSE contract tests passed.",
+    "Negative authorization tests passed.",
+    "Alert detail behavior was verified through a dedicated route."
+  ]
+}

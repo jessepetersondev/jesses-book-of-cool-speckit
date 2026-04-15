@@ -1,0 +1,23 @@
+{
+  "feature_id": "001-quant-ops-dashboard",
+  "phase_id": "initial-build",
+  "status": "accepted",
+  "summary": "Generated the first full canonical artifact set for the dashboard workflow.",
+  "canonical_change": true,
+  "changed_artifacts": [
+    "spec.md",
+    "plan.md",
+    "data-model.md",
+    "contracts/dashboard-api.md",
+    "checklists/requirements.md",
+    "checklists/quality.md",
+    "tasks.json"
+  ],
+  "accepted_deviations": [
+    "Preserved a phased implementation strategy instead of a single broad implementation run."
+  ],
+  "completed_task_ids": [],
+  "validation": [
+    "Core artifacts were present and aligned enough to score."
+  ]
+}

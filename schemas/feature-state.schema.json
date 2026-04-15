@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/feature-state.schema.json",
+  "title": "SpecKit Feature State",
+  "type": "object",
+  "required": [
+    "version",
+    "features"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "const": 1
+    },
+    "features": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "feature_id",
+          "latest_snapshot_id",
+          "canonical_artifacts",
+          "accepted_phase_summaries",
+          "phase_plan_path",
+          "tasks_path",
+          "phase_summary_dir",
+          "generated_pack_dir",
+          "phase_packs"
+        ],
+        "properties": {
+          "feature_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "latest_snapshot_id": {
+            "type": "string",
+            "pattern": "^sha256:[a-f0-9]{64}$"
+          },
+          "canonical_artifacts": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "accepted_phase_summaries": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "phase_plan_path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "tasks_path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "phase_summary_dir": {
+            "type": "string",
+            "minLength": 1
+          },
+          "generated_pack_dir": {
+            "type": "string",
+            "minLength": 1
+          },
+          "phase_packs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "phase_id",
+                "path",
+                "snapshot_id",
+                "task_ids",
+                "dependency_task_ids"
+              ],
+              "properties": {
+                "phase_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "path": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "snapshot_id": {
+                  "type": "string",
+                  "pattern": "^sha256:[a-f0-9]{64}$"
+                },
+                "task_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "dependency_task_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

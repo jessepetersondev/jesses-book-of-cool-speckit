@@ -1,0 +1,15 @@
+{
+  "feature_id": "001-quant-ops-dashboard",
+  "phase_id": "strict-phased-mode",
+  "status": "accepted",
+  "summary": "Locked the backend-first dependency order before implementation.",
+  "canonical_change": false,
+  "changed_artifacts": [],
+  "accepted_deviations": [
+    "UI work remained blocked until backend contracts and SSE enforcement validated cleanly."
+  ],
+  "completed_task_ids": [],
+  "validation": [
+    "Every phase had a dependency-closed scope and its own validation gate."
+  ]
+}

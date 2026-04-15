@@ -1,0 +1,137 @@
+{
+  "feature_id": "001-quant-ops-dashboard",
+  "tasks": [
+    {
+      "task_id": "DASH-201",
+      "title": "Define the normalized event model",
+      "phase_id": "phase-2",
+      "depends_on": [],
+      "changed_paths": [
+        "specs/001-quant-ops-dashboard/data-model.md",
+        "specs/001-quant-ops-dashboard/contracts/dashboard-api.md"
+      ],
+      "verification": [
+        "Normalized schema review is complete."
+      ]
+    },
+    {
+      "task_id": "DASH-202",
+      "title": "Implement mixed-source ingestion adapters",
+      "phase_id": "phase-2",
+      "depends_on": [
+        "DASH-201"
+      ],
+      "changed_paths": [
+        "apps/api/src/ingest/*",
+        "packages/contracts/*"
+      ],
+      "verification": [
+        "Ingestion fixtures pass representative integration coverage."
+      ]
+    },
+    {
+      "task_id": "DASH-203",
+      "title": "Add durable persistence and replay-safe convergence",
+      "phase_id": "phase-2",
+      "depends_on": [
+        "DASH-201",
+        "DASH-202"
+      ],
+      "changed_paths": [
+        "packages/db/*",
+        "apps/api/src/replay/*"
+      ],
+      "verification": [
+        "Replay and redelivery behavior remains ordered and idempotent."
+      ]
+    },
+    {
+      "task_id": "DASH-301",
+      "title": "Implement auth and session handling",
+      "phase_id": "phase-3",
+      "depends_on": [
+        "DASH-203"
+      ],
+      "changed_paths": [
+        "apps/api/src/auth/*"
+      ],
+      "verification": [
+        "Authenticated and unauthenticated request coverage passes."
+      ]
+    },
+    {
+      "task_id": "DASH-302",
+      "title": "Implement capability resolution and RBAC enforcement",
+      "phase_id": "phase-3",
+      "depends_on": [
+        "DASH-301"
+      ],
+      "changed_paths": [
+        "apps/api/src/capabilities/*",
+        "packages/contracts/*"
+      ],
+      "verification": [
+        "Negative authorization coverage passes."
+      ]
+    },
+    {
+      "task_id": "DASH-303",
+      "title": "Expose REST and SSE surfaces",
+      "phase_id": "phase-3",
+      "depends_on": [
+        "DASH-302"
+      ],
+      "changed_paths": [
+        "apps/api/src/routes/*",
+        "apps/api/src/plugins/sse.ts"
+      ],
+      "verification": [
+        "REST and SSE contract tests pass."
+      ]
+    },
+    {
+      "task_id": "DASH-401",
+      "title": "Create the operator app shell and routed views",
+      "phase_id": "phase-4",
+      "depends_on": [
+        "DASH-303"
+      ],
+      "changed_paths": [
+        "apps/web/src/app/*",
+        "apps/web/src/routes/*"
+      ],
+      "verification": [
+        "The web app builds and route-level tests pass."
+      ]
+    },
+    {
+      "task_id": "DASH-402",
+      "title": "Implement operator detail flows and live wiring",
+      "phase_id": "phase-4",
+      "depends_on": [
+        "DASH-401"
+      ],
+      "changed_paths": [
+        "apps/web/src/features/*"
+      ],
+      "verification": [
+        "Operator journeys pass with real API and SSE wiring."
+      ]
+    },
+    {
+      "task_id": "DASH-403",
+      "title": "Finish degraded states and final operator validation",
+      "phase_id": "phase-4",
+      "depends_on": [
+        "DASH-402"
+      ],
+      "changed_paths": [
+        "apps/web/src/features/*",
+        "apps/web/src/tests/*"
+      ],
+      "verification": [
+        "Degraded-state, reconnecting, and empty-state coverage passes."
+      ]
+    }
+  ]
+}

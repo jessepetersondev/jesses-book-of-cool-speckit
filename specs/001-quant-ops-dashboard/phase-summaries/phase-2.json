@@ -1,0 +1,25 @@
+{
+  "feature_id": "001-quant-ops-dashboard",
+  "phase_id": "phase-2",
+  "status": "accepted",
+  "summary": "Completed the ingestion, normalization, persistence, and replay-safety layer.",
+  "canonical_change": true,
+  "changed_artifacts": [
+    "data-model.md",
+    "contracts/dashboard-api.md",
+    "tasks.json"
+  ],
+  "accepted_deviations": [
+    "Preserved backend-first sequencing before any operator UI wiring."
+  ],
+  "completed_task_ids": [
+    "DASH-201",
+    "DASH-202",
+    "DASH-203"
+  ],
+  "validation": [
+    "Schema and migration work passed.",
+    "Ingestion integration tests passed.",
+    "Replay behavior proved ordered convergence."
+  ]
+}

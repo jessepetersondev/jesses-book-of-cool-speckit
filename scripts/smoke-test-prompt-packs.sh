@@ -26,3 +26,5 @@ for pack in "$tmp_dir"/*.md; do
   grep -q '^# Generated Prompt Pack$' "$pack"
   grep -q 'unresolved_placeholders: none' "$pack"
 done
+
+python3 scripts/verify-phase-pack-freshness.py --root . --feature 001-quant-ops-dashboard >/dev/null

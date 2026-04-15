@@ -17,17 +17,24 @@ flowchart TD
     A[Start With A Large Product Request] --> B[specify init]
     B --> C[Choose Phased Multi-Implement]
     C --> D[Initial Build Prompt Set]
-    D --> E[spec.md + plan.md + data-model.md + contracts + checklists + tasks.md]
+    D --> E[spec.md + plan.md + data-model.md + contracts + checklists + tasks.md + tasks.json]
     E --> F[Score requirements.md + quality.md]
     F --> G[Pre-Implement Analyze]
     G --> H[Revise Spec / Plan / Checklist / Tasks]
     H --> I[Re-Score Checklists + Re-Analyze]
     I --> J[Enable Strict Phased Mode]
-    J --> K[Implement One Phase]
-    K --> L[Lint / Typecheck / Test / Build]
-    L --> M{Phase Clean?}
-    M -->|yes| N[Next Phase]
-    M -->|no| G
+    J --> K[Compile Fresh Phase Packs]
+    K --> L[Verify Pack Freshness]
+    L --> M[Implement One Phase]
+    M --> N[Lint / Typecheck / Test / Build]
+    N --> O{Phase Clean?}
+    O -->|yes| P[Write Accepted Phase Summary]
+    P --> Q[Reconcile Current + Downstream Packs]
+    Q --> R{More Phases?}
+    R -->|yes| L
+    R -->|no| S[Done]
+    O -->|no| T[Repair Canonical Artifacts]
+    T --> Q
 ```
 
 ## Exact Replay Steps
@@ -74,6 +81,8 @@ flowchart TD
    - `quickstart.md`
    - `checklists/*`
    - `tasks.md`
+   - `tasks.json`
+   - `phase-plan.json`
 
 7. Inspect the artifacts before coding.
    Use the quality bar in:
@@ -96,20 +105,32 @@ flowchart TD
 10. Turn on strict phased mode.
    This locks the rest of the implementation into dependency-closed slices.
 
-11. Run one `speckit-implement` phase at a time.
+11. Compile the current phase packs from canonical truth.
+   Commands:
+
+   ```bash
+   python3 scripts/reconcile-phase-packs.py --root . --feature 001-quant-ops-dashboard
+   python3 scripts/verify-phase-pack-freshness.py --root . --feature 001-quant-ops-dashboard
+   ```
+
+12. Run one `speckit-implement` phase at a time.
     Dashboard example split:
     - Phase 2: ingestion, normalization, persistence, replay safety
     - Phase 3: auth, capability resolution, API, SSE, enforcement
     - Phase 4: web UI and operator-facing routes
 
-12. After each phase, run the full validation gate:
+13. After each phase, run the full validation gate:
     - lint
     - typecheck
     - tests
     - build
 
-13. If a phase is not clean, do not start the next one.
-    Go back through `analyze` and artifact repair first.
+14. If a phase is clean, write an accepted `phase-summaries/<phase-id>.json` record and reconcile the current plus downstream packs.
+    Hard rule:
+    - never reuse a downstream pack produced before the latest accepted repair cycle
+
+15. If a phase is not clean, do not start the next one.
+    Go back through canonical artifact repair first, then reconcile and verify the pack set again.
 
 ## Fastest Way To Start
 
@@ -122,11 +143,16 @@ Use the generator script with the dashboard example values:
   --out /tmp/kalshi-quant-dashboard-phase-2-pack.md
 ```
 
-Reference generated sample:
+Current compiled pack set:
 
-- [examples/golden/kalshi-quant-dashboard/generated-phase-2-pack.md](../../examples/golden/kalshi-quant-dashboard/generated-phase-2-pack.md)
+- [generated/001-quant-ops-dashboard/phase-packs/initial-build.md](../../generated/001-quant-ops-dashboard/phase-packs/initial-build.md)
+- [generated/001-quant-ops-dashboard/phase-packs/pre-implement-revision.md](../../generated/001-quant-ops-dashboard/phase-packs/pre-implement-revision.md)
+- [generated/001-quant-ops-dashboard/phase-packs/strict-phased-mode.md](../../generated/001-quant-ops-dashboard/phase-packs/strict-phased-mode.md)
+- [generated/001-quant-ops-dashboard/phase-packs/phase-2.md](../../generated/001-quant-ops-dashboard/phase-packs/phase-2.md)
+- [generated/001-quant-ops-dashboard/phase-packs/phase-3.md](../../generated/001-quant-ops-dashboard/phase-packs/phase-3.md)
+- [generated/001-quant-ops-dashboard/phase-packs/phase-4.md](../../generated/001-quant-ops-dashboard/phase-packs/phase-4.md)
 
-Full dashboard pack set:
+Historical preserved sample packs:
 
 - [examples/golden/kalshi-quant-dashboard/generated-initial-build-pack.md](../../examples/golden/kalshi-quant-dashboard/generated-initial-build-pack.md)
 - [examples/golden/kalshi-quant-dashboard/generated-pre-implement-revision-pack.md](../../examples/golden/kalshi-quant-dashboard/generated-pre-implement-revision-pack.md)
@@ -141,6 +167,8 @@ Full dashboard pack set:
 - the command order
 - the prompt-body constraints
 - the analyze gate
+- the phase-summary and reconcile step
+- the phase-pack freshness gate
 - the per-phase validation gate
 
 ## What Can Change

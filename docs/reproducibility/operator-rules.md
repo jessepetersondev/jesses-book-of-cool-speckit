@@ -37,6 +37,15 @@ These are the non-obvious manual rules behind the repo. They are the difference 
 11. End every phase with validation.
     The dashboard-style pattern is not complete until lint, typecheck, tests, and build have all run.
 
+12. Keep canonical truth and compiled packs separate.
+    `spec.md`, `plan.md`, `data-model.md`, `contracts/*`, `checklists/*`, `tasks.md`, `tasks.json`, and accepted `phase-summaries/*.json` are canonical. `generated/<feature-id>/phase-packs/*.md` are compiled artifacts only.
+
+13. If a clean phase changes canonical truth, invalidate downstream packs immediately.
+    Update the source artifact, write the accepted phase summary, reconcile the pack set, and discard every older downstream pack before the next run.
+
+14. Refuse stale packs by snapshot.
+    The pack `snapshot_id` must match `.speckit/feature-state.json` before the next `speckit-implement` run starts.
+
 ## Observed Manual Behaviors Worth Preserving
 
 - create named checklist files before `speckit-implement`
@@ -44,6 +53,8 @@ These are the non-obvious manual rules behind the repo. They are the difference 
 - create `dashboard.md` first when the workflow depends on a concrete dashboard artifact
 - repeat the same `speckit-implement` prompt when the phase needs another controlled pass
 - re-open and re-close drifted tasks when contracts or runtime behavior change late
+- write a structured accepted phase summary after every clean phase
+- regenerate current and downstream packs immediately after accepted artifact repairs
 
 ## Dashboard-Specific Examples
 

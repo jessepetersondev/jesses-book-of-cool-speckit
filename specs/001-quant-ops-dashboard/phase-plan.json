@@ -1,0 +1,108 @@
+{
+  "feature_id": "001-quant-ops-dashboard",
+  "phases": [
+    {
+      "phase_id": "initial-build",
+      "name": "Initial Build",
+      "order": 1,
+      "kind": "artifact_build",
+      "scope": [
+        "Generate spec.md, plan.md, data-model.md, contracts, checklists, and tasks from the large product request.",
+        "Keep the system narrow enough that later analyze passes can still repair it safely."
+      ],
+      "validation": [
+        "Core artifacts exist and describe the same product.",
+        "The initial task graph is specific enough to review before coding."
+      ]
+    },
+    {
+      "phase_id": "pre-implement-revision",
+      "name": "Pre-Implement Revision",
+      "order": 2,
+      "kind": "artifact_repair",
+      "depends_on_phases": [
+        "initial-build"
+      ],
+      "scope": [
+        "Run the analyze -> revise spec -> revise plan -> refresh checklist -> regenerate tasks -> score checklists -> analyze again loop.",
+        "Close contradictions before any implementation prompt is allowed."
+      ],
+      "validation": [
+        "requirements.md is fully PASS.",
+        "quality.md is fully PASS.",
+        "analyze no longer reports blocking contradictions."
+      ]
+    },
+    {
+      "phase_id": "strict-phased-mode",
+      "name": "Strict Phased Mode",
+      "order": 3,
+      "kind": "mode_lock",
+      "depends_on_phases": [
+        "pre-implement-revision"
+      ],
+      "scope": [
+        "Lock the backend-first phase order so implementation stays dependency-closed.",
+        "Refuse later-phase work in the current run."
+      ],
+      "validation": [
+        "Every implementation pack names exact task IDs and validation gates.",
+        "No phase prompt includes later-phase UI work by default."
+      ]
+    },
+    {
+      "phase_id": "phase-2",
+      "name": "Phase 2",
+      "order": 4,
+      "kind": "implementation",
+      "depends_on_phases": [
+        "strict-phased-mode"
+      ],
+      "scope": [
+        "Implement ingestion, normalization, persistence, and replay-safe convergence.",
+        "Keep UI work out of the run."
+      ],
+      "validation": [
+        "Schema and migration work passes.",
+        "Ingestion integration tests pass.",
+        "Replay and redelivery behavior proves ordered convergence."
+      ]
+    },
+    {
+      "phase_id": "phase-3",
+      "name": "Phase 3",
+      "order": 5,
+      "kind": "implementation",
+      "depends_on_phases": [
+        "phase-2"
+      ],
+      "scope": [
+        "Implement auth, capability resolution, REST APIs, SSE, and enforcement.",
+        "Keep the visual UI layer out of the run."
+      ],
+      "validation": [
+        "Contract tests pass for REST and SSE surfaces.",
+        "Negative authorization tests pass.",
+        "Dedicated alert detail behavior is verified."
+      ]
+    },
+    {
+      "phase_id": "phase-4",
+      "name": "Phase 4",
+      "order": 6,
+      "kind": "implementation",
+      "depends_on_phases": [
+        "phase-3"
+      ],
+      "scope": [
+        "Implement the operator React UI, route map, live wiring, and degraded-state handling.",
+        "Build only on top of the validated backend contracts and SSE layer."
+      ],
+      "validation": [
+        "The web app builds cleanly.",
+        "Route-level and operator-journey tests pass.",
+        "No page depends on mocked production data."
+      ]
+    }
+  ]
+}

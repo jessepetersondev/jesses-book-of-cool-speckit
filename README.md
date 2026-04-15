@@ -28,7 +28,8 @@ specify init . --ai codex --ai-skills --force
 2. Open the matching template or generate a prompt pack.
 3. Paste one prompt block at a time into Codex.
 4. Refresh checklist artifacts, then score `requirements.md` and `quality.md`.
-5. Implement only after both checklists are fully PASS and `analyze` is clean.
+5. For phased work, compile `generated/<feature-id>/phase-packs/*.md` from canonical artifacts and verify `snapshot_id` freshness.
+6. Implement only after both checklists are fully PASS, `analyze` is clean, and the phase pack is fresh.
 
 ## Choose A Workflow
 
@@ -54,6 +55,12 @@ flowchart TD
 
 ```text
 constitution -> specify -> clarify -> plan -> checklist create -> tasks -> checklist score -> analyze -> implement
+```
+
+For phased work, add this control loop between artifact repair and the next `implement` run:
+
+```text
+accepted phase summary -> reconcile phase packs -> verify freshness -> implement next phase
 ```
 
 | Control point | Why it exists |
@@ -82,6 +89,9 @@ Start with:
 | [templates/](templates) | Reusable workflow templates for greenfield, brownfield, and phased builds |
 | [examples/](examples) | Real preserved prompts and sample generator inputs |
 | [examples/golden/kalshi-quant-dashboard/](examples/golden/kalshi-quant-dashboard) | The strongest worked example with golden artifacts and generated packs |
+| [specs/](specs) | Structured canonical dashboard fixture used for phase reconciliation and freshness checks |
+| [generated/](generated) | Compiled phase packs that must match the latest canonical snapshot |
+| [schemas/](schemas) | JSON schemas for phase plans, phase summaries, and `.speckit` feature state |
 | [scripts/](scripts) | Bootstrap, inventory, generator, verification, and self-check helpers |
 | [metadata/](metadata) | Machine-readable framework and observed-run manifests |
 | [.github/workflows/repo-ci.yml](.github/workflows/repo-ci.yml) | Repo self-verification in CI |
@@ -92,6 +102,8 @@ This repo validates its own framework surface with:
 
 - [scripts/check-markdown-links.sh](scripts/check-markdown-links.sh)
 - [scripts/smoke-test-prompt-packs.sh](scripts/smoke-test-prompt-packs.sh)
+- [scripts/reconcile-phase-packs.py](scripts/reconcile-phase-packs.py)
+- [scripts/verify-phase-pack-freshness.py](scripts/verify-phase-pack-freshness.py)
 - [.github/workflows/repo-ci.yml](.github/workflows/repo-ci.yml)
 
 ## Deep Links
@@ -137,6 +149,8 @@ This repo validates its own framework surface with:
 
 - `./scripts/bootstrap-speckit-repo.sh /path/to/repo`
 - `./scripts/generate-prompt-pack.sh --workflow phased --vars-file examples/golden/kalshi-quant-dashboard/prompt-pack-values.env`
+- `python3 ./scripts/reconcile-phase-packs.py --root . --feature 001-quant-ops-dashboard`
+- `python3 ./scripts/verify-phase-pack-freshness.py --root . --feature 001-quant-ops-dashboard`
 - `./scripts/inventory-speckit.sh`
 - `./scripts/inventory-kalshi-speckit.sh`
 - `./scripts/skill-link.sh /path/to/repo speckit-plan`
@@ -146,5 +160,16 @@ This repo validates its own framework surface with:
 
 - [metadata/spec-framework-manifest.json](metadata/spec-framework-manifest.json)
 - [metadata/kalshi-speckit-manifest.json](metadata/kalshi-speckit-manifest.json)
+
+### Structured Phase Artifacts
+
+- [specs/001-quant-ops-dashboard/phase-plan.json](specs/001-quant-ops-dashboard/phase-plan.json)
+- [specs/001-quant-ops-dashboard/tasks.md](specs/001-quant-ops-dashboard/tasks.md)
+- [specs/001-quant-ops-dashboard/tasks.json](specs/001-quant-ops-dashboard/tasks.json)
+- [.speckit/feature-state.json](.speckit/feature-state.json)
+- [generated/001-quant-ops-dashboard/phase-packs/phase-2.md](generated/001-quant-ops-dashboard/phase-packs/phase-2.md)
+- [schemas/phase-plan.schema.json](schemas/phase-plan.schema.json)
+- [schemas/feature-state.schema.json](schemas/feature-state.schema.json)
+- [schemas/phase-summary.schema.json](schemas/phase-summary.schema.json)
 
 </details>

@@ -12,6 +12,34 @@ How to use this file:
 4. validate each phase completely before the next one
 5. do not let later-phase work leak into the current run
 6. do not start any phase until `requirements.md` and `quality.md` are fully PASS
+7. treat `generated/{FEATURE_ID}/phase-packs/*.md` as compiled artifacts, not canonical truth
+
+## Canonical vs Derived Artifacts
+
+Canonical truth for phased work lives in:
+
+- `spec.md`
+- `plan.md`
+- `data-model.md`
+- `contracts/*`
+- `checklists/*`
+- `tasks.md`
+- `tasks.json`
+- accepted `phase-summaries/*.json`
+
+Derived phase packs live in:
+
+- `generated/{FEATURE_ID}/phase-packs/*.md`
+- `.speckit/feature-state.json`
+
+If a phase changes canonical truth or accepts a new deviation:
+
+1. update the canonical artifact first
+2. write the accepted phase summary
+3. run `python3 scripts/reconcile-phase-packs.py --root . --feature {FEATURE_ID}`
+4. discard every older downstream phase pack
+5. run `python3 scripts/verify-phase-pack-freshness.py --root . --feature {FEATURE_ID}`
+6. only then start the next phase
 
 ## Pre-Implement Revision Cycle
 
@@ -69,12 +97,14 @@ Treat any FAIL or unchecked item in `requirements.md` or `quality.md` as a block
 
 For every phase:
 - read spec.md, plan.md, scored checklist artifacts, data-model.md, contracts/*, quickstart.md, and tasks.md before coding
+- verify the phase pack `snapshot_id` still matches `.speckit/feature-state.json`
 - identify the exact task IDs in scope for the phase plus any direct prerequisites
 - implement only that dependency-closed set
 - update task status in tasks.md as tasks are actually completed
 - keep code, contracts, schema, docs, and tests aligned
+- if the phase changes any canonical artifact, stop after the repair, reconcile the phase packs, and replace every downstream pack before continuing
 - run lint, typecheck, tests, and build for every touched package before stopping
-- end each phase with completed task IDs, files changed, validation run, blockers or follow-up risks, and the next recommended phase
+- end each phase with completed task IDs, files changed, validation run, blockers or follow-up risks, the accepted phase summary, and the next recommended phase
 - if any checklist item is FAIL or unchecked, stop and return BLOCKED instead of asking to proceed anyway
 
 Do not start later phases in this run.
@@ -85,7 +115,11 @@ Do not start later phases in this run.
 ```text
 [$speckit-implement]({REPO_PATH}/.agents/skills/speckit-implement/SKILL.md) Implement {PHASE_NAME} only for {FEATURE_ID}.
 
-Before coding, read spec.md, plan.md, scored checklist artifacts, data-model.md, contracts/*, quickstart.md, and tasks.md. Identify the exact task IDs for this phase and any prerequisites, then implement only that set.
+Before coding:
+- confirm `generated/{FEATURE_ID}/phase-packs/{PHASE_ID}.md` has the same `snapshot_id` as `.speckit/feature-state.json`
+- if the snapshot mismatches, stop and run `python3 scripts/reconcile-phase-packs.py --root . --feature {FEATURE_ID}`
+- read spec.md, plan.md, scored checklist artifacts, data-model.md, contracts/*, quickstart.md, and tasks.md
+- identify the exact task IDs for this phase and any prerequisites, then implement only that set
 
 Phase scope:
 - {PHASE_SCOPE_1}
@@ -95,6 +129,7 @@ Phase scope:
 Do not implement later phases in this run.
 
 Stop and return BLOCKED if `requirements.md` or `quality.md` contains any FAIL or unchecked item.
+If this phase changes canonical truth, stop after updating the source artifacts, write the accepted phase summary, reconcile the phase packs, and replace every downstream pack before continuing.
 
 Validation required:
 - {VALIDATION_1}

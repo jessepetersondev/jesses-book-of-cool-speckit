@@ -14,6 +14,7 @@ Use this table when the artifacts or implementation start drifting.
 | `analyze` reports contradictions or missing coverage | the source artifacts it references | `speckit-specify`, `speckit-plan`, `speckit-checklist`, `speckit-tasks`, `speckit-checklist`, then `speckit-analyze` again | do not implement anyway | full revision loop in [reproduce.md](reproduce.md) |
 | One `implement` pass is touching too much | phase split and task boundaries | `speckit-implement` in strict phased mode | do not keep widening one giant pass | phased setup in [examples/EXAMPLE-KALSHI-DASHBOARD-03-STRICT-PHASED-MODE.md](../../examples/EXAMPLE-KALSHI-DASHBOARD-03-STRICT-PHASED-MODE.md) |
 | A phase prompt is leaking later work | phase scope bullets | re-run that single phase prompt with tighter scope | do not start the next phase | phase examples in [examples/EXAMPLE-KALSHI-DASHBOARD-04-PHASE-2.md](../../examples/EXAMPLE-KALSHI-DASHBOARD-04-PHASE-2.md), [examples/EXAMPLE-KALSHI-DASHBOARD-05-PHASE-3.md](../../examples/EXAMPLE-KALSHI-DASHBOARD-05-PHASE-3.md), and [examples/EXAMPLE-KALSHI-DASHBOARD-06-PHASE-4.md](../../examples/EXAMPLE-KALSHI-DASHBOARD-06-PHASE-4.md) |
+| A clean phase changed canonical truth or accepted a new deviation | the changed source artifact, the accepted phase summary, and every downstream phase pack | `python3 scripts/reconcile-phase-packs.py --root . --feature <feature-id>` then `python3 scripts/verify-phase-pack-freshness.py --root . --feature <feature-id>` | do not reuse older `generated/<feature-id>/phase-packs/*.md` files | compiled dashboard packs in [generated/001-quant-ops-dashboard/phase-packs/](../../generated/001-quant-ops-dashboard/phase-packs) |
 | Brownfield change starts broadening into redesign | unchanged-behavior language in `spec.md` and `plan.md` | `speckit-specify` and `speckit-plan` with delta-only language | do not let tasks redefine the whole repo | [examples/EXAMPLE-KALSHI-EDGING-APPROVED-DELTA.md](../../examples/EXAMPLE-KALSHI-EDGING-APPROVED-DELTA.md) |
 
 ## Hard Rule
@@ -26,6 +27,12 @@ The next step is:
 revise source artifact -> regenerate downstream artifact -> re-run analyze
 ```
 
+For phased work, "downstream artifact" includes:
+
+- `phase-summaries/*.json`
+- `generated/<feature-id>/phase-packs/*.md`
+- `.speckit/feature-state.json`
+
 ## Minimal Dashboard Replay Loop
 
 ```mermaid
@@ -37,6 +44,8 @@ flowchart LR
     E --> F[Score Checklists]
     F --> G[Analyze Again]
     G --> H{Aligned And Fully PASS?}
-    H -->|yes| I[Strict Phased Implement]
+    H -->|yes| I[Reconcile Phase Packs]
+    I --> J[Verify Fresh Pack]
+    J --> K[Strict Phased Implement]
     H -->|no| B
 ```

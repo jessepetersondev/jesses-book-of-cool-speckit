@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/phase-summary.schema.json",
+  "title": "SpecKit Phase Summary",
+  "type": "object",
+  "required": [
+    "feature_id",
+    "phase_id",
+    "status",
+    "summary",
+    "canonical_change",
+    "changed_artifacts",
+    "accepted_deviations",
+    "completed_task_ids",
+    "validation"
+  ],
+  "properties": {
+    "feature_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "phase_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "accepted",
+        "superseded"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "canonical_change": {
+      "type": "boolean"
+    },
+    "changed_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "accepted_deviations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "completed_task_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "validation": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  },
+  "additionalProperties": false
+}

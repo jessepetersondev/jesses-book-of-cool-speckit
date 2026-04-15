@@ -13,6 +13,7 @@ If you are browsing the repo for the first time, start here.
 | workflow selection logic | [framework/workflow-patterns.md](framework/workflow-patterns.md) |
 | the full replay path | [reproducibility/reproduce.md](reproducibility/reproduce.md) |
 | drift repair routing | [reproducibility/rerun-routing.md](reproducibility/rerun-routing.md) |
+| phase-pack reconciliation and freshness gating | [reproducibility/reproduce.md](reproducibility/reproduce.md) and [reproducibility/operator-rules.md](reproducibility/operator-rules.md) |
 | operator behaviors and prompt fragments | [reproducibility/operator-rules.md](reproducibility/operator-rules.md) and [reproducibility/prompt-cookbook.md](reproducibility/prompt-cookbook.md) |
 | the reproducibility quality bar | [reproducibility/reproducibility.md](reproducibility/reproducibility.md) and [reproducibility/validation-rubric.md](reproducibility/validation-rubric.md) |
 

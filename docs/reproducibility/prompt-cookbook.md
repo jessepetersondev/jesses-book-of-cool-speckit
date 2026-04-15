@@ -98,6 +98,42 @@ Implement only that dependency-closed set.
 Do not start later phases in this run.
 ```
 
+## Phase Summary Language
+
+Use after a clean phase:
+
+```text
+Write an accepted phase summary that records:
+- which canonical artifacts changed
+- which deviations were accepted
+- which task IDs completed
+- which validation gates passed
+```
+
+## Phase Reconciliation Language
+
+Use when a phase changed canonical truth:
+
+```text
+Treat spec.md, plan.md, data-model.md, contracts/*, checklists/*, tasks.md, tasks.json, and accepted phase summaries as canonical truth.
+Treat generated/<feature-id>/phase-packs/*.md as compiled artifacts only.
+If this phase changed canonical truth or accepted a new deviation:
+- update the canonical artifact first
+- write the accepted phase summary
+- run python3 scripts/reconcile-phase-packs.py --root . --feature <feature-id>
+- discard every older downstream phase pack
+```
+
+## Snapshot Freshness Gate
+
+Use before every phased `implement` run:
+
+```text
+Compare the pack snapshot_id to .speckit/feature-state.json.
+If they differ, stop, return STALE_PHASE_PACK, and require regeneration before implementation continues.
+Do not ask whether to proceed with a stale pack.
+```
+
 ## Phase Validation Language
 
 Use at the end of every phase:
